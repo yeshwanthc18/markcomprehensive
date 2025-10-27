@@ -60,7 +60,7 @@ export default function HomePage() {
         <RecentProjects />
       </GradientBG>
 
-      <RecentProjectsSection />
+    
 
       {/* <KeyNumbersSection /> */}
       <HomeHowWeWork />

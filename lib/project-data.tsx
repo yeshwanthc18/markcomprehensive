@@ -40,7 +40,9 @@ export type Project = {
   systemType?: string;
   architect?: string;
   glassType?: string;
+  rooms?:string;
   sector?: string;
+  outcome?: string;
   status: "Completed" | "In Progress" | "Planned";
   facadeDetails: {
     system?: string;
@@ -355,35 +357,34 @@ export const PROJECTS: Project[] = [
       "The building’s administrative function meant heavy integration of MEP (data, communications) and structural interface—Mark Aluminium’s design and installation teams managed coordination for penetrations, fire-stop, façade access and maintenance pathways.",
     ],
   },
-    {
+  {
     id: "qatar-airways-office-building",
     name: "Qatar Airways Office Building",
     region: "Oman",
     type: "Corporate",
-    city: "Ghala, Muscat",
-    year: 2022,
+    city: "Ghala Hills (Plot 419, Exhibition Street), Muscat, Sultanate of Oman",
+    year: 2019,
     status: "Completed",
-    client: "Rural Areas Electricity Company (RAEC)",
+    client: "Qatar Airways",
     architect: "(To be confirmed)",
     mainContractor: "(To be confirmed)",
-    markScope:
-      "Mark’s Scope	Aluminium façade & glazing systems – design, supply, install",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
     systemType:
-      "Semi-unitised/unitised curtain-wall + aluminium doors/windows + sun-shade louvres",
-    glassType: "Double glazed Low-E assembly (assumed: 6 + 12 + 6)",
+      "Unitised/semi-unitised curtain wall + aluminium doors/windows + sun-shade louvres",
+    glassType: "Double-glazed Low-E unit (assumed: 6 + 12 + 6)",
     area: "18,000 m²",
-    sector: "Corporate / Institutional HQ",
+    sector: "Corporate Office / Aviation HQ",
 
     description:
       "Located along Sultan Qaboos Highway in the Ghala commercial corridor of Muscat, the Qatar Airways office building (Plot No. 419, Exhibition Street, Ghala Hills) serves as a prominent corporate landmark for Qatar Airways’ Oman operations. The building is strategically positioned near major infrastructure and reflects a modern architectural definition aligned with the airline’s global brand identity.",
     images: [
       {
         src: AlMeera,
-        alt: "Rural Areas Electricity Company HQ",
+        alt: "Qatar Airways Office Building",
       },
       {
         src: AlMeera,
-        alt: "Rural Areas Electricity Company HQ",
+        alt: "Qatar Airways Office Building",
       },
     ],
     scopeOfWork:
@@ -397,49 +398,297 @@ export const PROJECTS: Project[] = [
       "Mock-up, QA/QC testing, commissioning and handover documentation.",
     ],
     facadeDetails: {
-      system:
-        "Semi-unitised / Unitised aluminium curtain-wall system across main façade",
+      system: "Unitised/semi-unitised curtain wall with aluminium framing",
       material: "",
       profileSystem:
-        "Equivalent to high-performance systems (e.g., Schüco / Reynaers class) customised for the project specification",
+        "High‐performance façade system (equivalent to premium global brands)",
       finish:
-        "Polyester powder-coated aluminium, likely RAL 7016 (Anthracite) or similar dark-toned finish, 60 microns",
+        "Polyester powder-coated aluminium, Colour: RAL 7016 (Anthracite) or equivalent, 60 µm thickness",
       // glassType: "Low-E Double Glazed Units (24mm)",
       // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
-      mullionDepth: "Approx. 150 mm (typical)",
-      transomDepth: "Approx. 100 mm (typical)",
-      thermalBreak: "Polyamide thermal-break within aluminium profiles",
+      mullionDepth: "Approx. 150 mm typical",
+      transomDepth: "Approx. 100 mm typical",
+      thermalBreak:
+        "Polyamide thermal insulation strips within aluminium profiles",
       anchorage:
-        "Stainless-steel brackets (AISI 316) embedded in structural frame, with drainage/relief design suitable for coastal conditions)",
+        "Stainless-steel fixings (AISI 316) suited for coastal environment",
       // sealing: "Two-stage silicone with structural glazing sealant",
     },
     performanceHighlights: [
-      "The curtain-wall façade provides a modern corporate aesthetic while integrating high daylight ingress into the workspace, enhancing occupant experience.",
-      "Sun-shade louvres and aluminium fins mitigate direct solar gain, essential for Muscat’s hot, high-insolation climate.",
-      "Aluminium profiles and coatings are specified for durability in a coastal environment (salt spray, humidity) ensuring long term asset value.",
-      "Interior aluminium glazed partitions deliver visual connectivity, transparency and a premium finish aligned with the HQ’s brand image.",
+      "The façade design emphasises daylight ingress while mitigating solar heat gain, optimizing occupant comfort in Muscat’s hot climate.",
+      "Integrated sun-shading fins/louvres on sun-exposed façades help reduce HVAC load and control glare, demonstrating Mark Aluminium’s expertise in performance-façade solutions.",
+      "Use of premium corrosion-resistant aluminium finishes and marine-grade fixings ensures durability in the coastal environment aligning with the high-spec corporate nature of the building.",
+      "The high-quality aluminium and glazing systems enhance the prestige of the Qatar Airways brand within Oman.",
+    ],
+
+    glassSpecification: {
+      type: "Double-Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
+      buildUp:
+        "Build-Up	6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (assumed)",
+      coating: "Low-E neutral/clear for solar control",
+      uValue: "Approx. 1.6 W/m²K",
+      solarHeatGainCoefficient: "Approx. 0.27",
+      vlt: "Approx. 48-52%",
+      colourTone:
+        "Neutral clear or slight blue/grey tint to maintain corporate aesthetic",
+      acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
+
+    challenges:
+      "High Solar & Coastal Load,	Corporate Branding & Quality Expectation, Site Access & Construction Phasing",
+    solution: [
+      "Muscat’s climate implies intense solar radiation and salt-laden air; Mark Aluminium responded by specifying high-performance Low-E glazing and corrosion-resistant finishes.",
+      "As a flagship corporate office, the façade demanded premium finishes, strict tolerances, and brand-aligning aesthetic detail — Mark Aluminium delivered a superior finish and tight quality control.",
+      "Given its prominent highway-facing location, façade installation required careful logistics and modular fabrication to minimise disruption and ensure timely delivery.",
+    ],
+  },
+  {
+    id: "the-pearl-muscat",
+    name: "The Pearl Muscat",
+    region: "Oman",
+    type: "Residential",
+    city: "Muscat Hills, Seeb",
+    year: 2019,
+    status: "Completed",
+    client: "Developer	Al Osool Properties (MJS Group)",
+    architect: "Nadan Engineering Consultants LLC",
+    mainContractor: "Atlantic Construction LLC",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "System Type	Semi-unitised curtain‐wall + aluminium windows/doors + architectural fins",
+    glassType: "Glass Type	Double glazed Low-E unit (assumed: 6 + 12 + 6)",
+    area: "Approx. 48,000 m²",
+    sector: "Residential / Mixed-use luxury apartments",
+
+    description:
+      "The Pearl Muscat is a high-end residential & mixed-use development by Al Osool Properties (MJS Group) located in the Muscat Hills area of Seeb, Muscat.The project comprises two basement levels for parking, ground floor retail (37 shops) and approximately six typical floors plus a penthouse level, spanning an approximate built-up area of ~48,000 m². It is marketed as an ITC (Investment & Trade Category) free-hold project for non-Omanis, emphasising premium finishes, amenities (swimming pools, garden play area, jogging track) and strategic location near Muscat International Airport.  ",
+    images: [
+      {
+        src: AlMeera,
+        alt: "The Pearl Muscat",
+      },
+      {
+        src: AlMeera,
+        alt: "The Pearl Muscat",
+      },
+    ],
+    scopeOfWork:
+      "Mark Aluminium was engaged to deliver the architectural aluminium façade and glazing works for the Pearl Muscat development. The scope included",
+    features: [
+      "Supply, fabrication and installation of aluminium façade systems for the residential tower elevations and podium commercial frontage.",
+      "Aluminium framed windows and doors across apartments and retail frontage.",
+      "Internal aluminium framed glazed partitions in selected common areas (lobbies, amenity zones).",
+      "Custom aluminium architectural fins / sun-shade elements to modulate sunlight and align with high-end aesthetic demands.",
+      "Coordination with main contractor (Atlantic Construction LLC) and consultant (Nadan Engineering Consultants LLC) for structural fixings, waterproofing, and facade integration. ",
+      "Quality assurance / commissioning, warranty hand-over, and maintenance support aligned with Mark Aluminium’s standards.",
+    ],
+    facadeDetails: {
+      system: "Semi-unitised curtain wall + aluminium window & door systems",
+
+      profileSystem:
+        "High-performance aluminium façade system (equivalent to premium global standard) customised for the project",
+      finish:
+        "Polyester powder-coated aluminium, Colour RAL 7016 (Anthracite) or similar; 60-micron thickness",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm",
+      transomDepth: "Approx. 100 mm",
+      thermalBreak: "Polyamide strip thermal-break within aluminium profiles",
+      anchorage:
+        "Anchorage & Fixings	Stainless steel (AISI 316) brackets and fixings suited to salt-air coastal environment",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "The façade design balances luxury residential appeal with high performance: large glazed areas for daylighting and views, combined with sun-control via aluminium fins and shading devices.",
+      "Premium finishes and detailing align with the high-end nature of The Pearl Muscat, catering to expatriate investors (ITC category) and discerning residents.",
+      "In Muscat Hills’ coastal setting, aluminium systems with corrosion-resistant finishes and robust anchorage ensure long-term maintenance-friendly performance.",
+      "Internal glazed partitions in amenity areas create a sense of openness, transparency and modern lifestyle ambience, enhancing the resident experience.",
     ],
 
     glassSpecification: {
       type: "Double Glazed Unit (DGU)",
-      buildUp:
-        "Build-Up	6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (assumed)",
-      coating: "Low-E neutral/clear coating for solar control",
-      uValue: "Approx. 1.6 W/m²K (assumed)",
-      solarHeatGainCoefficient:
-        "Solar Heat Gain Coefficient (SHGC)	Approx. 0.27 (assumed)",
-      vlt: "Approx. 48-52% (assumed)",
+      buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Coating	Low-E neutral/clear for solar control",
+      uValue: "Approx. 1.6 W/m²K",
+      solarHeatGainCoefficient: "Approx. 0.27",
+      vlt: "Approx. 48-52%",
       colourTone:
-        "Neutral clear or slight tinted/blue-grey to match corporate aesthetic",
-      // acousticPerformance: "Approx. 35 – 38 dB Rw (typical)",
+        "Tint / Colour	Neutral clear or slight blue/grey tint to suit premium residential aesthetic",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
     },
-
+    outcome:
+      "The Pearl Muscat stands out as a premium residential landmark in Muscat Hills, delivering high-spec architecture, luxury living amenities and quality façade execution. For Mark Aluminium, the project strengthens its portfolio in the Oman residential sector, showcasing capability in high-end aluminium/glazing systems for investor-driven developments. This reference adds credibility as Mark targets its Indian expansion into luxury residential and mixed-use segments in Karnataka & Kerala.",
     challenges:
-      "Coastal & Wind Exposure,	Corporate Brand Requirement, Integration with Services",
+      "High coastal exposure & salt atmosphere,	Mixed retail & residential interfaces, Investor-market aesthetic demands",
     solution: [
-      "Given Ghala’s coastal setting, the façade system was engineered for enhanced corrosion resistance (selecting powder-coat finishes certified for salt-spray exposure) and high wind-load compliance.",
-      "The façade aesthetic needed to align with RAEC’s corporate identity—Mark Aluminium coordinated closely on finish selection, colour matching and visual impression.",
-      "The building’s administrative function meant heavy integration of MEP (data, communications) and structural interface—Mark Aluminium’s design and installation teams managed coordination for penetrations, fire-stop, façade access and maintenance pathways.",
+      "Mark Aluminium specified powder-coated aluminium with high salt-spray resistance and stainless steel fixings to ensure durability.",
+      "The podium retail façade required large spans and integration of storefront glazing which was modularised for faster onsite assembly, reducing disturbance to residential deliveries.",
+      "With the ITC freehold positioning, the façade had to reflect a premium look and finish; Mark Aluminium’s shop-drawing coordination and finishing controls ensured consistent high quality across all units.",
+    ],
+  },
+    {
+    id: "al-mouj-rayhaan-by-rotana",
+    name: "Al Mouj Rayhaan by Rotana",
+    region: "Oman",
+    type: "Hospitality",
+    city: "Al Mouj Muscat, Sultanate of Oman",
+    year: 2019,
+    status: "Completed",
+    client: "Golden Group Holding (management by Rayhaan by Rotana)",
+    architect: "Nadan Engineering Consultants LLC",
+    mainContractor: "Atlantic Construction LLC",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Semi-unitised/unitised curtain wall + aluminium doors/windows + sun-shade fins",
+    glassType: "Double glazed Low-E assembly (assumed: 6 + 12 + 6)",
+    area: "Approx. 48,000 m²",
+    rooms:"~250 (rooms, suites & apartments)",
+    sector: "Hospitality – resort/hotel / waterfront leisure",
+
+    description:
+      "Located within the premium waterfront Al Mouj Muscat master-development, this four-star hotel by the hospitality group Rayhaan by Rotana (in partnership with Golden Group Holding) is a 250-room plus resort property designed to serve leisure and business guests in a high-value coastal environment.Set within a 6-km stretch of Muscat’s coastline, the location demands premium finishes, robust performance and distinctive architecture.",
+    images: [
+      {
+        src: AlMeera,
+        alt: "Al Mouj Rayhaan by Rotana",
+      },
+      {
+        src: AlMeera,
+        alt: "Al Mouj Rayhaan by Rotana",
+      },
+    ],
+    scopeOfWork:
+      "Mark Aluminium was appointed to provide turnkey architectural aluminium and glazing systems for the hotel, including",
+    features: [
+      "Design, supply, fabrication and installation of aluminium façade systems (curtain-wall, glazing façades) for the hotel’s frontage and amenity wings.",
+      "Aluminium framed doors, windows and storefront systems for guest-rooms, F&B outlets and lobby zones.",
+      "Internal architectural aluminium glazing partitions (e.g., in lobby, dining, meeting areas).",
+      "Custom aluminium sun-shade elements and fins adapted to the coastal, high-solar-load environment.",
+      "Coordination with main contractor, façade consultants, structural works and MEP interfaces.",
+      "Quality assurance, mock-up testing, on-site performance verification and final hand-over documentation.",
+    ],
+    facadeDetails: {
+      system: "Semi-unitised / unitised aluminium curtain-wall system across primary elevations",
+
+      profileSystem:
+        "High-performance aluminium façade system (equivalent global standard) tailored for the project",
+      finish:
+        "Polyester powder-coated aluminium, RAL 7016 (Anthracite) or equivalent dark tone; thickness ~60 µm",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm",
+      transomDepth: "Approx. 100 mm",
+      thermalBreak: "Polyamide/thermally-isolated aluminium section",
+      anchorage:
+        "AISI 316 stainless steel brackets and fixings designed for coastal environment",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "Designed to deliver luxury hotel ambience while optimising daylighting and views over the waterfront, integrated with high-performance façade systems.",
+      "Sun-control via aluminium fins and shading devices: critical in Muscat’s intense solar-radiation and coastal climate environment.",
+      "Durable finishes and high-quality aluminium systems suited for salt-laden air and humid conditions—maintaining asset-value and minimal maintenance.",
+      "The façade package supports the hotel’s positioning as a high-spec hospitality asset within the Al Mouj masterplan.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Coating	Low-E neutral/clear for solar control",
+      uValue: "~1.6 W/m²K",
+      solarHeatGainCoefficient: "~0.27",
+      vlt: "~48-52%",
+      colourTone:
+        "Tint / Colour	Neutral clear / slight blue-grey to suit hotel premium aesthetic",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
+    challenges:
+      "Coastal exposure & salt corrosion risk,	High-level aesthetic and quality demands, Integration with complex hotel spaces",
+    solution: [
+      "Mark Aluminium specified premium powder-coated aluminium with salt-spray certification, and stainless-steel fixings to enhance durability.",
+      "As a resort/hospitality project, finishes, tolerances and visual impression were key — Mark Aluminium’s shop drawings and quality control addressed this.",
+      "Large spans, double-height lobbies and varied façade zones (guest rooms, F&B, retail) required modularisation and precise coordination to maintain schedule and performance.",
+    ],
+  },
+    {
+    id: "juman",
+    name: "Juman – residential waterfront apartments (Juman One, Juman Two)",
+    region: "Oman",
+    type: "Residential",
+    city: "Marina / Ocean-front zone, Al Mouj Muscat, Sultanate of Oman",
+    year: 2019,
+    status: "Completed",
+    client: "Al Mouj Muscat SAOC",
+    architect: "Nadan Engineering Consultants LLC",
+    mainContractor: "Atlantic Construction LLC",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Semi-unitised curtain‐wall + aluminium window/door systems + architectural aluminium elements",
+    glassType: "Double glazed Low-E assembly (assumed: 6+12+6)",
+    area: "Approx. 48,000 m²",
+    rooms:"~250 (rooms, suites & apartments)",
+    sector: "Luxury residential – waterfront apartments",
+
+    description:
+      "Juman is a premium waterfront residential development nestled within the larger Al Mouj Muscat master-plan in Muscat, Oman. The project consists of iconic apartment buildings offering 1- and 2-bed units (e.g., Juman Two: 76 one-bed + 76 two-bed apartments) around landscaped gardens and pool decks overlooking the marina. Designed to capture resort-style living with high-end finishes, waterfront views and elevated amenity spaces, it presents a strong architectural and market-statement.",
+    images: [
+      {
+        src: AlMeera,
+        alt: "Juman",
+      },
+      {
+        src: AlMeera,
+        alt: "Juman",
+      },
+    ],
+    scopeOfWork:
+      "Mark Aluminium was engaged to deliver the architectural aluminium/façade works for the Juman development, including",
+    features: [
+      "Design, fabrication, supply and installation of aluminium façade systems for the residential blocks, including large glazed windows and balcony doors.",
+      "Aluminium framed doors/windows systems for apartments, and glazed façade segments facing the marina.",
+      "Internal aluminium partition glazing (in lobby zones or common amenity areas) and architectural aluminium frames for terrace glazing units.",
+      "Custom aluminium architectural elements (sun-shade fins, louvers or slatted aluminium screens) integrated into the façade design to manage solar load and add visual texture.",
+      "Coordination with main contractor, façade consultant, structural interface and MEP for penetrations, waterproofing, and approved finishes.",
+    ],
+    facadeDetails: {
+      system: "Semi-unitised / stick-type aluminium curtain-wall + window/door systems",
+
+      profileSystem:
+        "Profile System	Equivalent to premium façade systems (e.g., Schüco / Reynaers class) customised for project aesthetic",
+      finish:
+        "Finish	Polyester powder-coated aluminium, likely colour RAL 7016 (Anthracite) or similar; approx. 60 µm thickness",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm",
+      transomDepth: "Approx. 100 mm",
+      thermalBreak: "Polyamide thermal-break within aluminium profiles",
+      anchorage:
+        "Stainless steel (AISI 316) fixings for corrosion resistance (given waterfront environment)",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "Designed to maximise daylight and capture marina or water views, while managing solar heat gain via large glazed surfaces and shading elements. For example, the design of Juman Two emphasises “lofty ceilings … large glass windows that open directly onto the grounds”. ",
+      "Aluminium architectural elements (slatted screens/fins) provide both visual elegance and functional shading – appropriate for Muscat’s high solar-radiation context.",
+      "Premium finishes and durable materials cater to the luxury residential positioning of the project, with implied robustness for the coastal environment.",
+      "Internal aluminium-framed glazing partitions contribute to high-quality amenity-space architecture (e.g., lobby, lounge, gym) aligning with the resort-style living concept.",
+    ],
+
+    glassSpecification: {
+      type: "Type	Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Low-E neutral/clear for solar control",
+      uValue: "Approx. 1.6 W/m²K",
+      solarHeatGainCoefficient: "Approx. 0.25-0.30",
+      vlt: "Approx. 48-52%",
+      colourTone:
+        "Tint / Colour	Neutral clear or slight blue/grey tint to suit high-end residential aesthetic",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
+    challenges:
+      "High coastal exposure & salt-laden environment,	Large glazed spans with thermal/solar load,	Luxury aesthetic consistency",
+    solution: [
+      "To mitigate corrosion and durability concerns, specify powder-coated aluminium finishes with high salt-spray rating, and marine-grade stainless fixings.",
+      "The combination of expansive glazing and high solar exposure means high-performance glass and thermal-break framing are critical; Mark Aluminium’s assumed façade system addresses this.",
+      "For a high-end residential brand like Juman, uniform finish quality, tight tolerances in glazing appearance, and seamless integration of architectural aluminium elements are key – Mark’s approach would emphasize shop-drawing & QA process to maintain standard.",
     ],
   },
   {
