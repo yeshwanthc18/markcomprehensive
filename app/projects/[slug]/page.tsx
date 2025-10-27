@@ -44,7 +44,7 @@ export default function ProjectDetailPage({
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-4 pb-12">
             <Link href="/projects">
-              <Button variant="ghost" className="mb-4 text-white hover:text-white/80">
+              <Button variant="ghost" className="mb-4 text-white hover:text-white/80 hover:bg-[#001952]">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Projects
               </Button>

@@ -318,8 +318,7 @@ export default function TriangleGroupScroll() {
         </div>
       </div>
       
-      {/* Extra space for scrolling */}
-      <div style={{ height: "100vh" }}></div>
+     
     </section>
   );
 }

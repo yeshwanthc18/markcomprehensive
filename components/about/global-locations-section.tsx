@@ -18,17 +18,17 @@ export default function GlobalLocationsSection() {
   const allLocations = getAllLocations();
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 ">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <ScrollTriggerComponent animation="fadeInUp">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
               <span className="text-[#01adff]">Global</span> Presence
             </h2>
             <div className="mt-4 flex justify-center">
               <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
             </div>
-            <p className="mt-6 text-lg md:text-xl text-black max-w-3xl mx-auto">
+            <p className="mt-6 text-lg md:text-xl text-white max-w-3xl mx-auto">
               Six strategic locations worldwide, each bringing local expertise
               and global standards.
             </p>
@@ -48,9 +48,8 @@ export default function GlobalLocationsSection() {
                     boxShadow: isUserRegion
                       ? "0 12px 28px rgba(0,0,0,0.08)"
                       : undefined,
-                    backgroundColor: isUserRegion
-                      ? `${palette.primary}0D`
-                      : "white",
+                    backgroundColor: "white",
+                   
                     outline: isUserRegion
                       ? `2px solid ${palette.primary}`
                       : undefined,

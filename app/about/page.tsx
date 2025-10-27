@@ -55,9 +55,9 @@ export default function AboutPage() {
         <LeadershipTeamSection />
 
         {/* Clients */}
-        <GradientBG className="min-h-screen">
+        {/* <GradientBG className="min-h-screen">
           <ClientsSection />
-        </GradientBG>
+        </GradientBG> */}
 
         {/* Global Locations */}
         <BackgroundGradientAnimation

@@ -1,16 +1,19 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, X } from "lucide-react";
-import styles from "./FilterMenu.module.css";
+"use client"
+
+import type React from "react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown, X } from "lucide-react"
+import styles from "./FilterMenu.module.css"
 
 export interface CardNavProps {
-  className?: string;
-  direction?: "down" | "up";
-  onRegionChange?: (region: string) => void;
-  onProjectTypeChange?: (projectType: string) => void;
+  className?: string
+  direction?: "down" | "up"
+  onRegionChange?: (region: string) => void
+  onProjectTypeChange?: (projectType: string) => void
 }
 
-const ALL_REGIONS = ["All", "Oman", "India", "Iraq", "KSA", "UAE"];
+const ALL_REGIONS = ["All", "Oman", "India", "Iraq", "KSA", "UAE"]
 const ALL_TYPES = [
   "All",
   "Highrise",
@@ -18,7 +21,9 @@ const ALL_TYPES = [
   "Residential",
   "Institutional",
   "Hospitality",
-];
+  "Education",
+  "Corporate",
+]
 
 const FilterMenu: React.FC<CardNavProps> = ({
   className = "",
@@ -26,27 +31,25 @@ const FilterMenu: React.FC<CardNavProps> = ({
   onRegionChange,
   onProjectTypeChange,
 }) => {
-  const [activeFilter, setActiveFilter] = useState<
-    "regions" | "projectType" | null
-  >(null);
-  const [selectedRegion, setSelectedRegion] = useState("All");
-  const [selectedProjectType, setSelectedProjectType] = useState("All");
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<"regions" | "projectType" | null>(null)
+  const [selectedRegion, setSelectedRegion] = useState("All")
+  const [selectedProjectType, setSelectedProjectType] = useState("All")
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const openFilter = (filterType: "regions" | "projectType") => {
     if (activeFilter === filterType) {
-      setIsExpanded(false);
-      setTimeout(() => setActiveFilter(null), 300);
+      setIsExpanded(false)
+      setTimeout(() => setActiveFilter(null), 300)
     } else {
-      setActiveFilter(filterType);
-      setIsExpanded(true);
+      setActiveFilter(filterType)
+      setIsExpanded(true)
     }
-  };
+  }
 
   const closeMenu = () => {
-    setIsExpanded(false);
-    setTimeout(() => setActiveFilter(null), 300);
-  };
+    setIsExpanded(false)
+    setTimeout(() => setActiveFilter(null), 300)
+  }
 
   const getFilterContent = () => {
     if (activeFilter === "regions") {
@@ -64,13 +67,11 @@ const FilterMenu: React.FC<CardNavProps> = ({
             {ALL_REGIONS.map((region) => (
               <button
                 key={region}
-                className={`${styles.filterButton} ${
-                  selectedRegion === region ? styles.activeButton : ""
-                }`}
+                className={`${styles.filterButton} ${selectedRegion === region ? styles.activeButton : ""}`}
                 onClick={() => {
-                  setSelectedRegion(region);
-                  onRegionChange?.(region);
-                  closeMenu();
+                  setSelectedRegion(region)
+                  onRegionChange?.(region)
+                  closeMenu()
                 }}
               >
                 {region}
@@ -78,7 +79,7 @@ const FilterMenu: React.FC<CardNavProps> = ({
             ))}
           </div>
         </motion.div>
-      );
+      )
     }
 
     if (activeFilter === "projectType") {
@@ -96,13 +97,11 @@ const FilterMenu: React.FC<CardNavProps> = ({
             {ALL_TYPES.map((type) => (
               <button
                 key={type}
-                className={`${styles.filterButton} ${
-                  selectedProjectType === type ? styles.activeButton : ""
-                }`}
+                className={`${styles.filterButton} ${selectedProjectType === type ? styles.activeButton : ""}`}
                 onClick={() => {
-                  setSelectedProjectType(type);
-                  onProjectTypeChange?.(type);
-                  closeMenu();
+                  setSelectedProjectType(type)
+                  onProjectTypeChange?.(type)
+                  closeMenu()
                 }}
               >
                 {type}
@@ -110,22 +109,16 @@ const FilterMenu: React.FC<CardNavProps> = ({
             ))}
           </div>
         </motion.div>
-      );
+      )
     }
 
-    return null;
-  };
+    return null
+  }
 
-  const topOrBottomStyle =
-    direction === "down"
-      ? { bottom: "1rem", top: "auto" } // opens upward
-      : { top: "1rem", bottom: "auto" }; // opens downward
+  const topOrBottomStyle = direction === "down" ? { bottom: "1rem", top: "auto" } : { top: "1rem", bottom: "auto" }
 
   return (
-    <div
-      className={`${styles.cardNavContainer} ${className}`}
-      style={topOrBottomStyle}
-    >
+    <div className={`${styles.cardNavContainer} ${className}`} style={topOrBottomStyle}>
       <motion.nav
         initial={{ height: 60 }}
         animate={{ height: isExpanded ? "auto" : 60 }}
@@ -137,9 +130,7 @@ const FilterMenu: React.FC<CardNavProps> = ({
           <div className={styles.filtersContainer}>
             <div
               className={`${styles.filterTrigger} ${
-                activeFilter === "regions" && isExpanded
-                  ? styles.activeTrigger
-                  : ""
+                activeFilter === "regions" && isExpanded ? styles.activeTrigger : ""
               }`}
               onClick={() => openFilter("regions")}
             >
@@ -148,11 +139,7 @@ const FilterMenu: React.FC<CardNavProps> = ({
               </span>
               <ChevronDown
                 size={16}
-                className={`${styles.chevron} ${
-                  activeFilter === "regions" && isExpanded
-                    ? styles.chevronActive
-                    : ""
-                }`}
+                className={`${styles.chevron} ${activeFilter === "regions" && isExpanded ? styles.chevronActive : ""}`}
               />
             </div>
 
@@ -160,9 +147,7 @@ const FilterMenu: React.FC<CardNavProps> = ({
 
             <div
               className={`${styles.filterTrigger} ${
-                activeFilter === "projectType" && isExpanded
-                  ? styles.activeTrigger
-                  : ""
+                activeFilter === "projectType" && isExpanded ? styles.activeTrigger : ""
               }`}
               onClick={() => openFilter("projectType")}
             >
@@ -172,9 +157,7 @@ const FilterMenu: React.FC<CardNavProps> = ({
               <ChevronDown
                 size={16}
                 className={`${styles.chevron} ${
-                  activeFilter === "projectType" && isExpanded
-                    ? styles.chevronActive
-                    : ""
+                  activeFilter === "projectType" && isExpanded ? styles.chevronActive : ""
                 }`}
               />
             </div>
@@ -215,7 +198,7 @@ const FilterMenu: React.FC<CardNavProps> = ({
         </AnimatePresence>
       </motion.nav>
     </div>
-  );
-};
+  )
+}
 
-export default FilterMenu;
+export default FilterMenu
