@@ -1,0 +1,19 @@
+.triangleContainer {
+  position: relative;
+}
+
+.centerTriangleText {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.triangle {
+  transition: all 0.5s ease-in-out;
+}
+
+.triangle:hover {
+  fill-opacity: 1 !important; /* override motion value temporarily */
+}
