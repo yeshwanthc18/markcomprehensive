@@ -12,7 +12,7 @@ export interface ProjectCardProps {
   id: string;
   name: string;
   city: string;
-  year: string;
+  year: number;
   type: string;
   region: string;
   images: ProjectImage[];
