@@ -48,7 +48,7 @@ export default function ProjectShowcaseNew() {
     <>
       <section
         ref={containerRef}
-        className="grid w-[80dvw] mx-auto py-24 mt-16"
+        className="grid md:w-[80dvw] mx-auto py-24 mt-16"
       >
         <div className="relative  h-full w-full grid grid-cols-2 gap-[5rem]">
           {/* Text Section */}

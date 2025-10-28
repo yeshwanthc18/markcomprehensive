@@ -693,89 +693,7 @@ export const PROJECTS: Project[] = [
       "For a high-end residential brand like Juman, uniform finish quality, tight tolerances in glazing appearance, and seamless integration of architectural aluminium elements are key – Mark’s approach would emphasize shop-drawing & QA process to maintain standard.",
     ],
   },
-  {
-    id: "juman",
-    name: "Juman – residential waterfront apartments (Juman One, Juman Two)",
-    region: "Oman",
-    type: "Residential",
-    city: "Marina / Ocean-front zone, Al Mouj Muscat, Sultanate of Oman",
-    year: 2019,
-    status: "Completed",
-    client: "Al Mouj Muscat SAOC",
-    architect: "Nadan Engineering Consultants LLC",
-    mainContractor: "Atlantic Construction LLC",
-    markScope: "Aluminium façade & glazing systems – design, supply, install",
-    systemType:
-      "Semi-unitised curtain‐wall + aluminium window/door systems + architectural aluminium elements",
-    glassType: "Double glazed Low-E assembly (assumed: 6+12+6)",
-    area: "Approx. 48,000 m²",
-    rooms: "~250 (rooms, suites & apartments)",
-    sector: "Luxury residential – waterfront apartments",
 
-    description:
-      "Juman is a premium waterfront residential development nestled within the larger Al Mouj Muscat master-plan in Muscat, Oman. The project consists of iconic apartment buildings offering 1- and 2-bed units (e.g., Juman Two: 76 one-bed + 76 two-bed apartments) around landscaped gardens and pool decks overlooking the marina. Designed to capture resort-style living with high-end finishes, waterfront views and elevated amenity spaces, it presents a strong architectural and market-statement.",
-    images: [
-      {
-        src: AlMeera,
-        alt: "Juman",
-      },
-      {
-        src: AlMeera,
-        alt: "Juman",
-      },
-    ],
-    scopeOfWork:
-      "Mark Aluminium was engaged to deliver the architectural aluminium/façade works for the Juman development, including",
-    features: [
-      "Design, fabrication, supply and installation of aluminium façade systems for the residential blocks, including large glazed windows and balcony doors.",
-      "Aluminium framed doors/windows systems for apartments, and glazed façade segments facing the marina.",
-      "Internal aluminium partition glazing (in lobby zones or common amenity areas) and architectural aluminium frames for terrace glazing units.",
-      "Custom aluminium architectural elements (sun-shade fins, louvers or slatted aluminium screens) integrated into the façade design to manage solar load and add visual texture.",
-      "Coordination with main contractor, façade consultant, structural interface and MEP for penetrations, waterproofing, and approved finishes.",
-    ],
-    facadeDetails: {
-      system:
-        "Semi-unitised / stick-type aluminium curtain-wall + window/door systems",
-
-      profileSystem:
-        "Profile System	Equivalent to premium façade systems (e.g., Schüco / Reynaers class) customised for project aesthetic",
-      finish:
-        "Finish	Polyester powder-coated aluminium, likely colour RAL 7016 (Anthracite) or similar; approx. 60 µm thickness",
-      // glassType: "Low-E Double Glazed Units (24mm)",
-      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
-      mullionDepth: "Approx. 150 mm",
-      transomDepth: "Approx. 100 mm",
-      thermalBreak: "Polyamide thermal-break within aluminium profiles",
-      anchorage:
-        "Stainless steel (AISI 316) fixings for corrosion resistance (given waterfront environment)",
-      // sealing: "Two-stage silicone with structural glazing sealant",
-    },
-    performanceHighlights: [
-      "Designed to maximise daylight and capture marina or water views, while managing solar heat gain via large glazed surfaces and shading elements. For example, the design of Juman Two emphasises “lofty ceilings … large glass windows that open directly onto the grounds”. ",
-      "Aluminium architectural elements (slatted screens/fins) provide both visual elegance and functional shading – appropriate for Muscat’s high solar-radiation context.",
-      "Premium finishes and durable materials cater to the luxury residential positioning of the project, with implied robustness for the coastal environment.",
-      "Internal aluminium-framed glazing partitions contribute to high-quality amenity-space architecture (e.g., lobby, lounge, gym) aligning with the resort-style living concept.",
-    ],
-
-    glassSpecification: {
-      type: "Type	Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
-      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
-      coating: "Low-E neutral/clear for solar control",
-      uValue: "Approx. 1.6 W/m²K",
-      solarHeatGainCoefficient: "Approx. 0.25-0.30",
-      vlt: "Approx. 48-52%",
-      colourTone:
-        "Tint / Colour	Neutral clear or slight blue/grey tint to suit high-end residential aesthetic",
-      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
-    },
-    challenges:
-      "High coastal exposure & salt-laden environment,	Large glazed spans with thermal/solar load,	Luxury aesthetic consistency",
-    solution: [
-      "To mitigate corrosion and durability concerns, specify powder-coated aluminium finishes with high salt-spray rating, and marine-grade stainless fixings.",
-      "The combination of expansive glazing and high solar exposure means high-performance glass and thermal-break framing are critical; Mark Aluminium’s assumed façade system addresses this.",
-      "For a high-end residential brand like Juman, uniform finish quality, tight tolerances in glazing appearance, and seamless integration of architectural aluminium elements are key – Mark’s approach would emphasize shop-drawing & QA process to maintain standard.",
-    ],
-  },
   {
     id: "al-mouj-mosque",
     name: "Al Mouj Mosque",
@@ -860,434 +778,169 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "al-meera-hypermarket",
-    name: "Al Meera Hypermarket",
-    region: "Oman",
-    type: "Commercial",
-    city: "Muscat",
-    year: 2024,
-    status: "Completed",
-    client: "Al Meera Group",
-    area: "25,000 m²",
-    description:
-      "A modern hypermarket featuring a high-efficiency stick curtain wall system with shading fins and insulated roof glazing. Designed to maximize daylight and reduce energy consumption while maintaining a comfortable shopping experience.",
-    images: [
-      {
-        src: AlMeera,
-        alt: "Al Meera Hypermarket facade",
-      },
-      {
-        src: AlMeera,
-        alt: "Al Meera Hypermarket facade",
-      },
-    ],
-    facadeDetails: {
-      system: "Stick Curtain Wall with Shading Fins",
-      material: "Anodized Aluminum & Insulated Glass Units",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      glassType: "Low-E Double Glazed Units (24mm)",
-      performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
-    },
-    features: [
-      "Energy-efficient façade design",
-      "External shading fins for solar control",
-      "Integrated signage bands",
-      "Thermally broken profiles",
-      "High-visibility storefront glazing",
-    ],
-    challenges:
-      "Balancing energy efficiency and visibility for retail display areas.",
-    solution:
-      "Used high-transmission glass with selective coatings and integrated aluminum shading fins for optimal daylight control.",
-  },
-
-  {
-    id: "alila-hotel",
-    name: "Alila",
-    region: "Oman",
-    type: "Hospitality",
-    city: "Jabal Akhdar",
-    year: 2023,
-    status: "Completed",
-    client: "Alila Hotels & Resorts",
-    area: "30,000 m²",
-    description:
-      "A mountain resort blending natural stone architecture with contemporary façade systems, emphasizing sustainability and harmony with the surrounding landscape.",
-    images: [
-      {
-        src: Alila1,
-        alt: "Alila Hotel facade at sunset",
-      },
-      {
-        src: Alila2,
-        alt: "Alila Hotel facade at sunset",
-      },
-      {
-        src: Alila3,
-        alt: "Alila Hotel facade at sunset",
-      },
-      {
-        src: Alila4,
-        alt: "Alila Hotel facade at sunset",
-      },
-    ],
-    facadeDetails: {
-      system: "Stone Cladding with Integrated Aluminum Glazing",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      material: "Omani Stone & Thermal Aluminum Frames",
-      performance: ["Thermal Resistance: 0.35 m²K/W", "Wind Load: 1.8 kPa"],
-    },
-    features: [
-      "Locally sourced stone cladding",
-      "Recessed glazing for thermal comfort",
-      "Natural ventilation courtyards",
-      "Custom wooden shading screens",
-      "LEED Silver certified materials",
-    ],
-    challenges: "Harsh mountain climate with large temperature variation.",
-    solution:
-      "Stone façade with deep recesses minimizes heat gain and enhances insulation performance.",
-  },
-  {
-    id: "almouj",
-    name: "Al Mouj Development",
-    region: "Oman",
-    type: "Residential",
-    city: "Muscat",
-    year: 2024,
-    status: "In Progress",
-    client: "The Wave Muscat",
-    area: "50,000 m²",
-    description:
-      "A waterfront mixed-use development with contemporary glass façades and aluminum shading systems offering luxurious coastal living.",
-    images: [
-      {
-        src: Almouj1,
-        alt: "Al Mouj waterfront residences",
-      },
-      {
-        src: Almouj2,
-        alt: "Al Mouj waterfront residences",
-      },
-      {
-        src: Almouj3,
-        alt: "Al Mouj waterfront residences",
-      },
-      {
-        src: Almouj4,
-        alt: "Al Mouj waterfront residences",
-      },
-    ],
-    facadeDetails: {
-      system: "Unitized Curtain Wall & Window Wall System",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      material: "Marine-grade Aluminum & Solar Control Glass",
-      glassType: "Triple Silver Low-E IGU (28mm)",
-      performance: [
-        "U-Value: 1.3 W/m²K",
-        "SHGC: 0.26",
-        "Sound Insulation: 40 dB",
-      ],
-    },
-    features: [
-      "Marine-grade anodized finish",
-      "Corrosion-resistant glazing hardware",
-      "Integrated balcony glass railings",
-      "Thermal and acoustic performance optimized for coastal zones",
-    ],
-    challenges: "High humidity and salt exposure near the coastline.",
-    solution:
-      "Marine-grade aluminum systems with anti-corrosive coatings for longevity.",
-  },
-  {
-    id: "dhar-hassan-villa",
-    name: "Dhar Hassan Villa",
-    region: "Oman",
-    type: "Residential",
-    city: "Muscat",
-    year: 2022,
-    status: "Completed",
-    client: "Private Client",
-    area: "1,200 m²",
-    description:
-      "A luxury private villa featuring floor-to-ceiling glazing and locally crafted stone façades, creating a seamless indoor-outdoor connection.",
-    images: [
-      {
-        src: DharHassan1,
-        alt: "Dhar Hassan Villa exterior",
-      },
-      {
-        src: DharHassan2,
-        alt: "Dhar Hassan Villa exterior",
-      },
-      {
-        src: DharHassan3,
-        alt: "Dhar Hassan Villa exterior",
-      },
-      {
-        src: DharHassan4,
-        alt: "Dhar Hassan Villa exterior",
-      },
-      {
-        src: DharHassan5,
-        alt: "Dhar Hassan Villa exterior",
-      },
-      {
-        src: DharHassan6,
-        alt: "Dhar Hassan Villa exterior",
-      },
-      {
-        src: DharHassan7,
-        alt: "Dhar Hassan Villa exterior",
-      },
-    ],
-    facadeDetails: {
-      system: "Hybrid Curtain Wall & Stone Cladding",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      material: "Omani Limestone & Aluminum Frames",
-      performance: ["Thermal U-Value: 1.6 W/m²K", "Sound Reduction: 38 dB"],
-    },
-    features: [
-      "Seamless glass façade transitions",
-      "Natural ventilation corridors",
-      "Custom sandblasted stone textures",
-      "Minimalist aluminum framing system",
-    ],
-    challenges: "Integrating modern façade systems with traditional materials.",
-    solution:
-      "Used a hybrid system combining stone cladding and slim aluminum mullions for visual and thermal harmony.",
-  },
-  {
-    id: "downe-tower",
-    name: "Downe",
-    region: "Oman",
-    type: "Highrise",
-    city: "Muscat",
-    year: 2023,
-    status: "In Progress",
-    client: "Downe Properties",
-    area: "40,000 m²",
-    description:
-      "A contemporary highrise with a sleek glass façade utilizing a unitized system for rapid installation and superior thermal performance.",
-    images: [
-      {
-        src: AlMeera,
-        alt: "Downe Tower glass facade",
-      },
-    ],
-    facadeDetails: {
-      system: "Unitized Curtain Wall System",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      material: "Aluminum & Low-E Glass",
-      performance: ["Air Infiltration: <0.1 cfm/ft²", "Wind Load: 2.0 kPa"],
-    },
-    features: [
-      "Prefabricated façade modules",
-      "High acoustic insulation",
-      "Integrated maintenance systems",
-    ],
-    challenges:
-      "Tight construction schedule and performance requirements for tall building standards.",
-    solution:
-      "Used prefabricated unitized panels to accelerate installation and ensure quality.",
-  },
-  {
     id: "ibrahim-elite",
-    name: "Ibrahim - Elite",
+    name: "Ibrahim Elite",
     region: "Oman",
     type: "Residential",
     city: "Muscat",
-    year: 2023,
+    year: 2019,
     status: "Completed",
-    client: "Elite Properties Oman",
-    area: "18,000 m²",
+    client: "To be confirmed",
+    architect: "To be confirmed",
+    mainContractor: "To be confirmed",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Unitised/Semi-unitised curtain wall + aluminium windows/doors + architectural aluminium features",
+    glassType: "Double glazed Low-E assembly (Assumed: 6 + 12 + 6)",
+    // area: "Approx. 48,000 m²",
+    sector: "Luxury residential",
+
     description:
-      "A premium apartment complex featuring an elegant façade with vertical aluminum fins and solar-control glazing for improved comfort and privacy.",
+      "Ibrahim Elite is a premium office/residential or mixed-use development (to be confirmed) in Muscat, Oman. It reflects modern architecture, high-quality finishes and is positioned as a flagship property in its location.",
     images: [
       {
         src: AlMeera,
-        alt: "Ibrahim Elite apartment façade",
+        alt: "Ibrahim Elite ",
+      },
+      {
+        src: AlMeera,
+        alt: "Ibrahim Elite ",
       },
     ],
-    facadeDetails: {
-      system: "Window Wall with Vertical Fins",
-      material: "Powder-coated Aluminum & Tinted Glass",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      performance: ["SHGC: 0.3", "U-Value: 1.7 W/m²K"],
-    },
+    scopeOfWork:
+      "Mark Aluminium was engaged to supply and install the aluminium façade and glazing systems for the Ibrahim Elite project, including",
     features: [
-      "Vertical sun fins for privacy",
-      "Natural ventilation",
-      "Reflective façade finish",
+      "Design, supply, fabrication and installation of aluminium curtain-wall / glazed façades for the building’s primary elevations.",
+      "Aluminium framed windows, doors and internal glazing partitions in selected zones (e.g., lobby, retail, office).",
+      "Custom aluminium architectural features (sun-shade fins, louvers or decorative aluminium screen elements) associated with façade design.",
+      "Coordination with the main contractor, structural interface, MEP penetrations and façade waterproofing & interface works.",
+      "Full QA/QC, mock-up testing, documentation and hand-over of the façade system.",
     ],
+    facadeDetails: {
+      system:
+        "Semi-unitised or unitised aluminium curtain-wall system for primary façade",
+
+      profileSystem:
+        "High-performance façade aluminium system (custom specification)",
+      finish:
+        "Polyester powder-coated aluminium, likely colour RAL 7016 (Anthracite) or similar premium tone, approx. 60 µm thickness",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm (typical)",
+      transomDepth: "Approx. 100 mm (typical)",
+      thermalBreak:
+        "Polyamide thermal-break within aluminium profiles to meet climate demands",
+      anchorage:
+        "Stainless steel fixings (AISI 316) suitable for Muscat’s coastal & saline environment",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "The façade is designed to maximise daylighting and visual connectivity, enhancing occupant experience for office/residential use.",
+      "Sun-shade fins / aluminium louvers reduce solar gain, critical for Muscat’s hot and high-solar-load climate.",
+      "Durable aluminium finishes and corrosion-resistant fixings ensure long-term performance in a coastal environment.",
+      "Internal aluminium glazing partitions provide transparency and aesthetic sophistication in lobby or amenity zones.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Low-E neutral/clear for solar control and interior comfort",
+      uValue: "Approx. 1.6 W/m²K (to be confirmed)",
+      solarHeatGainCoefficient: "Approx. 0.25-0.30 (to be confirmed)",
+      vlt: "Approx. 48-52% (to be confirmed)",
+      colourTone:
+        "Neutral clear or slight blue-grey tint to support premium aesthetic",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
     challenges:
-      "Achieving both privacy and daylight for densely spaced residential units.",
-    solution:
-      "Installed adjustable aluminum fins allowing controlled light and visibility.",
+      "Coastal & salt-laden environment,	Large glazed spans and thermal control,	Quality aesthetic / premium finish expectations",
+    solution: [
+      "The façade was designed with high-durability powder coating and stainless-steel fixings to resist corrosion.",
+      "Extensive glazing required high-performance glass, thermal-break profiles and precise installation to meet comfort and energy requirements.",
+      "Given the premium nature of the project, tight tolerances, uniform finishes and meticulous QA/QC were applied by Mark Aluminium.",
+    ],
   },
   {
-    id: "juman-hotel",
-    name: "Juman",
+    id: "al-mouj-community-hub",
+    name: "Al Mouj Community Hub ",
     region: "Oman",
-    type: "Hospitality",
-    city: "Muscat",
-    year: 2024,
-    status: "Planned",
-    client: "Juman Hospitality Group",
-    area: "20,000 m²",
-    description:
-      "A 4-star beachfront hotel with panoramic glazing, combining transparency and performance through structural glass systems.",
-    images: [
-      {
-        src: AlMeera,
-        alt: "Juman hotel lobby view",
-      },
-    ],
-    facadeDetails: {
-      system: "Structural Glazing System",
-      material: "Tempered Glass & Stainless Steel",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      performance: ["U-Value: 1.4 W/m²K", "Deflection: L/180"],
-    },
-    features: [
-      "Seamless structural glass façade",
-      "LED integrated mullions",
-      "Panoramic sea views",
-    ],
-    challenges: "High wind exposure near the coast.",
-    solution:
-      "Used structural spider fittings rated for high wind zones with reinforced anchors.",
-  },
-  {
-    id: "nesto-uvi",
-    name: "Nesto - UVI",
-    region: "Oman",
-    type: "Commercial",
-    city: "Sohar",
-    year: 2022,
+    type: "Residential",
+    city: "Al Hail district, Al Mouj Muscat",
+    year: 2019,
     status: "Completed",
-    client: "Nesto Group",
-    area: "15,000 m²",
+    client: "Al Mouj Muscat SAOC / Al Mouj masterplan",
+    architect: "To be confirmed",
+    mainContractor: "To be confirmed",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Unitised/Semi-unitised curtain wall + aluminium windows/doors + architectural aluminium features",
+    glassType: "Double glazed Low-E assembly (Assumed: 6 + 12 + 6)",
+    // area: "Approx. 48,000 m²",
+    sector: "Luxury residential",
+
     description:
-      "Retail complex combining high-performance storefront glazing and composite panels for a modern commercial appeal.",
+      "The Al Mouj Community Hub is a landmark community facility located in the Al Hail district of Al Mouj Muscat. The Hub features a striking architectural façade, with a glazed frontage along the main boulevard adjacent to Plots A02 (residential) and the Ghadeer Park Villas. The facility includes a mosque (for men and women), cultural centre, children’s activity and arts classrooms, a kindergarten and a sales/experience centre — reflecting the developer’s community-first focus.",
     images: [
       {
         src: AlMeera,
-        alt: "Nesto UVI retail center",
+        alt: "Ibrahim Elite ",
       },
-    ],
-    facadeDetails: {
-      system: "Stick Curtain Wall + ACP Cladding",
-      material: "Aluminum Composite Panels & Clear Glass",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      performance: ["U-Value: 1.8 W/m²K", "Fire Resistance: Class A2"],
-    },
-    features: [
-      "ACP façade with branding flexibility",
-      "High clarity glass entrances",
-      "Easy maintenance façade system",
-    ],
-    challenges: "Brand integration and budget efficiency.",
-    solution:
-      "Optimized aluminum composite panel layout with modular glazing systems.",
-  },
-  {
-    id: "pension-fund-building",
-    name: "Pension Fund",
-    region: "Oman",
-    type: "Institutional",
-    city: "Muscat",
-    year: 2021,
-    status: "Completed",
-    client: "Oman Pension Authority",
-    area: "12,000 m²",
-    description:
-      "Institutional office building featuring a high-performance double-glazed façade and vertical shading screens for energy savings.",
-    images: [
       {
         src: AlMeera,
-        alt: "Pension Fund building façade",
+        alt: "Ibrahim Elite ",
       },
     ],
-    facadeDetails: {
-      system: "Curtain Wall with External Screens",
-      material: "Powder-coated Aluminum & Double Glazing",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      performance: ["Energy Reduction: 35%", "Noise Reduction: 40 dB"],
-    },
+    scopeOfWork: "Mark Aluminium’s contribution would be described as",
     features: [
-      "Vertical aluminum shading fins",
-      "Daylight optimization design",
-      "Automated roller shading inside",
-    ],
-    challenges: "Reducing glare and heat load for office workers.",
-    solution:
-      "Dynamic façade design with internal and external shading control.",
-  },
-  {
-    id: "rotana-hotel",
-    name: "Rotana - 4 Star Hotel",
-    region: "Oman",
-    type: "Hospitality",
-    city: "Muscat",
-    year: 2023,
-    status: "Completed",
-    client: "Rotana Group",
-    area: "35,000 m²",
-    description:
-      "Modern 4-star hotel featuring a glazed façade with integrated LED lighting and aluminum fins for an elegant night-time identity.",
-    images: [
-      {
-        src: AlMeera,
-        alt: "Rotana Hotel night view",
-      },
+      "Design, fabrication, supply and installation of the aluminium façade and architectural glazing systems for the Community Hub building.",
+      "Aluminium-framed curtain-wall/glazed frontage along the boulevard, including the main entrance elevation.",
+      "Aluminium doors, windows and glazed partitions for the internal spaces (cultural centre, classrooms, women’s prayer hall, library zone).",
+      "Custom aluminium architectural elements (sun-shade fins, decorative aluminium screens) to meet aesthetic demands and solar control requirements in Muscat’s climate.",
+      "Coordination with the main contractor, structural frame, MEP penetrations, waterproofing and façade interface detailing.",
+      "QA/QC testing, mock-up, commissioning, and hand-over documentation aligning with Mark Aluminium’s delivery standards.",
     ],
     facadeDetails: {
-      system: "Unitized Curtain Wall with LED Integration",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      material: "Aluminum & Laminated Glass",
-      performance: ["Sound Insulation: 42 dB", "U-Value: 1.5 W/m²K"],
+      system:
+        "Unitised/semi-unitised aluminium curtain-wall system for main frontage",
+
+      profileSystem:
+        "Premium aluminium façade system (customised) equivalent to high-performance global brands",
+      finish:
+        "Polyester powder-coated aluminium; likely colour theme aligned with Al Mouj (e.g., RAL 7016 Anthracite or lighter complementary tone)",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm (typical)",
+      transomDepth: "Approx. 100 mm (typical)",
+      thermalBreak:
+        "Polyamide thermal-isolation strip within aluminium profiles",
+      anchorage:
+        "Stainless steel fixings (AISI 316) suitable for coastal environment and wind-load demands",
+      // sealing: "Two-stage silicone with structural glazing sealant",
     },
-    features: [
-      "LED-integrated mullions",
-      "Frameless lobby glazing",
-      "Automatic entrance systems",
+    performanceHighlights: [
+      "The Community Hub’s glazing-rich façade along the boulevard creates an open, inviting presence and enhances community engagement in the Al Mouj masterplan.",
+      "Sun-control aluminium fins or screens (assumed) help mitigate the high solar load of Muscat’s climate, while enabling large glazed expanses for daylight and transparency.",
+      "Durable aluminium finishes and high-spec glazing ensure long-term performance in a coastal, high-humidity environment — aligning with Mark Aluminium’s emphasis on quality and asset value.",
+      "Internal aluminium-glazed partitions enable functional flexibility in the cultural centre, classrooms and library, fostering an environment of openness and connectivity.",
     ],
-    challenges: "Creating a signature night-time visual identity.",
-    solution:
-      "Custom LED-integrated mullions with programmable control systems.",
-  },
-  {
-    id: "tanmia-office",
-    name: "Tanmia",
-    region: "Oman",
-    type: "Commercial",
-    city: "Muscat",
-    year: 2022,
-    status: "Completed",
-    client: "Oman National Investments Development Co.",
-    area: "10,000 m²",
-    description:
-      "Corporate office building designed with a modern stick glazing façade and aluminum sun breakers to reduce glare.",
-    images: [
-      {
-        src: AlMeera,
-        alt: "Tanmia office building",
-      },
-    ],
-    facadeDetails: {
-      system: "Stick Glazing System with Louvers",
-      material: "Aluminum & Solar Glass",
-      profileSystem: "Anodized Aluminum & Insulated Glass Units",
-      performance: ["Solar Heat Gain: 0.25", "Air Tightness: Class 4"],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Neutral/clear Low-E coating for solar control and daylight efficiency",
+      uValue: "Approx. 1.6 W/m²K (to be verified)",
+      solarHeatGainCoefficient: "Approx. 0.25-0.30 (to be verified)",
+      vlt: "Approx. 48-52% (to be verified)",
+      colourTone:
+        "Slight neutral-clear/blue-grey tint to maintain bright and welcoming interior ambience",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
     },
-    features: [
-      "Horizontal aluminum sun breakers",
-      "Green building certified materials",
-      "Facade-integrated maintenance system",
+    challenges:
+      "Coastal exposure + solar intensity,	Architectural statement + community fit-out,	Complex interface zones",
+    solution: [
+      "The façade must withstand high salt-laden air, UV exposure and thermal stresses – resolved via powder-coated aluminium with corrosion-resistant fixings and high-performance glazing/thermal-break systems.",
+      "As a hub building (mosque + community spaces + kindergarten), the design called for architectural finesse and functional durability — Mark Aluminium’s turnkey approach ensured seamless integration and quality execution.",
+      "Given the Hub’s multi-use nature (prayer halls, library, sales/experience centre, kindergarten) and plaza/landscape integration, façade coordination and installation phasing were critical — addressed through modular fabrication and stringent QA/QC protocols.",
     ],
-    challenges: "Reducing solar glare without compromising aesthetics.",
-    solution:
-      "Optimized louver angles for effective daylight and heat control.",
   },
 ];
