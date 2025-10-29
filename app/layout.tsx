@@ -34,9 +34,10 @@ export const metadata: Metadata = {
   description:
     "Leading façade specialist in architectural aluminum systems design, fabrication, and installation worldwide.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
   },
 };
+
 
 export default function RootLayout({
   children,
