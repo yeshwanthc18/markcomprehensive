@@ -5,7 +5,7 @@ import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import { QuickEstimateProvider } from "@/contexts/quick-estimate-context";
 import QuickEstimatePopup from "@/components/quick-estimate-popup";
 import { useGSAP } from "@gsap/react";
-import { useScrollToTop } from "./ScrollToTop";
+import GSAPSetup from "@/components/GSAPsetup";
 
 const urbanist = localFont({
   src: [
@@ -44,13 +44,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
-  }
+
 
   return (
     <html lang="en" className={urbanist.variable}>
       <body className="font-urbanist">
+        <GSAPSetup />
         <QuickEstimateProvider>
           <LayoutWrapper>{children}</LayoutWrapper>
         </QuickEstimateProvider>

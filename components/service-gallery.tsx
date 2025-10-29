@@ -42,12 +42,12 @@ export function ServiceGallery({
           <button
             key={i}
             onClick={() => openAt(i)}
-            className="group relative overflow-hidden text-left rounded-sm"
+            className="group relative overflow-hidden text-left"
             style={{ border: `1px solid ${brand.navy}`, backgroundColor: brand.white }}
             aria-label={`Open image ${i + 1} of ${images.length}`}
           >
             <Image
-              src={src || "/placeholder.svg"}
+              src={src}
               alt={`${title} image ${i + 1}`}
               className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               width={800}

@@ -1,4 +1,12 @@
-import { Building2, Zap, Leaf, Wrench, Shield, Hammer, Wind } from "lucide-react"
+import {
+  Building2,
+  Zap,
+  Leaf,
+  Wrench,
+  Shield,
+  Hammer,
+  Wind,
+} from "lucide-react";
 import DharHassan4 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6551.jpg";
 import DharHassan5 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6608.jpg";
 import DharHassan6 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6728.jpg";
@@ -8,7 +16,7 @@ export const servicesData = [
   {
     icon: Building2,
     title: "Curtain Wall Systems",
-    link:"/curtain-wall",
+    link: "/services/curtain-wall",
     description:
       "A non-structural cladding system using glass panels secured in aluminium frames. Materials and glass types are selected for aesthetic intent and performance, similar to facade glazing.",
     features: [
@@ -33,6 +41,7 @@ export const servicesData = [
   {
     icon: Zap,
     title: "Point Fixed Glass Facade",
+    link: "/services/point-fixed-glass-facade",
     description:
       "Spider fittings and point-fixation systems in stainless steel support tempered/laminated glass panels for highly transparent facades.",
     features: [
@@ -57,6 +66,7 @@ export const servicesData = [
   {
     icon: Leaf,
     title: "Hinged Doors & Windows (MH Series)",
+    link: "/services/hinged-doors-windows",
     description:
       "Hinged doors/windows with premium aluminium frames and glass panels. Designed for residential and commercial facades with smooth operation and lasting durability",
     features: [
@@ -81,6 +91,7 @@ export const servicesData = [
   {
     icon: Wrench,
     title: "Sliding Doors & Windows (MS Series)",
+    link: "/services/sliding-doors-windows",
     description:
       "Sliding windows/doors with 2-3 leaf options, fly screen/louver integrations, and fixed combinations to fit diverse layouts.",
     features: [
@@ -105,6 +116,7 @@ export const servicesData = [
   {
     icon: Shield,
     title: "Folding Doors (MF Series)",
+    link: "/services/folding-doors",
     description:
       "Bi-fold/accordion systems that fold and stack, creating wide openings with uninterrupted views using robust aluminium frames and glass panels.",
     features: [
@@ -129,6 +141,7 @@ export const servicesData = [
   {
     icon: Hammer,
     title: "Swing Doors",
+    link: "/services/swing-doors",
     description:
       "Swing doors crafted with sleek aluminium frames and glass panels to bring durability and luminous interiors with simple, reliable operation.",
     features: [
@@ -150,5 +163,4 @@ export const servicesData = [
     },
     category: "Safety",
   },
-
-]
+];

@@ -55,7 +55,7 @@ function StreetScene({
 }: {
   modelContainerRef: React.RefObject<HTMLDivElement>;
 }) {
-  const { scene } = useGLTF("/office_building/mark_building_v4.glb");
+  const { scene } = useGLTF("/office_building/streetview.glb");
   const modelRef = useRef<THREE.Group>(null);
 
   const { scrollYProgress } = useScroll({
@@ -173,7 +173,7 @@ export default function ThreeDViewer() {
         </div>
 
         {/* Canvas + Loader */}
-        <Canvas camera={{ fov: 55 }}>
+        <Canvas camera={{ fov: 85 }}>
           <Suspense fallback={<Loader />}>
             {birdPositions.map((item, index) => (
               <Birds

@@ -1,32 +1,40 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, Play, FileText, ExternalLink } from "lucide-react"
-import Image from "next/image"
-import { useState } from "react"
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, Play, FileText, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import Link from "next/link";
 
 interface ServiceCardProps {
   service: {
-    icon: React.ComponentType<{ className?: string }>
-    title: string
-    description: string
-    features: string[]
-    color: string
-    image: any
-    specs: Partial<Record<string, string>>
-    category?: string
-  }
-  index: number
-   className?: string
+    icon: React.ComponentType<{ className?: string }>;
+    title: string;
+    description: string;
+    features: string[];
+    color: string;
+    image: any;
+    specs: Partial<Record<string, string>>;
+    category?: string;
+    link:any
+  };
+  index: number;
+  className?: string;
 }
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0  shadow-lg">
@@ -42,7 +50,14 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
         {/* Badges */}
         <div className="absolute top-4 left-4 flex gap-2">
-          <Badge className={`${service.color.replace("bg-", "bg-opacity-90 bg-")} border-0 text-white`}>Featured</Badge>
+          <Badge
+            className={`${service.color.replace(
+              "bg-",
+              "bg-opacity-90 bg-"
+            )} border-0 text-white`}
+          >
+            Featured
+          </Badge>
           {service.category && (
             <Badge variant="secondary" className="bg-white/90 text-black">
               {service.category}
@@ -68,26 +83,36 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           >
             <service.icon className="h-6 w-6" />
           </div>
-          <Button variant="ghost" size="sm" className="text-gray-400 hover:text-black">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-gray-400 hover:text-black"
+          >
             <ExternalLink className="h-4 w-4" />
           </Button>
         </div>
+        <Link href={service.link}>
+          <CardTitle className="text-2xl font-bold group-hover:text-[#01adff] transition-colors">
+            {service.title}
+          </CardTitle>
+        </Link>
 
-        <CardTitle className="text-2xl font-bold group-hover:text-[#01adff] transition-colors">
-          {service.title}
-        </CardTitle>
-        <CardDescription className="text-base leading-relaxed text-black">{service.description}</CardDescription>
+        <CardDescription className="text-base leading-relaxed text-black">
+          {service.description}
+        </CardDescription>
       </CardHeader>
 
       <CardContent className="space-y-6">
         {/* Features List */}
         <div className="space-y-3">
-          {service.features.slice(0, isExpanded ? service.features.length : 3).map((feature, featureIndex) => (
-            <div key={featureIndex} className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 leading-relaxed">{feature}</span>
-            </div>
-          ))}
+          {service.features
+            .slice(0, isExpanded ? service.features.length : 3)
+            .map((feature, featureIndex) => (
+              <div key={featureIndex} className="flex items-start space-x-3">
+                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 leading-relaxed">{feature}</span>
+              </div>
+            ))}
 
           {service.features.length > 3 && (
             <Button
@@ -96,7 +121,9 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
               onClick={() => setIsExpanded(!isExpanded)}
               className="text-[#01adff] hover:text-[#1c345c] p-0 h-auto font-medium"
             >
-              {isExpanded ? "Show Less" : `Show ${service.features.length - 3} More Features`}
+              {isExpanded
+                ? "Show Less"
+                : `Show ${service.features.length - 3} More Features`}
             </Button>
           )}
         </div>
@@ -139,5 +166,5 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         </Button>
       </CardFooter> */}
     </Card>
-  )
+  );
 }

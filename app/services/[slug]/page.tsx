@@ -133,13 +133,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="overview">
               <Reveal>
                 <h2
-                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  className="text-3xl font-semibold text-[color:var(--navy)]"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   Overview
                 </h2>
                 <p
-                  className="mt-3 leading-relaxed text-[color:var(--fg-muted)]"
+                  className="mt-3 text-lg leading-relaxed text-[color:var(--fg-muted)]"
                   style={{ ["--fg-muted" as any]: brand.primaryDeep }}
                 >
                   {service.summary}
@@ -148,43 +148,51 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </section>
 
             {/* Mid-page CTA */}
-            <section aria-label="Capabilities CTA">
+            <section aria-label="Capabilities CTA" className="py-12">
               <Reveal>
                 <div
-                  className="relative overflow-hidden px-6 py-6 md:px-10 md:py-8"
+                  className="relative overflow-hidden rounded-2xl px-8 py-10 md:px-12 md:py-12 shadow-lg"
                   style={{
-                    backgroundColor: brand.navy,
+                    background: `linear-gradient(135deg, ${brand.navy} 0%, ${brand.navy} 40%, ${brand.primary} 120%)`,
                     border: `1px solid ${brand.navy}`,
                   }}
                 >
+                  {/* Decorative gradient strip at top */}
                   <div
-                    className="absolute inset-x-0 top-0 h-1"
+                    className="absolute top-0 left-0 w-full h-1 opacity-80"
                     style={{ backgroundColor: brand.primary }}
-                  />
-                  <div className="md:flex md:items-center md:justify-between md:gap-8">
+                  ></div>
+
+                  {/* Content */}
+                  <div className="relative z-10 md:flex md:items-center md:justify-between md:gap-12">
                     <div className="max-w-2xl">
                       <h3
-                        className="text-lg md:text-xl font-semibold"
+                        className="text-2xl md:text-3xl font-semibold tracking-tight leading-snug"
                         style={{ color: brand.white }}
                       >
-                        Precision engineered facades, delivered end‑to‑end
+                        Precision-engineered facades, delivered end-to-end
                       </h3>
                       <p
-                        className="mt-2 text-sm leading-relaxed"
+                        className="mt-3 text-sm md:text-base leading-relaxed opacity-90"
                         style={{ color: brand.white }}
                       >
-                        From design development to on‑site commissioning, our{" "}
-                        {service.title.toLowerCase()} services align aesthetics
-                        with performance and compliance.
+                        From design development to on-site commissioning, our{" "}
+                        <span className="font-medium capitalize">
+                          {service.title.toLowerCase()}
+                        </span>{" "}
+                        services align aesthetics with performance and
+                        compliance.
                       </p>
                     </div>
-                    <div className="mt-4 md:mt-0 flex gap-3">
+
+                    {/* CTA Buttons */}
+                    <div className="mt-6 md:mt-0 flex flex-wrap gap-3">
                       <Link
                         href={{
                           pathname: "/projects",
                           query: { type: service.title },
                         }}
-                        className="inline-flex items-center px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
+                        className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-300"
                         style={{
                           backgroundColor: brand.primary,
                           color: brand.black,
@@ -195,7 +203,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                       </Link>
                       <Link
                         href="/contact"
-                        className="inline-flex items-center px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
+                        className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-300"
                         style={{
                           backgroundColor: brand.white,
                           color: brand.navy,
@@ -206,8 +214,32 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                       </Link>
                     </div>
                   </div>
+
+                  {/* Decorative bottom fade */}
+                  <div
+                    className="absolute bottom-0 left-0 w-full h-1 opacity-60"
+                    style={{ backgroundColor: brand.primary }}
+                  ></div>
                 </div>
               </Reveal>
+            </section>
+
+            <section aria-label="Project Gallery">
+              <Reveal>
+                <h2
+                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  style={{ ["--navy" as any]: brand.navy }}
+                >
+                  Curtain Wall
+                </h2>
+              </Reveal>
+              <div className="mt-6">
+                <ServiceGallery
+                  images={gallery}
+                  brand={brand}
+                  title={service.title}
+                />
+              </div>
             </section>
 
             <section id="specification">

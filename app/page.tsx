@@ -35,7 +35,7 @@ export default function HomePage() {
     <div className="flex flex-col">
       <ThreeDViewer />
 
-      {/* <TimelineProjects /> */}
+      <TimelineProjects />
       <BackgroundGradientAnimation
         overlayImage={
           <div className="relative w-full h-full">

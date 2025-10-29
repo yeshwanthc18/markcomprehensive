@@ -18,6 +18,9 @@ import DharHassan4 from "@/public/compressed-images/project-photos/DHAR HASSAN V
 import DharHassan5 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6608.jpg";
 import DharHassan6 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6728.jpg";
 import DharHassan7 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6750.jpg";
+import CurtainWall from "@/public/compressed-images/curtain-wall-systems.png"
+import CurtainWall1 from "@/public/compressed-images/curtain-wall-1.png"
+import CurtainWall2 from "@/public/compressed-images/curtain-wall-2.webp"
 import { StaticImageData } from "next/image";
 
 export type Service = {
@@ -39,13 +42,14 @@ export const SERVICES: Service[] = [
     tagline: "Precision-engineered facades for performance and presence.",
     summary:
       "A non-structural cladding system using glass panels secured in aluminium frames. Materials and glass types are selected for aesthetic intent and performance, similar to facade glazing.",
-    heroImage: DharHassan4,
+    heroImage: CurtainWall,
     gallery: [
-      { img: DharHassan4 },
-      { img: DharHassan5 },
-      { img: DharHassan7 },
-      { img: DharHassan6 },
-      { img: DharHassan4 },
+      { img: CurtainWall1 },
+      { img: CurtainWall2 },
+      { img: CurtainWall1 },
+      { img: CurtainWall2 },
+      { img: CurtainWall1 },
+       { img: CurtainWall2 },
     ],
     specification: [
       { title: "Aluminium", detail: "Extruded aluminium sections, Alloy 6063" },
