@@ -8,6 +8,7 @@ export const servicesData = [
   {
     icon: Building2,
     title: "Curtain Wall Systems",
+    link:"/curtain-wall",
     description:
       "A non-structural cladding system using glass panels secured in aluminium frames. Materials and glass types are selected for aesthetic intent and performance, similar to facade glazing.",
     features: [
@@ -149,28 +150,5 @@ export const servicesData = [
     },
     category: "Safety",
   },
-  {
-    icon: Wind,
-    title: "Skylight (M50)",
-    description:
-      "High-quality glass panels in sleek, durable aluminium frames to maximize daylight penetration and connect interiors with the outdoors.",
-    features: [
-      "Automated louver systems with sensors",
-      "Solar shading solutions for energy efficiency",
-      "Natural ventilation for improved air quality",
-      "Weather-responsive controls and automation",
-      "Energy-efficient climate control integration",
-      "Custom blade designs and orientations",
-    ],
-    color: "bg-teal-100 text-teal-600",
-    image: DharHassan7,
-    specs: {
-      airflow: "Customizable CFM ratings",
-      weatherResistance: "High wind and rain resistance",
-      automation: "Optional smart controls",
-      solarControl: "Up to 80% heat reduction",
-      energyEfficiency: "LEED compliant options",
-    },
-    category: "Ventilation",
-  },
+
 ]

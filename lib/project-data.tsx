@@ -6,7 +6,8 @@ export type PType =
   | "Institutional"
   | "Hospitality"
   | "Education"
-  | "Corporate";
+  | "Corporate"
+  | "Retail";
 import AlMeera from "@/public/compressed-images/project-photos/AL MEERA HYPERMARKET/IMG_3730.jpg";
 import Alila1 from "@/public/compressed-images/project-photos/ALILA/IMG-20200913-WA0012.jpg";
 import Alila2 from "@/public/compressed-images/project-photos/ALILA/IMG-20200918-WA0043.jpg";
@@ -92,6 +93,7 @@ export const ALL_TYPES: PType[] = [
   "Hospitality",
   "Education",
   "Corporate",
+  "Retail",
 ];
 
 export const PROJECTS: Project[] = [
@@ -862,7 +864,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "al-mouj-community-hub",
-    name: "Al Mouj Community Hub ",
+    name: "Al Mouj Community Hub",
     region: "Oman",
     type: "Residential",
     city: "Al Hail district, Al Mouj Muscat",
@@ -873,7 +875,7 @@ export const PROJECTS: Project[] = [
     mainContractor: "To be confirmed",
     markScope: "Aluminium façade & glazing systems – design, supply, install",
     systemType:
-      "Unitised/Semi-unitised curtain wall + aluminium windows/doors + architectural aluminium features",
+      "Unitised/semi-unitised curtain wall + aluminium doors/windows + architectural aluminium elements",
     glassType: "Double glazed Low-E assembly (Assumed: 6 + 12 + 6)",
     // area: "Approx. 48,000 m²",
     sector: "Luxury residential",
@@ -883,11 +885,11 @@ export const PROJECTS: Project[] = [
     images: [
       {
         src: AlMeera,
-        alt: "Ibrahim Elite ",
+        alt: "Al Mouj Community Hub",
       },
       {
         src: AlMeera,
-        alt: "Ibrahim Elite ",
+        alt: "Al Mouj Community Hub",
       },
     ],
     scopeOfWork: "Mark Aluminium’s contribution would be described as",
@@ -927,7 +929,8 @@ export const PROJECTS: Project[] = [
     glassSpecification: {
       type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
       // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
-      coating: "Neutral/clear Low-E coating for solar control and daylight efficiency",
+      coating:
+        "Neutral/clear Low-E coating for solar control and daylight efficiency",
       uValue: "Approx. 1.6 W/m²K (to be verified)",
       solarHeatGainCoefficient: "Approx. 0.25-0.30 (to be verified)",
       vlt: "Approx. 48-52% (to be verified)",
@@ -941,6 +944,173 @@ export const PROJECTS: Project[] = [
       "The façade must withstand high salt-laden air, UV exposure and thermal stresses – resolved via powder-coated aluminium with corrosion-resistant fixings and high-performance glazing/thermal-break systems.",
       "As a hub building (mosque + community spaces + kindergarten), the design called for architectural finesse and functional durability — Mark Aluminium’s turnkey approach ensured seamless integration and quality execution.",
       "Given the Hub’s multi-use nature (prayer halls, library, sales/experience centre, kindergarten) and plaza/landscape integration, façade coordination and installation phasing were critical — addressed through modular fabrication and stringent QA/QC protocols.",
+    ],
+  },
+  {
+    id: "al-meera-hypermarket",
+    name: "Al Meera Hypermarket",
+    region: "Oman",
+    type: "Residential",
+    city: "Amerat (Al Amarat), Muscat",
+    year: 2019,
+    status: "Completed",
+    client: "Al Mouj Muscat SAOC / Al Mouj masterplan",
+    architect: "Ibrahim Jaidah Architects & Engineers (design & supervision)",
+    // mainContractor: "To be confirmed",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Semi-unitised curtain wall + aluminium windows/doors (retail storefront system)",
+    glassType: "Double glazed Low-E unit (assumed)",
+    area: "Approx. 23,081 m² (B + G + M)",
+    sector: "Retail – Large Format Hypermarket / Mall Extension",
+
+    description:
+      "The Al Meera Hypermarket in Amerat (Muscat) is part of the regional expansion of the retail chain in Oman, serving neighbourhood catchments with large format retail. According to architect firm Ibrahim Jaidah Architects & Engineers, the Amerat branch is listed as “Al Meera Mall in Al Amarat, OMAN – Built-up area: 23,081 m², Floors: B + G + Mezzanine”. The façade is described as “simple in its core rectangular spaces connected with glass facades” and “the main building façade is standardized and is to be used across all new developments”.",
+    images: [
+      {
+        src: AlMeera,
+        alt: "Al Meera Hypermarket",
+      },
+      {
+        src: AlMeera,
+        alt: "Al Meera Hypermarket",
+      },
+    ],
+    scopeOfWork:
+      "Mark Aluminium was engaged to deliver the architectural aluminium and glazing package for the Al Meera Amerat development, including",
+    features: [
+      "Design, supply, fabrication and installation of aluminium façade systems (curtain-wall / glazing façades) for the front elevation and storefront areas.",
+      "Aluminium framed windows and doors for ancillary spaces, service zones and glazed shop-front interfaces.",
+      "Integration of large glass façade areas connecting internal retail spaces to exterior visual exposure, in line with the standardized design intent.",
+      "Coordination with main contractor and façade consultant to ensure alignment with the standardized façade system and glass façade modules.",
+      "Coordination with the main contractor, structural frame, MEP penetrations, waterproofing and façade interface detailing.",
+      "Quality assurance, mock-up testing, and hand-over documentation to ensure compliance with performance and aesthetic requirements.",
+    ],
+    facadeDetails: {
+      system:
+        "Semi-unitised aluminium curtain-wall system for the storefront elevation",
+
+      profileSystem:
+        "Premium aluminium façade system equivalent to global standard, adapted for retail façade modularity",
+      finish:
+        "Polyester powder-coated aluminium, likely in a standard retail tone (e.g., RAL 7016 Anthracite or another brand aligned finish)",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 140-150 mm (typical retail façade proportion)",
+      transomDepth: "Approx. 80-100 mm (typical)",
+      thermalBreak:
+        "Polyamide thermal break within aluminium sections to moderate internal heat loads",
+      anchorage:
+        "Stainless steel fixings (AISI 316) or equivalent, designed for durability in local climate",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "The design intent emphasises large glazed façade surfaces to enhance visual connectivity between the retail interior and the exterior environment—consistent with the “glass-facade” language adopted for Al Meera’s standardized roll-out.",
+      "Aluminium façade systems are optimized for retail conditions: durability, maintainability, quick installation and visual uniformity across multiple locations.",
+      "Thermal and daylight performance are important even for retail façade given the Muscat climate: using glass with Low-E coatings and thermally broken aluminium frames helps reduce internal heat gain while enabling welcoming storefronts.",
+      "The standardized façade modular approach supports economies of scale, faster installation and brand consistency across sites.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU), e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E or laminated glass for retail application",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Low-E clear/neutral for solar control and daylight clarity",
+      uValue: "Approx. 1.6 W/m²K (to be confirmed)",
+      solarHeatGainCoefficient: "Approx. 0.27-0.30 (to be confirmed)",
+      vlt: "Approx. 50-55% (to be confirmed)",
+      colourTone:
+        "Clear or light neutral tint, ensuring daylighting and visibility of retail interiors",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
+    challenges:
+      "Large expanse of façade with retail opening hours constraints ,	Balancing transparency and solar control,	Durability in coastal environment: ",
+    solution: [
+      "Mark Aluminium’s modular fabrication approach allowed faster on-site installation and minimized disruption to site logistics and fit-out.",
+      "The retail façade demanded high visibility but Muscat’s coastal solar load is high—Mark proposed Low-E glass and shading/overhang strategies embedded in façade design.",
+      "Aluminium frames and fixings specified with corrosion-resistant finishes, high salt-spray rating powder-coating, and SS fixings to ensure long-term asset value.",
+    ],
+  },
+  {
+    id: "alila-hinu-bay",
+    name: "Alila Hinu Bay",
+    region: "Oman",
+    type: "Hospitality",
+    city: "Mirbat / Salalah (Southwest coast of Oman)",
+    year: 2019,
+    status: "Completed",
+    client: "Alila Hotels & Resorts (Salalah / Oman)",
+    architect: "Ibrahim Jaidah Architects & Engineers (design & supervision)",
+    // mainContractor: "To be confirmed",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Unitised/semi-unitised curtain wall + aluminium windows/doors + architectural aluminium elements",
+    glassType: "Double glazed Low-E assembly (6 + 12 + 6)",
+    area: "Resort site spans 45 hectares (approx)",
+    sector: "Hospitality – Luxury beachfront resort",
+
+    description:
+      "The Alila Hinu Bay resort is a luxury beachfront development located on the southwest coast of Oman, near Mirbat in the Dhofar region, part of the greater Salalah area. The architecture follows a minimalist contemporary style with a clear influence of Omani vernacular materials (e.g., Omani marble on the façade) and large glazed surfaces that connect indoor-outdoor living. Given its premium resort status, the building envelope demands high aesthetic, high performance (thermal, solar, durability) and integration with coastal/climate conditions.",
+    images: [
+      {
+        src: AlMeera,
+        alt: "Alila Hinu Bay",
+      },
+      {
+        src: AlMeera,
+        alt: "Alila Hinu Bay",
+      },
+    ],
+    scopeOfWork:
+      "Mark Aluminium was engaged to supply and install the architectural aluminium façade and glazing systems for the Alila Hinu Bay resort, including",
+    features: [
+      "Design & engineering of the aluminium façade and large glazed curtain-wall/window systems for the resort’s main buildings and villas.",
+      "Supply, fabrication and installation of aluminium framed doors, windows and large glazing panels in guest-rooms, lobby, dining areas and villas.",
+      "Custom aluminium architectural elements (aluminium sun-shade fins, decorative aluminium screens) integrated into façade design to reflect the resort aesthetic and manage solar load.",
+      "Coordination with main contractor & façade consultant for structural interface, MEP penetrations, waterproofing, and installation in a coastal/desert environment.",
+      "Quality assurance: façade mock-ups, on-site testing, commissioning, documentation and hand-over in line with Mark Aluminium’s standards.",
+    ],
+    facadeDetails: {
+      system:
+        "Unitised / semi-unitised aluminium curtain-wall system across primary façades and villa glazing zones",
+
+      profileSystem:
+        "Premium aluminium façade system (customised) equivalent to global high-performance brands, adapted for resort conditions",
+      finish:
+        "Polyester powder-coated aluminium, likely colour tone aligned with resort aesthetic (e.g., neutral/earth tones), approx. 60 µm thickness",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm typical (for heavy glazed and load bearing façade)",
+      transomDepth: "Approx. 100 mm typical",
+      thermalBreak:
+        "Polyamide (or similar) thermal-break within aluminium profiles to ensure thermal performance in warm coastal environment",
+      anchorage:
+        "Stainless steel fixings (AISI 316 or equivalent) designed for corrosion resistance in salt-air exposure",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "•	The design emphasises daylight, transparency and visual connection to the seascape and desert background — the large glazing expanses and minimal aluminium profiles support this. ",
+      "Aluminium façade systems are optimized for retail conditions: durability, maintainability, quick installation and visual uniformity across multiple locations.",
+      "Thermal and daylight performance are important even for retail façade given the Muscat climate: using glass with Low-E coatings and thermally broken aluminium frames helps reduce internal heat gain while enabling welcoming storefronts.",
+      "The standardized façade modular approach supports economies of scale, faster installation and brand consistency across sites.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E laminated/toughened glass",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating: "Low-E neutral/clear for solar control and daylight quality",
+      uValue: "Approx. 1.4-1.8 W/m²K (to be confirmed)",
+      solarHeatGainCoefficient: "Approx. 0.25-0.30 (to be confirmed)",
+      vlt: "Approx. 45-55% (to be confirmed)",
+      colourTone:
+        "Slight neutral or blue/grey tint to complement resort aesthetic and reduce glare",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
+    challenges:
+      "Large expanse of façade with retail opening hours constraints ,	Balancing transparency and solar control,	Durability in coastal environment: ",
+    solution: [
+      "Mark Aluminium’s modular fabrication approach allowed faster on-site installation and minimized disruption to site logistics and fit-out.",
+      "The retail façade demanded high visibility but Muscat’s coastal solar load is high—Mark proposed Low-E glass and shading/overhang strategies embedded in façade design.",
+      "Aluminium frames and fixings specified with corrosion-resistant finishes, high salt-spray rating powder-coating, and SS fixings to ensure long-term asset value.",
     ],
   },
 ];

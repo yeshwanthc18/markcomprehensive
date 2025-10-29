@@ -401,10 +401,7 @@ export default function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center space-x-4">
-              <div className="text-right text-black">
-                <div className="text-l font-semibold">Free Consultation</div>
-                <div className="text-l opacity-80">24/7 Support</div>
-              </div>
+              
               <ButtonPrimary onClick={openPopup}>
                 <span>Get Quote</span>
                 <ArrowRight className="h-4 w-4" />

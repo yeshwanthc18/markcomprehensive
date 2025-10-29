@@ -8,7 +8,7 @@ type RevealProps = {
   children: React.ReactNode
 }
 
-export function Reveal({ threshold = 0.25, delay = 0, className, children }: RevealProps) {
+export function Reveal({ threshold = 0.25, delay = 0.5, className, children }: RevealProps) {
   const ref = React.useRef<HTMLDivElement | null>(null)
   const [shown, setShown] = React.useState(false)
 

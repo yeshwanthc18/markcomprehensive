@@ -77,149 +77,46 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </p>
         </div>
       </div>
-
-      {/* Hero */}
-      {/* <section className="relative">
-        <div className="mx-auto container px-4 py-12 md:py-16">
-          <Reveal>
-            <nav aria-label="Breadcrumb" className="text-sm mb-4">
-              <ol
-                className="flex items-center gap-2 text-[color:var(--fg-muted)]"
-                style={{ ["--fg-muted" as any]: brand.black }}
+      <section
+        className="relative border-b"
+        style={{ borderColor: brand.navy }}
+      >
+        <div className="relative h-[80vh]">
+          <Image
+            src={service.heroImage}
+            alt={`${service.title} hero`}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" />
+          <div className="flex relative justify-center items-center h-[80vh] p-6 md:p-10 ">
+            <div className="container">
+              {/* <nav
+                aria-label="Breadcrumb"
+                className="text-xs md:text-sm mb-2 text-white flex gap-2"
               >
-                <li>
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li>
-                  <Link href="/services" className="hover:underline">
-                    Services
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li
-                  className="font-medium text-[color:var(--navy)]"
-                  style={{ ["--navy" as any]: brand.navy }}
-                >
-                  {service.title}
-                </li>
-              </ol>
-            </nav>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <Reveal>
-              <div>
-                <h1
-                  className="text-balance text-3xl md:text-4xl font-semibold text-[color:var(--navy)]"
-                  style={{ ["--navy" as any]: brand.navy }}
-                >
-                  {service.title}
-                </h1>
-                <p
-                  className="mt-3 text-lg text-[color:var(--deep)]"
-                  style={{ ["--deep" as any]: brand.primaryDeep }}
-                >
-                  {service.tagline}
-                </p>
-                <p
-                  className="mt-5 leading-relaxed text-[color:var(--fg-muted)]"
-                  style={{ ["--fg-muted" as any]: brand.primaryDeep }}
-                >
-                  {service.summary}
-                </p>
-
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <Link
-                    href={{
-                      pathname: "/projects",
-                      query: { type: service.title },
-                    }}
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
-                    style={{
-                      backgroundColor: brand.navy,
-                      color: brand.white,
-                      border: `1px solid ${brand.navy}`,
-                    }}
-                  >
-                    View Projects
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
-                    style={{
-                      backgroundColor: brand.white,
-                      color: brand.navy,
-                      border: `1px solid ${brand.navy}`,
-                    }}
-                  >
-                    Talk to an Expert
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <div
-                className="relative overflow-hidden border group"
-                style={{ borderColor: brand.navy }}
-              >
-                <Image
-                  src={service.heroImage || "/placeholder.svg"}
-                  alt={`${service.title} hero`}
-                  className="w-full h-[280px] md:h-[360px] object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  width={1280}
-                  height={360}
-                  loading="eager"
-                  decoding="async"
-                  priority
-                />
-                <div
-                  className="absolute inset-2 pointer-events-none"
-                  style={{
-                    outline: `1px solid ${brand.navy}`,
-                    outlineOffset: "-2px",
-                    opacity: 0.6,
-                  }}
-                />
-                <div
-                  className="absolute inset-x-0 bottom-0 h-1"
-                  style={{ backgroundColor: brand.primary }}
-                />
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section> */}
-       <section className="relative border-b" style={{ borderColor: brand.navy }}>
-          <div className="relative h-[500px] md:h-[420px]">
-            <Image
-              src={service.heroImage}
-              alt={`${service.title} hero`}
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
-            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent">
-              <div className="container">
-        <nav aria-label="Breadcrumb" className="text-xs md:text-sm mb-2 text-white flex gap-2">
-                <Link href="/" className="hover:underline">Home</Link>
+                <Link href="/" className="hover:underline">
+                  Home
+                </Link>
                 <span>/</span>
-                <Link href="/services" className="hover:underline">Services</Link>
+                <Link href="/services" className="hover:underline">
+                  Services
+                </Link>
                 <span>/</span>
                 <span className="font-medium">{service.title}</span>
-              </nav>
-              <h1 className="text-3xl md:text-5xl font-bold text-white">{service.title}</h1>
-              <p className="mt-2 md:mt-4 text-sm md:text-lg text-white/90">{service.tagline}</p>
-              </div>
-            
+              </nav> */}
+              <h1 className="text-3xl md:text-5xl font-bold text-white">
+                {service.title}
+              </h1>
+              <p className="mt-2 md:mt-4 text-sm md:text-lg text-white/90">
+                {service.tagline}
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* Content with sticky nav */}
       <section className="border-t" style={{ borderColor: brand.navy }}>

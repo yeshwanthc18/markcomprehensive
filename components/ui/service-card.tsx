@@ -29,7 +29,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+    <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0  shadow-lg">
       {/* Image Section */}
       <div className="relative h-72 overflow-hidden">
         <Image

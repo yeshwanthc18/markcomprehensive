@@ -1,15 +1,10 @@
-import { Building2, Wrench, Hammer, Shield, Zap, Leaf } from "lucide-react";
-import { ServicesHeroSection } from "@/components/services/services-hero-section";
-import { ServicesGridSection } from "@/components/services/services-grid-section";
 import { VideoShowcaseSection } from "@/components/services/video-showcase-section";
 import { TechnicalResourcesSection } from "@/components/services/technical-resources-section";
-import  ProcessSection  from "@/components/services/process-section";
+import ProcessSection from "@/components/services/process-section";
 import { CaseStudiesSection } from "@/components/services/case-studies-section";
-import { ServicesCTASection } from "@/components/services/services-cta-section";
-import BuildingWalkthrough from "@/components/3d/Walkthrough";
 import ServicePageWalkthrough from "@/components/3d/ServicesWalkthrough";
-import ProjectShowcaseNew from "./ProjectShowcaseNew/ProjectShowcaseNew";
-import BackgroundGradientAnimation from "@/components/animated/background-gradient-animation";
+import ServiceShowcaseNew from "./ProjectShowcaseNew/ServiceShowcaseNew";
+import { ServicesHeroSection } from "@/components/services/services-hero-section";
 
 export default function ServicesPage() {
   return (
@@ -24,16 +19,15 @@ export default function ServicesPage() {
         />
       </div> */}
       {/* <BuildingWalkthrough /> */}
-      <ServicePageWalkthrough />
+      {/* <ServicePageWalkthrough /> */}
 
       {/* Sections */}
       {/* <ServicesHeroSection /> */}
-      <BackgroundGradientAnimation>
-      <ProjectShowcaseNew />
-      </BackgroundGradientAnimation>
-      <VideoShowcaseSection />
+
+      <ServiceShowcaseNew />
+      {/* <VideoShowcaseSection /> */}
       <TechnicalResourcesSection />
-      <ProcessSection />
+      {/* <ProcessSection /> */}
       <CaseStudiesSection />
       {/* <ServicesCTASection /> */}
     </div>

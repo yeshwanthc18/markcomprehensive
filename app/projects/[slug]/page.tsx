@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { CompareDemo } from "@/components/animated/compare";
+import { Reveal } from "@/components/reveal-on-scroll";
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -93,23 +94,28 @@ export default function ProjectDetailPage({
           <div className="lg:col-span-2 space-y-8">
             {/* Project Overview */}
             <section>
+              <Reveal>
               <h2 className="text-3xl font-bold text-[#001952] mb-4">
                 Project Overview
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 {project.description}
               </p>
+              </Reveal>
             </section>
             <section>
               <h2 className="text-3xl font-bold text-[#001952] mb-4">
                 Before & After
               </h2>
+              <Reveal>
               <CompareDemo />
+              </Reveal>
             </section>
 
             {/* Scope of Work */}
             {project.scopeOfWork && (
               <section>
+                <Reveal>
                 <h2 className="text-3xl font-bold text-[#001952] mb-4">
                   Scope of Work
                 </h2>
@@ -128,6 +134,7 @@ export default function ProjectDetailPage({
                     </div>
                   ))}
                 </div>
+                </Reveal>
               </section>
             )}
 
@@ -145,6 +152,7 @@ export default function ProjectDetailPage({
             </section> */}
 
             {/* Facade System Details */}
+            <Reveal>
             <section>
               <h2 className="text-3xl font-bold text-[#001952] mb-6">
                 Facade System Details
@@ -270,8 +278,10 @@ export default function ProjectDetailPage({
                 </div>
               </Card>
             </section>
+            </Reveal>
 
             {/* Performance Highlights */}
+            <Reveal>
             {project.performanceHighlights &&
               typeof project.performanceHighlights === "object" &&
               !Array.isArray(project.performanceHighlights) && (
@@ -348,8 +358,10 @@ export default function ProjectDetailPage({
                   </div>
                 </section>
               )}
+              </Reveal>
 
             {/* Glass Specification */}
+            <Reveal>
             {project.glassSpecification && (
               <section>
                 <h2 className="text-3xl font-bold text-[#001952] mb-6">
@@ -444,8 +456,10 @@ export default function ProjectDetailPage({
                 </Card>
               </section>
             )}
+            </Reveal>
 
             {/* Challenge & Solution */}
+            <Reveal>
             {project.challenges && project.solution && (
               <section className="space-y-6">
                 <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded">
@@ -492,8 +506,10 @@ export default function ProjectDetailPage({
                 </div>
               </section>
             )}
+            </Reveal>
 
             {/* Image Gallery */}
+            <Reveal>
             <section>
               <h2 className="text-3xl font-bold text-[#001952] mb-6">
                 Project Gallery
@@ -514,6 +530,7 @@ export default function ProjectDetailPage({
                 ))}
               </div>
             </section>
+            </Reveal>
           </div>
 
           {/* Sidebar */}

@@ -135,10 +135,10 @@ export default function RecentProjects() {
   const contentOpacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0]);
   const cardWidth = useTransform(scrollYProgress, [0.2, 0.4], [280, 450]);
   const xOffset = useTransform(cardWidth, (w) => -(w - 250) / 2);
-  const scale = useTransform(scrollYProgress, [0.2, 1], [1, 4.6]); 
+  const scale = useTransform(scrollYProgress, [0.2, 1], [1, 4.6]);
   const translateY = useTransform(scale, (s) => `${(1 - s) * 50}%`);
   const sticky = useTransform(scrollYProgress, [0, 1], ["350px", "450px"]);
-   const cardBottom = useTransform(scrollYProgress, [0, 0.8], ["2rem", "4rem"]);
+  const cardBottom = useTransform(scrollYProgress, [0, 0.8], ["2rem", "4rem"]);
 
   return (
     <div ref={containerRef} className="relative">
@@ -187,7 +187,7 @@ export default function RecentProjects() {
             {/* Card 2 - Hospitality (Sticky Expanding) */}
             <motion.div
               ref={hospitalityCardRef}
-              className=" text-white overflow-hidden flex flex-col justify-between lg:row-span-3 relative group"
+              className="text-white overflow-hidden flex flex-col justify-between lg:row-span-3 relative group"
               style={{
                 position: "sticky",
                 bottom: cardBottom,
@@ -198,37 +198,11 @@ export default function RecentProjects() {
                   : "1 / 2",
                 padding: cardPadding,
                 zIndex: 20,
-                opacity:contentOpacity,
+                opacity: contentOpacity,
                 marginTop: sticky,
                 scale,
               }}
             >
-              {/* <div className="absolute inset-0 opacity-15 group-hover:opacity-25 transition-opacity">
-                <Image
-                  src={projects[1].image}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="relative z-10">
-                <div className="text-sm text-gray-400">
-                  {projects[1].number} / 06
-                </div>
-              </div>
-              <div className="relative z-10">
-                <motion.div
-                  className="font-bold mb-4"
-                  style={{
-                    fontSize: titleSize,
-                    lineHeight: 1.1,
-                  }}
-                >
-                  {projects[1].type}
-                </motion.div>
-                <a href="#" className="text-white underline text-sm hover:text-[#01adff] transition-colors mt-6">
-                  View details →
-                </a>
-              </div> */}
               <HomeHowWeWork />
             </motion.div>
 
