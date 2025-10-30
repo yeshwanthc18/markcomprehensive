@@ -1,72 +1,55 @@
-"use client";
+"use client"
 
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-} from "framer-motion";
-import { useMemo, useRef, useState, useEffect } from "react";
-import ProjectCard from "../ProjectCard/ProjectCard";
-import FilterMenu from "./FilterMenu/FilterMenu";
-import { PROJECTS, type PType, type Region } from "@/lib/project-data";
-
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < breakpoint);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < breakpoint);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [breakpoint]);
-
-  return isMobile;
-}
+import { motion, useScroll, useSpring, useTransform, useVelocity } from "framer-motion"
+import { useMemo, useRef, useState, useEffect } from "react"
+import ProjectCard from "../ProjectCard/ProjectCard"
+import FilterMenu from "./FilterMenu/FilterMenu"
+import { PROJECTS, type PType, type Region } from "@/lib/project-data"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function ProjectShowcaseNew() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
-  const [region, setRegion] = useState<Region | "All">("All");
-  const [projectType, setProjectType] = useState<PType | "All">("All");
+  const [region, setRegion] = useState<Region | "All">("All")
+  const [projectType, setProjectType] = useState<PType | "All">("All")
+  const [mounted, setMounted] = useState(false)
+
+  const isMobile = useIsMobile()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const filtered = useMemo(() => {
     return PROJECTS.filter(
-      (p) =>
-        (region === "All" || p.region === region) &&
-        (projectType === "All" || p.type === projectType)
-    );
-  }, [region, projectType]);
+      (p) => (region === "All" || p.region === region) && (projectType === "All" || p.type === projectType),
+    )
+  }, [region, projectType])
 
   // Scroll + velocity setup
   const { scrollY } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
-  });
-  const scrollVelocity = useVelocity(scrollY);
+  })
+  const scrollVelocity = useVelocity(scrollY)
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
     stiffness: 200,
-  });
+  })
 
-  const scale = useTransform(smoothVelocity, [-1000, 0, 1000], [0.85, 1, 0.85]);
-  const rotate = useTransform(smoothVelocity, [-2000, 0, 2000], [-8, 0, 8]);
+  const scale = useTransform(smoothVelocity, [-1000, 0, 1000], [0.85, 1, 0.85])
+  const rotate = useTransform(smoothVelocity, [-2000, 0, 2000], [-8, 0, 8])
 
-  const isMobile = useIsMobile();
-
-  if (isMobile) {
-    return <MobileLayout />;
+  if (mounted && isMobile) {
+    return <MobileLayout />
   }
 
-  return <DesktopLayout />;
+  return <DesktopLayout />
 
   function DesktopLayout() {
     return (
       <>
-        <section
-          ref={containerRef}
-          className="grid container mx-auto py-24 mt-16"
-        >
+        <section ref={containerRef} className="grid container mx-auto py-24 mt-16">
           <div className="relative h-full w-full grid grid-cols-2 gap-[4rem]">
             {/* Text Section */}
             <div className="absolute h-[15rem] flex flex-col items-start justify-center">
@@ -77,9 +60,8 @@ export default function ProjectShowcaseNew() {
                 <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent" />
               </div>
               <p className="mt-6 text-lg md:text-xl text-white max-w-xl mx-auto">
-                Interactive exploration of our facade projects across the GCC
-                and India. Filter by region or project type and open images in a
-                high-resolution lightbox.
+                Interactive exploration of our facade projects across the GCC and India. Filter by region or project
+                type and open images in a high-resolution lightbox.
               </p>
             </div>
 
@@ -89,8 +71,7 @@ export default function ProjectShowcaseNew() {
                 key={project.id}
                 className="relative w-full h-full rounded-[1vw]"
                 style={{
-                  marginTop:
-                    index % 2 === 0 ? (index === 0 ? "20rem" : "10rem") : 0,
+                  marginTop: index % 2 === 0 ? (index === 0 ? "20rem" : "10rem") : 0,
                   scale,
                   rotateX: rotate,
                   rotateY: rotate,
@@ -108,13 +89,11 @@ export default function ProjectShowcaseNew() {
           </div>
         </section>
         <FilterMenu
-          onProjectTypeChange={(pType) =>
-            setProjectType(pType as PType | "All")
-          }
+          onProjectTypeChange={(pType) => setProjectType(pType as PType | "All")}
           onRegionChange={(rType) => setRegion(rType as Region | "All")}
         />
       </>
-    );
+    )
   }
 
   function MobileLayout() {
@@ -135,9 +114,8 @@ export default function ProjectShowcaseNew() {
                   <div className="w-16 sm:w-20 md:w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent" />
                 </div>
                 <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white max-w-xl">
-                  Interactive exploration of our facade projects across the GCC
-                  and India. Filter by region or project type and open images in
-                  a high-resolution lightbox.
+                  Interactive exploration of our facade projects across the GCC and India. Filter by region or project
+                  type and open images in a high-resolution lightbox.
                 </p>
               </div>
 
@@ -167,12 +145,10 @@ export default function ProjectShowcaseNew() {
           </div>
         </section>
         <FilterMenu
-          onProjectTypeChange={(pType) =>
-            setProjectType(pType as PType | "All")
-          }
+          onProjectTypeChange={(pType) => setProjectType(pType as PType | "All")}
           onRegionChange={(rType) => setRegion(rType as Region | "All")}
         />
       </>
-    );
+    )
   }
 }
