@@ -144,7 +144,7 @@ export const BentoGridItem = ({
       </div>
 
       {/* 🔹 Subtle glow border on hover */}
-      <div className="absolute inset-0 border border-transparent group-hover:border-[#00bfff]/40 transition-all duration-700 rounded-2xl pointer-events-none"></div>
+      <div className="absolute inset-0 border border-transparent group-hover:border-[#00bfff]/40 transition-all duration-700 pointer-events-none"></div>
     </motion.div>
   );
 };

@@ -34,7 +34,9 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <ThreeDViewer />
-      <RecentProjectsOne />
+      <GradientBG className="min-h-screen">
+        <RecentProjectsOne />
+      </GradientBG>
 
       {/* <TimelineProjects /> */}
       <BackgroundGradientAnimation
@@ -61,24 +63,22 @@ export default function HomePage() {
         <RecentProjects />
       </GradientBG>
 
-    
-
       {/* <KeyNumbersSection /> */}
       <HomeHowWeWork />
 
       <IndustryHighlightsSection />
       <div style={{ width: "100vw", height: "100vh" }}>
-         <div className="text-center py-24 pb-1 px-6 relative z-10">
-            <div className="inline-block relative mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black relative">
-                Strong Patnerships <span className="text-[#01adff]">Stronger Solutions</span>
-              </h2>
-              <div className="mt-4 flex justify-center">
-                <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
-              </div>
+        <div className="text-center py-24 pb-1 px-6 relative z-10">
+          <div className="inline-block relative mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black relative">
+              Strong Patnerships{" "}
+              <span className="text-[#01adff]">Stronger Solutions</span>
+            </h2>
+            <div className="mt-4 flex justify-center">
+              <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
             </div>
-         
           </div>
+        </div>
         <DomeGallery />
       </div>
       <GradientBG className="min-h-screen mt-60">
