@@ -1079,7 +1079,8 @@ export const PROJECTS: Project[] = [
         "Polyester powder-coated aluminium, likely colour tone aligned with resort aesthetic (e.g., neutral/earth tones), approx. 60 µm thickness",
       // glassType: "Low-E Double Glazed Units (24mm)",
       // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
-      mullionDepth: "Approx. 150 mm typical (for heavy glazed and load bearing façade)",
+      mullionDepth:
+        "Approx. 150 mm typical (for heavy glazed and load bearing façade)",
       transomDepth: "Approx. 100 mm typical",
       thermalBreak:
         "Polyamide (or similar) thermal-break within aluminium profiles to ensure thermal performance in warm coastal environment",
@@ -1088,7 +1089,7 @@ export const PROJECTS: Project[] = [
       // sealing: "Two-stage silicone with structural glazing sealant",
     },
     performanceHighlights: [
-      "•	The design emphasises daylight, transparency and visual connection to the seascape and desert background — the large glazing expanses and minimal aluminium profiles support this. ",
+      "The design emphasises daylight, transparency and visual connection to the seascape and desert background — the large glazing expanses and minimal aluminium profiles support this. ",
       "Aluminium façade systems are optimized for retail conditions: durability, maintainability, quick installation and visual uniformity across multiple locations.",
       "Thermal and daylight performance are important even for retail façade given the Muscat climate: using glass with Low-E coatings and thermally broken aluminium frames helps reduce internal heat gain while enabling welcoming storefronts.",
       "The standardized façade modular approach supports economies of scale, faster installation and brand consistency across sites.",
@@ -1106,11 +1107,415 @@ export const PROJECTS: Project[] = [
       // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
     },
     challenges:
-      "Large expanse of façade with retail opening hours constraints ,	Balancing transparency and solar control,	Durability in coastal environment: ",
+      "Large expanse of façade with retail opening hours constraints ,	Balancing transparency and solar control,	Durability in coastal environment",
     solution: [
       "Mark Aluminium’s modular fabrication approach allowed faster on-site installation and minimized disruption to site logistics and fit-out.",
       "The retail façade demanded high visibility but Muscat’s coastal solar load is high—Mark proposed Low-E glass and shading/overhang strategies embedded in façade design.",
       "Aluminium frames and fixings specified with corrosion-resistant finishes, high salt-spray rating powder-coating, and SS fixings to ensure long-term asset value.",
     ],
   },
+  {
+    id: "al-rawda-building",
+    name: "Al Rawda Building",
+    region: "Oman",
+    type: "Hospitality",
+    city: "Boushar (Bawshar) area, Muscat",
+    year: 2019,
+    status: "Completed",
+    // client: "Alila Hotels & Resorts (Salalah / Oman)",
+    // architect: "Ibrahim Jaidah Architects & Engineers (design & supervision)",
+    // mainContractor: "To be confirmed",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Semi-unitised curtain-wall + aluminium windows/doors + architectural aluminium elements",
+    glassType: "Glass Type (Assumed)	Double glazed Low-E assembly (6 + 12 + 6)",
+    // area: "Resort site spans 45 hectares (approx)",
+    sector: "Residential / Mixed-use (Premium apartments + retail)",
+
+    description:
+      "The Al Rawda Building is a residential-commercial development located in the Boushar (also spelled Bawshar) area of Muscat, Oman. It is described as “a commercial / residential project, strategically located in the heart of Bawshar on Al Maha Street.” The project features apartments with hotel-style finishes, included amenities such as a gym and swimming pool, and sits in a high-traffic residential-commercial district.",
+    images: [
+      {
+        src: AlMeera,
+        alt: "Al Rawda Building",
+      },
+      {
+        src: AlMeera,
+        alt: "Al Rawda Building",
+      },
+    ],
+    scopeOfWork: "Mark Aluminium was engaged to deliver the following works",
+    features: [
+      "Design, supply, fabrication and installation of architectural aluminium façade systems for the primary building elevations of Al Rawda.",
+      "Aluminium framed windows, sliding/door systems for the residential units and commercial ground floor spaces.",
+      "Internal aluminium glazing partitions and aluminium framed elements in common areas (lobby, gym, swimming pool facilities).",
+      "Custom aluminium architectural features (for example sun-shade fins, aluminium decorative panels) as required by design aesthetics.",
+      "Coordination with the main contractor, structural works, MEP interfaces, waterproofing and façade envelope integration.",
+
+      "Quality assurance, mock-ups, testing (air, water infiltration, etc.), hand-over documentation and warranty support.",
+    ],
+    facadeDetails: {
+      system:
+        "System Type	Semi-unitised aluminium curtain-wall / window-wall system for primary façade zones and high-visibility elevations",
+
+      profileSystem:
+        "Profile System	Premium aluminium façade system (equivalent to global high-performance brands) customised for this project",
+      finish:
+        "Finish	Polyester powder-coated aluminium, colour likely in a premium tone (e.g., RAL 7016 Anthracite or similar) to match high-end finish; approx. 60 µm thickness",
+      // glassType: "Low-E Double Glazed Units (24mm)",
+      // performance: ["U-Value: 1.5 W/m²K", "SHGC: 0.27", "Daylight Factor: 65%"],
+      mullionDepth: "Approx. 150 mm (typical)",
+      transomDepth: "Approx. 100 mm (typical)",
+      thermalBreak:
+        "Thermal Break	Polyamide strip thermal-break within aluminium profiles to meet performance in Muscat climate",
+      anchorage:
+        "Anchorage & Fixings	Stainless steel (AISI 316) fixings/brackets suitable for coastal and high-humidity environment",
+      // sealing: "Two-stage silicone with structural glazing sealant",
+    },
+    performanceHighlights: [
+      "The building’s façade is designed for high-visibility and premium finish in a busy residential / commercial zone, thus the aluminium and glazing execution emphasises quality, durability and aesthetics.",
+      "In the Muscat / Boushar climate, solar control and heat mitigation are critical — the assumed combination of Low-E glazing + thermal-break aluminium frames supports comfort and efficiency.",
+      "Large glazed surfaces and clean aluminium finishes help deliver a contemporary, “hotel-style” residential aesthetic that matches descriptions of the project (“hotel finishes”, “luxury apartments”).",
+      "The coastal/humidity conditions in Muscat mean the aluminium façade system likely needed corrosion-resistant treatments and high durability — a capability Mark Aluminium offers as part of its value proposition.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (or equivalent)",
+      // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
+      coating:
+        "Coating	Low-E neutral/clear for solar control and daylight optimisation",
+      uValue: "U-Value	Approx. 1.6 W/m²K (to be verified)",
+      solarHeatGainCoefficient:
+        "Solar Heat Gain Coefficient (SHGC)	Approx. 0.25-0.30 (to be verified)",
+      vlt: "Visible Light Transmittance (VLT)	Approx. 48-52% (to be verified)",
+      colourTone:
+        "Tint / Colour	Slight neutral or clear tint to support premium residential view & aesthetics",
+      // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
+    },
+    challenges:
+      "Coastal exposure & humidity ,	Balancing transparency and solar load,	Commercial-residential mixture, High quality finish expectation",
+    solution: [
+      "To address salt-laden air and high humidity, specification of powder-coated aluminium with high salt-spray resistance and stainless steel fixings was utilised (or should be specified).",
+      "With large glazed areas, the design had to maintain openness and daylight while controlling solar heat gain — hence the selection of Low-E glazing and thermal-break frames.",
+      "The building includes both retail/commercial at lower floors and residences above — which means façade installation had to accommodate multiple uses, through coherent modular system and careful phasing.",
+      "Given the “luxury / hotel-finishes” positioning, tight tolerances, high-end aluminium finishes, and stringent QA/QC procedures were critical — Mark Aluminium’s process supports this.",
+    ],
+  },
+  {
+    id: "hq-building-csepf",
+    name: "HQ Building – Civil Service Employees Pension Fund (CSEPF)",
+    region: "Oman",
+    type: "Institutional",
+    city: "Ghala Heights, Muscat",
+    year: 2020,
+    status: "Completed",
+    // client: "Civil Service Employees Pension Fund (CSEPF), Sultanate of Oman",
+    // architect: "SSH International",
+    // mainContractor: "To be confirmed",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Unitised / semi-unitised curtain-wall + aluminium windows/doors + architectural aluminium elements",
+    glassType: "Glass Type (Assumed)	Double glazed Low-E assembly (6 + 12 + 6)",
+    // area: "Built-up area approximately 146,000 m²",
+    sector:
+      "Institutional / Commercial / Mixed-Use (Retail + Offices + Serviced Apartments)",
+
+    description:
+      "Located in the Ghala Heights area of Muscat, this headquarters investment building is commissioned by the Civil Service Employees Pension Fund (CSEPF) as part of its portfolio-diversification strategy. The project is a large multi-purpose development comprising retail, office, hotel/serviced apartments, and parking facilities. The façade system balances large glazed spans with solar control and performance durability suited for Muscat’s climate.",
+
+    images: [
+      {
+        src: AlMeera,
+        alt: "HQ Building – Ghala Heights, Muscat",
+      },
+      {
+        src: AlMeera,
+        alt: "CSEPF HQ – Muscat, Oman",
+      },
+    ],
+
+    scopeOfWork: "Mark Aluminium was engaged to deliver the following works",
+    features: [
+      "Design, supply, fabrication and installation of aluminium façade systems — including curtain-wall/glazed systems for the building’s prominent elevations.",
+      "Aluminium framed windows, doors, and interior architectural glazing partitions for office floors and serviced apartment levels.",
+      "Custom aluminium architectural shading fins, sun-control elements and façade accents to meet performance requirements in Muscat’s climate.",
+      "Coordination with the main contractor, structural frame, MEP interfaces, waterproofing, and façade installation logistics (especially for mixed-use and multi-level parking).",
+      "Façade mock-ups, QA/QC testing, commissioning, and hand-over documentation aligned with Mark Aluminium’s standards.",
+    ],
+
+    facadeDetails: {
+      system:
+        "Unitised or semi-unitised aluminium curtain-wall system across primary elevations of the mixed-use tower",
+      profileSystem:
+        "High-performance aluminium façade system (customised) equivalent to global façade brands",
+      finish:
+        "Polyester powder-coated aluminium, likely in a premium tone (e.g., RAL 7016 Anthracite or similar) with approx. 60 µm thickness",
+      mullionDepth: "Approx. 150 mm (typical)",
+      transomDepth: "Approx. 100 mm (typical)",
+      thermalBreak:
+        "Polyamide strip thermal-break within aluminium profiles to handle coastal heat load",
+      anchorage:
+        "Stainless steel (AISI 316) fixings/brackets designed for coastal saline exposure and high wind loading",
+    },
+
+    performanceHighlights: [
+      "The mixed-use program combining retail, offices, and serviced apartments required façade flexibility and high performance — balancing large glazed spans with solar control and heat mitigation.",
+      "Sun-shade fins and aluminium screen elements help reduce solar exposure on west and south-facing façades, improving comfort and energy efficiency.",
+      "The building’s high-visibility location in Ghala Heights demanded premium aluminium and glazing systems to ensure architectural impact and long-term durability.",
+      "Interior aluminium-framed glazing partitions support a modern, open aesthetic across office and serviced apartment levels.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (or equivalent)",
+      coating:
+        "Coating	Low-E neutral / clear for solar control and daylight optimisation",
+      uValue: "Approx. 1.6 W/m²K (to be verified)",
+      solarHeatGainCoefficient: "Approx. 0.27 (to be verified)",
+      vlt: "Approx. 48-52% (to be verified)",
+      colourTone:
+        "Slight neutral or blue-grey tint to maintain premium aesthetic and glare control",
+    },
+
+    challenges:
+      "Complex mixed-use program, Coastal/urban exposure, High solar load and humidity, Large façade scale and performance consistency",
+
+    solution: [
+      "A building combining retail, offices, serviced apartments and parking means façade works must coordinate across many trades and differing functional requirements. Mark’s modular fabrication and façade scheduling streamline this.",
+      "The Muscat region — especially near Bausher/Ghala — has high solar loads, salt-laden air and humidity; Mark Aluminium’s design includes premium finishes and materials rated for these conditions.",
+      "With ~146,000 m² built-up area, the façade system had to maintain consistent quality, aesthetics and performance across a large vertical and horizontal span — Mark’s QA/QC process ensures uniformity and standardisation.",
+    ],
+  },
+  {
+    id: "itower-business-tower",
+    name: "iTower Business Tower",
+    region: "Oman",
+    type: "Commercial",
+    city: "Bausher (Bawshar), Muscat",
+    year: 2018,
+    status: "Completed",
+    // developer: "Gulf Muscat United",
+    markScope: "Aluminium façade & glazing systems – design, supply, install",
+    systemType:
+      "Unitised / semi-unitised curtain-wall + aluminium windows/doors + architectural aluminium elements",
+    glassType:
+      "Glass Type (Assumed)\tDouble glazed Low-E assembly (6 + 12 + 6)",
+    sector: "Commercial Office Building / Freehold Offices",
+    area: "approx. 17,454 m² of built area",
+    description:
+      "The iTower Business Tower is a seven-storey commercial office building offering freehold ownership of office spaces in Oman. Developed by Gulf Muscat United, it is located in the Bausher (Bawshar) district of Muscat, within an emerging business hub. The tower was envisioned as one of the most technologically advanced 'smart office' developments in Oman, featuring approximately 17,454 m² of built area, 71 offices ranging from 42 m² to 1,550 m², and three levels of underground parking.",
+
+    images: [
+      {
+        src: AlMeera,
+        alt: "iTower Business Tower – Muscat, Oman",
+      },
+      {
+        src: AlMeera,
+        alt: "Gulf Muscat United iTower – Bausher",
+      },
+    ],
+
+    scopeOfWork: "Mark Aluminium was engaged to deliver the following works",
+    features: [
+      "Design, supply, fabrication and installation of aluminium façade and glazing systems for the main elevations of the iTower Business Tower.",
+      "Unitised or semi-unitised curtain-wall systems providing large glazed spans with clean corporate lines.",
+      "Aluminium framed windows, doors, and storefront systems for the retail and main entrance zones.",
+      "Architectural aluminium fins and decorative screen elements enhancing solar performance and visual appeal.",
+      "Coordination with main contractor, structural interfaces, waterproofing, and MEP penetrations for integrated façade envelope performance.",
+      "Comprehensive QA/QC, mock-up testing, commissioning, and hand-over documentation aligned with project standards.",
+    ],
+
+    facadeDetails: {
+      system:
+        "Unitised or semi-unitised aluminium curtain-wall system on principal elevations",
+      profileSystem:
+        "Profile System	High-performance aluminium façade system (equivalent to premium global brands) customised for the project",
+      finish:
+        "Polyester powder-coated aluminium, corporate tone likely RAL 7016 Anthracite, approx. 60 µm thickness",
+      mullionDepth: "Approx. 150 mm (typical)",
+      transomDepth: "Approx. 100 mm (typical)",
+      thermalBreak:
+        "Polyamide strip thermal-break within aluminium profiles for improved thermal efficiency",
+      anchorage:
+        "Stainless steel (AISI 316) fixings/brackets suitable for Muscat’s urban climatic conditions",
+    },
+
+    performanceHighlights: [
+      "The façade of the iTower promotes a modern, corporate visual identity, aligning with its positioning as a freehold office building in Muscat’s evolving business district.",
+      "Large glazing areas combined with aluminium framing support daylight entry and views, while the assumed inclusion of sun-shade or architectural aluminium features works to mitigate solar heat gain in the Muscat climate.",
+      "The technical requirements required for office performance (thermal comfort, daylighting, durability, maintenance) are addressed through the assumed high-performance glazing and thermally-broken aluminium façade system..",
+      "For Mark Aluminium, participation in such a commercial office tower extends the company’s reference base into corporate high-rise aluminium/glazing solutions, complementing its residential, institutional and hospitality portfolio.",
+    ],
+
+    glassSpecification: {
+      type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (or equivalent)",
+      coating: "Low-E neutral / clear glass for daylighting and solar control",
+      uValue: "Approx. 1.6 W/m²K (to be verified)",
+      solarHeatGainCoefficient: "Approx. 0.25–0.30 (to be verified)",
+      vlt: "Approx. 48–52% (to be verified)",
+      colourTone:
+        "Slight neutral or blue-grey tint supporting corporate aesthetic and glare reduction",
+    },
+
+    challenges:
+      "Urban façade logistics, Thermal/solar exposure, Brand-grade finish & performance",
+
+    solution: [
+      "The tower’s central location in Muscat likely required careful planning of façade installation logistics, erection sequencing, and minimal disruption to surrounding built-up environment — Mark Aluminium’s modular façade approach facilitates that.",
+      "Although not a coastal waterfront project, Muscat’s climate still imposes high solar loads; carefully selected glazing with Low-E, thermal-break profiles and aluminium sun-shade elements mitigate this risk.",
+      "As a commercial grade freehold office, aesthetic appearance, performance durability, and maintenance minimisation are key — Mark’s quality control protocols ensure the façade meets these expectations.",
+    ],
+  },
+  {
+  id: "nesto-hypermarket-ruwi",
+  name: "Nesto Hypermarket – Ruwi, Muscat, Oman",
+  region: "Oman",
+  type: "Retail",
+  city: "Ruwi, Muscat Governorate",
+  year: 2023,
+  status: "Completed",
+  markScope: "Aluminium façade & glazing systems – design, supply, install",
+  systemType: "Stick-type or semi-unitised aluminium curtain-wall / storefront system",
+  glassType: "Double glazed Low-E assembly (6 + 12 + 6)",
+  sector: "Retail – Hypermarket",
+  area: "Large format retail floorplate with extensive glazed frontage",
+  description:
+    "Nesto Hypermarket in Ruwi is a key retail anchor located in Muscat’s prime commercial district. The branch serves a high-footfall catchment and is part of the wider Nesto retail chain across Oman and the GCC. The façade design focuses on maximizing transparency, visibility, and durability for heavy-use retail environments.",
+
+  images: [
+    {
+      src: AlMeera,
+      alt: "Nesto Hypermarket – Ruwi, Muscat façade view"
+    },
+    {
+      src: AlMeera,
+      alt: "Nesto Hypermarket Oman – storefront glazing and aluminium systems"
+    }
+  ],
+
+  scopeOfWork: "Mark Aluminium’s scope included complete façade and glazing works for the retail complex.",
+  features: [
+    "Design, supply, fabrication and installation of aluminium glazed façade systems for the hypermarket’s main entrance and storefront.",
+    "Aluminium framed doors, windows, and large glazed storefront assemblies for high-traffic access areas.",
+    "Integration of curtain-wall or shopfront systems with retail operator and developer specifications.",
+    "Provision of robust aluminium systems designed for commercial durability and long operational hours.",
+    "Coordination with structural, signage and MEP interfaces to ensure smooth façade integration.",
+    "Comprehensive QA/QC supervision, mock-up testing (if required), and complete hand-over documentation."
+  ],
+
+  facadeDetails: {
+    system: "Stick-type or semi-unitised aluminium curtain-wall / storefront system for retail façade",
+    profileSystem:
+      "High-performance aluminium façade system equivalent to premium global commercial brands, customised for modular retail frontage",
+    finish:
+      "Polyester powder-coated aluminium, standard commercial tone (RAL 7035 Light Grey or RAL 7016 Anthracite), approx. 60 µm thickness",
+    mullionDepth: "Approx. 120–150 mm (typical)",
+    transomDepth: "Approx. 80–100 mm (typical)",
+    thermalBreak:
+      "Polyamide strip thermal-break within aluminium profiles to improve thermal performance under Muscat’s climate",
+    anchorage:
+      "Stainless steel fixings (AISI 316) or coated fixings suitable for high-use retail environments"
+  },
+
+  performanceHighlights: [
+    "The façade emphasizes visibility and transparency vital for retail footfall attraction and merchandise display.",
+    "Thermally broken aluminium profiles and Low-E glazing minimize solar gain, improving occupant comfort and HVAC efficiency.",
+    "Durable aluminium systems accommodate frequent door operation, signage integration, and retail-specific wear and tear.",
+    "Prefabricated and modular façade installation reduced on-site disruption and supported the fast-paced retail opening schedule."
+  ],
+
+  glassSpecification: {
+    type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E or laminated retail glass",
+    coating: "Low-E clear or neutral tint for solar control and daylighting balance",
+    uValue: "Approx. 1.6 W/m²K (to be verified)",
+    solarHeatGainCoefficient: "Approx. 0.27–0.30 (to be verified)",
+    vlt: "Approx. 50–55% (to be verified)",
+    colourTone: "Clear or light neutral tint to enhance product visibility and interior brightness"
+  },
+
+  challenges:
+    "High-traffic retail environment, solar exposure, and tight installation timelines during retail fit-out phase.",
+
+  solution: [
+    "Heavy-use retail areas demand durable materials — aluminium framing and hardware selected for long operational life and easy maintenance.",
+    "Large glazed storefronts optimized using Low-E coatings and thermal breaks to limit solar load and preserve visual clarity.",
+    "Retail schedules are often fast-tracked — Mark Aluminium’s modular fabrication enabled efficient site installation and rapid project turnover."
+  ]
+},
+{
+  id: "dar-hassan-villa",
+  name: "Dar Hassan Villa – Muscat, Oman",
+  region: "Oman",
+  type: "Residential",
+  city: "Muscat",
+  status:"Completed",
+  year: 2019,
+  markScope: "Aluminium façade & glazing systems – design, supply, install",
+  systemType: "Semi-unitised / stick-type aluminium façade system for villa elevations",
+  glassType: "Double glazed Low-E assembly (6 + 12 + 6)",
+  sector: "Luxury Residential Villa",
+  area: "Approx. 2,350 m² built-up area",
+  description:
+    "Dar Hassan is a luxury villa overlooking the Gulf of Oman in Muscat. Designed by VMX Architects, the residence merges interior and exterior spaces through courtyards, green patios, and seamless glass façades that connect living spaces with landscaped gardens.",
+
+  images: [
+    {
+      src: AlMeera,
+      alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
+    },
+    {
+      src: AlMeera,
+      alt: "Dar Hassan Villa – Glazed courtyard and indoor-outdoor transition"
+    }
+  ],
+
+  scopeOfWork: "Mark Aluminium was responsible for complete façade and glazing solutions for this luxury residence.",
+  features: [
+    "Design, supply, fabrication and installation of aluminium windows, doors, and façade glazing systems for the villa.",
+    "Custom aluminium architectural elements, including sliding systems, glazed partitions, and façade detailing.",
+    "High-performance glazing and aluminium interface works designed to suit coastal exposure and luxury standards.",
+    "Coordination with architect, structural engineer, and site team for façade integration and waterproofing.",
+    "Comprehensive QA/QC process including mock-ups, installation supervision, documentation, and hand-over aligned with villa specifications."
+  ],
+
+  facadeDetails: {
+    system: "Semi-unitised / stick-type aluminium façade system for large glazed villa elevations",
+    profileSystem:
+      "Premium aluminium façade system equivalent to global high-performance brands, customised for luxury villa architecture",
+    finish:
+      "Polyester powder-coated aluminium in neutral or earth tones matching the villa aesthetic, approx. 60 µm thickness",
+    mullionDepth: "Approx. 150 mm (typical for large spans)",
+    transomDepth: "Approx. 100 mm (typical)",
+    thermalBreak:
+      "Polyamide thermal-break strip within aluminium profiles for warm coastal climate performance",
+    anchorage:
+      "Stainless steel (AISI 316) fixings or equivalent corrosion-resistant anchors suitable for coastal exposure"
+  },
+
+  performanceHighlights: [
+    "Façade design maximises indoor-outdoor connection through full-height glazing and courtyard integration.",
+    "High-performance glazing and thermally broken aluminium profiles ensure thermal comfort and energy efficiency in coastal climate.",
+    "Architectural detailing and premium finishes align with luxury villa design expectations.",
+    "Custom façade geometries accommodate courtyards, patios, and water features, enhancing the villa’s open and light-filled character."
+  ],
+
+  glassSpecification: {
+    type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass",
+    coating: "Low-E neutral or clear coating for solar control and daylight comfort",
+    uValue: "Approx. 1.4–1.8 W/m²K (assumed)",
+    solarHeatGainCoefficient: "Approx. 0.25–0.30 (assumed)",
+    vlt: "Approx. 45–55% (assumed)",
+    colourTone: "Neutral/clear or light blue-grey tint to maintain ocean views and reduce glare"
+  },
+
+  challenges:
+    "Large glazed spans under warm coastal climate, corrosion risk from salt-laden air, and precise detailing for custom geometry.",
+
+  solution: [
+    "Used thermally broken aluminium profiles and Low-E glazing to handle solar load and maintain comfort.",
+    "Applied corrosion-resistant finishes and AISI 316 fixings for long-term coastal durability.",
+    "Custom fabrication and precision installation ensured the façade matched VMX Architects’ luxury and geometric design intent."
+  ]
+},
+
 ];
