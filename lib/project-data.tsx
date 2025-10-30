@@ -24,6 +24,18 @@ import DharHassan4 from "@/public/compressed-images/project-photos/DHAR HASSAN V
 import DharHassan5 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6608.jpg";
 import DharHassan6 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6728.jpg";
 import DharHassan7 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6750.jpg";
+import DOWNE1 from "@/public/compressed-images/project-photos/DOWNE/IMG_3846.jpg";
+import DOWNE2 from "@/public/compressed-images/project-photos/DOWNE/IMG_3858.jpg";
+import DOWNE3 from "@/public/compressed-images/project-photos/DOWNE/IMG_3868.jpg";
+import DOWNE4 from "@/public/compressed-images/project-photos/DOWNE/IMG_3871.jpg";
+import IbrahimElite1 from "@/public/compressed-images/project-photos/IBRAHIM - ELITE/IMG_5435.jpg";
+import Juman1 from "@/public/compressed-images/project-photos/JUMAN/IMG_5503.jpg";
+import Nesto1 from "@/public/compressed-images/project-photos/NESTO - RUVI/IMG_3718.jpg";
+import Nesto2 from "@/public/compressed-images/project-photos/NESTO - RUVI/IMG_3714.jpg";
+import Nesto3 from "@/public/compressed-images/project-photos/NESTO - RUVI/IMG_3723.jpg";
+
+
+
 
 export type Project = {
   id: string;
@@ -118,11 +130,19 @@ export const PROJECTS: Project[] = [
       "Part of the iconic Al Mouj Muscat waterfront community, the Al Mouj Kindergarten forms a key component of the master-planned Community Hub that also includes a mosque, sales centre, and public plaza.Developed by Al Mouj Muscat SAOC and designed by SSH Consultants, the Kindergarten brings together modern learning environments, sustainable materials, and a contemporary façade aesthetic that aligns with the masterplan’s architectural vocabulary. Located along Oman’s coastline, the structure demanded façade systems engineered for high solar exposure, saline air, and coastal humidity — while maintaining child-safe daylighting and aesthetic softness.",
     images: [
       {
-        src: AlMeera,
+        src: Almouj1,
         alt: "Al Mouj Kindergarten",
       },
       {
-        src: AlMeera,
+        src: Almouj2,
+        alt: "Al Mouj Kindergarten",
+      },
+       {
+        src: Almouj3,
+        alt: "Al Mouj Kindergarten",
+      },
+       {
+        src: Almouj4,
         alt: "Al Mouj Kindergarten",
       },
     ],
@@ -202,11 +222,19 @@ export const PROJECTS: Project[] = [
       "Downe House Muscat is a purpose-built, premium British all-girls school campus located in Seeb (Al Bandar), Muscat, Oman. Developed under a franchise agreement between the UK-based Downe House School and the Oman Ministry of Defence Pension Fund, the campus opened in September 2022 and spans approximately 41,000 m² of built-area. The school features state-of-the-art educational buildings including STEM, Arts & Design, Performing Arts and Sports facilities, conforming to global standards of learning and built environment. ",
     images: [
       {
-        src: AlMeera,
+        src: DOWNE1,
         alt: "Downe House Muscat",
       },
       {
-        src: AlMeera,
+        src: DOWNE2,
+        alt: "Downe House Muscat",
+      },
+       {
+        src: DOWNE3,
+        alt: "Downe House Muscat",
+      },
+       {
+        src: DOWNE4,
         alt: "Downe House Muscat",
       },
     ],
@@ -635,11 +663,11 @@ export const PROJECTS: Project[] = [
       "Juman is a premium waterfront residential development nestled within the larger Al Mouj Muscat master-plan in Muscat, Oman. The project consists of iconic apartment buildings offering 1- and 2-bed units (e.g., Juman Two: 76 one-bed + 76 two-bed apartments) around landscaped gardens and pool decks overlooking the marina. Designed to capture resort-style living with high-end finishes, waterfront views and elevated amenity spaces, it presents a strong architectural and market-statement.",
     images: [
       {
-        src: AlMeera,
+        src: Juman1,
         alt: "Juman",
       },
       {
-        src: AlMeera,
+        src: Juman1,
         alt: "Juman",
       },
     ],
@@ -801,11 +829,11 @@ export const PROJECTS: Project[] = [
       "Ibrahim Elite is a premium office/residential or mixed-use development (to be confirmed) in Muscat, Oman. It reflects modern architecture, high-quality finishes and is positioned as a flagship property in its location.",
     images: [
       {
-        src: AlMeera,
+        src: IbrahimElite1,
         alt: "Ibrahim Elite ",
       },
       {
-        src: AlMeera,
+        src: IbrahimElite1,
         alt: "Ibrahim Elite ",
       },
     ],
@@ -1052,11 +1080,19 @@ export const PROJECTS: Project[] = [
       "The Alila Hinu Bay resort is a luxury beachfront development located on the southwest coast of Oman, near Mirbat in the Dhofar region, part of the greater Salalah area. The architecture follows a minimalist contemporary style with a clear influence of Omani vernacular materials (e.g., Omani marble on the façade) and large glazed surfaces that connect indoor-outdoor living. Given its premium resort status, the building envelope demands high aesthetic, high performance (thermal, solar, durability) and integration with coastal/climate conditions.",
     images: [
       {
-        src: AlMeera,
+        src: Alila1,
         alt: "Alila Hinu Bay",
       },
       {
-        src: AlMeera,
+        src: Alila2,
+        alt: "Alila Hinu Bay",
+      },
+       {
+        src: Alila3,
+        alt: "Alila Hinu Bay",
+      },
+       {
+        src: Alila4,
         alt: "Alila Hinu Bay",
       },
     ],
@@ -1384,11 +1420,15 @@ export const PROJECTS: Project[] = [
 
   images: [
     {
-      src: AlMeera,
+      src: Nesto2,
       alt: "Nesto Hypermarket – Ruwi, Muscat façade view"
     },
     {
-      src: AlMeera,
+      src: Nesto1,
+      alt: "Nesto Hypermarket Oman – storefront glazing and aluminium systems"
+    },
+    {
+      src: Nesto3,
       alt: "Nesto Hypermarket Oman – storefront glazing and aluminium systems"
     }
   ],
@@ -1460,13 +1500,29 @@ export const PROJECTS: Project[] = [
 
   images: [
     {
-      src: AlMeera,
+      src: DharHassan1,
       alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
     },
     {
-      src: AlMeera,
+      src: DharHassan2,
       alt: "Dar Hassan Villa – Glazed courtyard and indoor-outdoor transition"
-    }
+    },
+      {
+      src: DharHassan3,
+      alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
+    }, {
+      src: DharHassan4,
+      alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
+    }, {
+      src: DharHassan5,
+      alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
+    }, {
+      src: DharHassan6,
+      alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
+    }, {
+      src: DharHassan7,
+      alt: "Dar Hassan Villa – Coastal façade view, Muscat, Oman"
+    }, 
   ],
 
   scopeOfWork: "Mark Aluminium was responsible for complete façade and glazing solutions for this luxury residence.",

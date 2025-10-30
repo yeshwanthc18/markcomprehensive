@@ -230,7 +230,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   className="text-2xl font-semibold text-[color:var(--navy)]"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
-                  Curtain Wall
+                  Models
                 </h2>
               </Reveal>
               <div className="mt-6">

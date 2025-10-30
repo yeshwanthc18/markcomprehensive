@@ -13,7 +13,6 @@ import { CompareDemo } from "@/components/animated/compare";
 import ThreeDViewer from "@/components/3d/Three";
 import QuickEstimateSection from "@/components/home/quick-estimate-section";
 import { ProgressiveBlur } from "@/components/animated/blur";
-import ProjectShowcase from "@/components/home/recent";
 import TriangleScrollAnimation from "@/components/animations/trianglescrollanimation";
 import ScrollVelocity from "@/components/animated/scroll-velocity";
 import { useLenis } from "@/components/animated/Lenis";
@@ -28,14 +27,16 @@ import TracingScrollbar from "./TriangleCursor";
 import TriangleCursor from "./TriangleCursor";
 import RecentProjects from "@/components/home/recentprojects";
 import DomeGallery from "@/components/animations/DomeGallery";
+import { RecentProjectsOne } from "@/components/home/recent";
 
 export default function HomePage() {
   useLenis();
   return (
     <div className="flex flex-col">
       <ThreeDViewer />
+      <RecentProjectsOne />
 
-      <TimelineProjects />
+      {/* <TimelineProjects /> */}
       <BackgroundGradientAnimation
         overlayImage={
           <div className="relative w-full h-full">
