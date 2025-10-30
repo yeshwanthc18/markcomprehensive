@@ -1,22 +1,12 @@
-import { cn } from "@/lib/utils";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 import { PROJECTS } from "@/lib/project-data";
 
-import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-} from "@tabler/icons-react";
+
 
 export function RecentProjectsOne() {
   const project = PROJECTS;
 
-  console.log(project[0]);
 
   return (
     <section className="py-24">
@@ -34,24 +24,24 @@ export function RecentProjectsOne() {
         </div>
       </div>
       <BentoGrid className="container mx-auto">
-       {project.slice(0, 7).map((item, i) => (
-    <BentoGridItem
-      key={i}
-      title={item.name}
-      description={item.description}
-      icon={item.images[0]?.src}
-      client={item.client}
-      architect={item.architect}
-      region={item.region}
-      id={item.id}
-      city={item.city}
-      area={item.area}
-      year={item.year}
-      status={item.status}
-      // challenges={item.challenges}
-      className={i === 3 || i === 6 ? "lg:col-span-2" : ""}
-    />
-  ))}
+        {project.slice(0, 7).map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.name}
+            description={item.description}
+            icon={item.images[0]?.src}
+            client={item.client}
+            architect={item.architect}
+            region={item.region}
+            id={item.id}
+            city={item.city}
+            area={item.area}
+            year={item.year}
+            status={item.status}
+            // challenges={item.challenges}
+            className={i === 3 || i === 6 ? "lg:col-span-2" : ""}
+          />
+        ))}
       </BentoGrid>
     </section>
   );

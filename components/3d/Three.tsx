@@ -17,6 +17,7 @@ import ButtonPrimary from "../layout/Button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import CloudField from "./CloudField";
+import { useControls } from "leva";
 import Birds from "./Birds";
 
 // 🌀 Loader component for 3D scene
@@ -50,13 +51,25 @@ const birdPositions = [
   { position: [3, 0, -9], rotation: [0, 1, 0], scale: 0.15 },
   { position: [3, 0.1, -10], rotation: [0, 1, 0], scale: 0.15 },
 ];
+ 
 function StreetScene({
   modelContainerRef,
 }: {
   modelContainerRef: React.RefObject<HTMLDivElement>;
 }) {
-  const { scene } = useGLTF("/office_building/mark_building_v4.glb");
+  const { scene } = useGLTF("/office_building/streetview.glb");
   const modelRef = useRef<THREE.Group>(null);
+
+  // 🎚️ Leva controls for model adjustment
+ const { posX, posY, posZ,rotX,rotY,rotZ,  scale } = useControls("Street Scene", {
+    posX: { value: 55.0, min: -100, max: 100, step: 0.1 },
+    posY: { value: -7.8, min: -100, max: 100, step: 0.1 },
+    posZ: { value: -64.7, min: -100, max: 100, step: 0.1 },
+    rotX: { value: -0.08, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotY: { value: 0.00, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+    scale: { value: 3.6, min: 0.1, max: 10, step: 0.1 },
+  });
 
   const { scrollYProgress } = useScroll({
     target: modelContainerRef,
@@ -69,17 +82,12 @@ function StreetScene({
     mass: 0.4,
   });
 
-  const position = [1.2, -1.9, 3.9];
-  const rotation = [-12.76, 0.07, 0];
-
   useFrame(() => {
     const scroll = smoothScroll.get();
     if (modelRef.current) {
-      modelRef.current.rotation.y = rotation[1] - scroll * 0.1;
-      const baseZ = position[1];
-      const baseRotx = rotation[0];
-      modelRef.current.rotation.x = baseRotx - scroll * 0.1;
-      modelRef.current.position.z = baseZ + scroll * Math.PI * 2.5;
+      modelRef.current.rotation.y = rotY - scroll * 0.1;
+      modelRef.current.rotation.x = rotX - scroll * 0.1;
+      modelRef.current.position.z = posZ + scroll * Math.PI * 4.5;
     }
   });
 
@@ -87,13 +95,12 @@ function StreetScene({
     <primitive
       ref={modelRef}
       object={scene}
-      position={position}
-      rotation={rotation}
-      scale={2}
+      position={[posX, posY, posZ]}
+      // rotation={[rotX, rotY, rotZ]}
+      scale={scale}
     />
   );
 }
-
 export default function ThreeDViewer() {
   const modelContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -102,6 +109,10 @@ export default function ThreeDViewer() {
   });
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
+   const {  fov } = useControls("fov", {
+  
+   fov: { value:  30, min: 0.1, step: 0.1 },
+  });
   return (
     <div
       ref={modelContainerRef}
@@ -173,7 +184,7 @@ export default function ThreeDViewer() {
         </div>
 
         {/* Canvas + Loader */}
-        <Canvas camera={{ fov: 55 }}>
+        <Canvas camera={{ fov }}>
           <Suspense fallback={<Loader />}>
             {birdPositions.map((item, index) => (
               <Birds
@@ -185,9 +196,9 @@ export default function ThreeDViewer() {
             ))}
             <Hud>
               <ambientLight intensity={0.8} color={0xffcadde9} />
-              <Environment preset="city" />
+              <Environment preset="sunset" />
               <StreetScene modelContainerRef={modelContainerRef} />
-              <HeroSky />
+              {/* <HeroSky /> */}
             </Hud>
             <CloudField />
           </Suspense>
@@ -197,4 +208,4 @@ export default function ThreeDViewer() {
   );
 }
 
-useGLTF.preload("/office_building/mark_building_v4.glb");
+useGLTF.preload("/office_building/streetview.glb");

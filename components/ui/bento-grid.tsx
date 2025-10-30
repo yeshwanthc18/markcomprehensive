@@ -16,7 +16,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[25rem] p-6",
+        "mx-auto grid container grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[25rem] p-6",
         className
       )}
     >
@@ -41,9 +41,9 @@ export const BentoGridItem = ({
   challenges,
 }: {
   className?: string;
-  title?: string;
+  title?: any;
   description?: string;
-  icon?: string;
+  icon?: any;
   client?: string;
   architect?: string;
   region?: string;
@@ -71,8 +71,8 @@ export const BentoGridItem = ({
     >
       {/* 🔹 Background Image */}
       <Image
-        src={icon || "/placeholder.jpg"}
-        alt={title || "Project Image"}
+        src={icon}
+        alt={title}
         fill
         className="object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-700"
       />
@@ -84,7 +84,7 @@ export const BentoGridItem = ({
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10 transition-all duration-500 group-hover:translate-y-[-8px]">
         {/* Header Info */}
         <div className="flex justify-between items-center mb-3">
-          <div className="text-xs uppercase tracking-wide text-neutral-300">
+          <div className="text-xs uppercase tracking-wide text-white">
             {region} • {year}
           </div>
           <span
@@ -105,12 +105,12 @@ export const BentoGridItem = ({
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-neutral-300 mb-4 line-clamp-2">
+        <p className="text-sm text-white mb-4 line-clamp-2">
           {description?.slice(0, 120)}...
         </p>
 
         {/* Metadata */}
-        <div className="space-y-1 text-xs text-neutral-400">
+        <div className="space-y-1 text-xs text-neutral-300">
           {client && <p>👤 Client: {client}</p>}
           {architect && <p>🏛️ Architect: {architect}</p>}
           {city && <p>📍 {city}, {region}</p>}
