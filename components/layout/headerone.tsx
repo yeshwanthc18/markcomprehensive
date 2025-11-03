@@ -415,7 +415,7 @@ export default function Header() {
                 className={`p-2  transition-colors duration-200 ${
                   isScrolled
                     ? "text-gray-700 hover:text-[#1564e5]"
-                    : "text-white hover:text-gray-100"
+                    : "text-gray-700 hover:text-gray-700"
                 }`}
               >
                 {isMenuOpen ? (

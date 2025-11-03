@@ -22,6 +22,7 @@ import HeroSky from "./HeroSky";
 import OceanBackground from "./OceanScene/OceanBackground";
 import OceanScene from "./OceanScene/OceanScene";
 import ScrollableOceanScene from "./OceanScene/WaterSimple/ScrollablaOceanScene";
+import CloudField from "./CloudField";
 
 //
 // 🌀 Loader
@@ -255,9 +256,9 @@ export default function ThreeDViewer() {
 
             {/* 🌊 Simple Ocean — put before lights, but control render order */}
             {/* <SimpleOcean /> */}
-   
-              <ScrollableOceanScene  modelContainerRef={modelContainerRef} />
-        
+
+            <ScrollableOceanScene modelContainerRef={modelContainerRef} />
+
             <HeroSky />
           </Suspense>
         </Canvas>
