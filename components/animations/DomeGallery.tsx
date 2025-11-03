@@ -894,18 +894,11 @@ export default function DomeGallery({
                   }
                 >
                   <div
-                    className="item__image absolute block overflow-hidden cursor-pointer bg-gray-200 transition-transform duration-300"
+                    className="absolute block overflow-hidden cursor-pointer bg-gray-200 transition-transform duration-300"
                     role="button"
                     tabIndex={0}
                     aria-label={it.alt || "Open image"}
-                    onClick={(e) => {
-                      if (draggingRef.current) return;
-                      if (movedRef.current) return;
-                      if (performance.now() - lastDragEndAt.current < 80)
-                        return;
-                      if (openingRef.current) return;
-                      openItemFromElement(e.currentTarget as HTMLElement);
-                    }}
+                  
                     onPointerUp={(e) => {
                       if (
                         (e.nativeEvent as PointerEvent).pointerType !== "touch"

@@ -74,7 +74,7 @@ export default function TriangleGroupScroll() {
   });
 
   // Card visibility - only show after triangles are in position (at scroll progress 0.95+)
-  const cardOpacity = useTransform(scrollYProgress, [0.9, 1], [0, 1]);
+  const cardOpacity = useTransform(scrollYProgress, [0.9, 1], [0.5, 1]);
   const smoothCardOpacity = useSpring(cardOpacity, {
     stiffness: 100,
     damping: 20,
@@ -188,7 +188,7 @@ export default function TriangleGroupScroll() {
   };
 
   return (
-    <section ref={containerRef} className="relative py-32 overflow-visible bg-white">
+    <section ref={containerRef} className="relative py-32 overflow-visible ">
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

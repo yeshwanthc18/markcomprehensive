@@ -3,27 +3,31 @@
 import {
   Environment,
   Hud,
-  Text,
-  useGLTF,
   Html,
+  useGLTF,
   useProgress,
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef, useEffect, Suspense } from "react";
+import { useRef, Suspense } from "react";
 import * as THREE from "three";
-import HeroSky from "./HeroSky";
-import ButtonPrimary from "../layout/Button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import CloudField from "./CloudField";
-import { useControls } from "leva";
-import Birds from "./Birds";
+import { useControls, Leva } from "leva";
 
-// 🌀 Loader component for 3D scene
+import Birds from "./Birds";
+import SimpleOcean from "./Water/SimpleOcean";
+import ButtonPrimary from "../layout/Button";
+import HeroSky from "./HeroSky";
+import OceanBackground from "./OceanScene/OceanBackground";
+import OceanScene from "./OceanScene/OceanScene";
+import ScrollableOceanScene from "./OceanScene/WaterSimple/ScrollablaOceanScene";
+
+//
+// 🌀 Loader
+//
 function Loader() {
   const { progress } = useProgress();
-
   return (
     <Html center>
       <div className="flex flex-col items-center justify-center text-black">
@@ -34,24 +38,21 @@ function Loader() {
   );
 }
 
+//
+// 🐦 Bird positions
+//
 const birdPositions = [
-  /*Far Birds*/
   { position: [1, 2, 0], rotation: [0, 0, 0], scale: 0.05 },
   { position: [-3, 2, 0], rotation: [0, Math.PI, 0], scale: 0.1 },
-
-  /*Top Birds*/
   { position: [-2, 2, -9], rotation: [0, -1, 0], scale: 0.2 },
-  {
-    position: [-2, 2, -9],
-    rotation: [0, -1, 0],
-    scale: 0.1,
-  },
-
-  /*Bottom Birds*/
+  { position: [-2, 2, -9], rotation: [0, -1, 0], scale: 0.1 },
   { position: [3, 0, -9], rotation: [0, 1, 0], scale: 0.15 },
   { position: [3, 0.1, -10], rotation: [0, 1, 0], scale: 0.15 },
 ];
- 
+
+//
+// 🏙️ Street Scene (scroll + Leva control)
+//
 function StreetScene({
   modelContainerRef,
 }: {
@@ -60,17 +61,21 @@ function StreetScene({
   const { scene } = useGLTF("/office_building/streetview.glb");
   const modelRef = useRef<THREE.Group>(null);
 
-  // 🎚️ Leva controls for model adjustment
- const { posX, posY, posZ,rotX,rotY,rotZ,  scale } = useControls("Street Scene", {
-    posX: { value: 55.0, min: -100, max: 100, step: 0.1 },
-    posY: { value: -7.8, min: -100, max: 100, step: 0.1 },
-    posZ: { value: -64.7, min: -100, max: 100, step: 0.1 },
-    rotX: { value: -0.08, min: -Math.PI, max: Math.PI, step: 0.01 },
-    rotY: { value: 0.00, min: -Math.PI, max: Math.PI, step: 0.01 },
-    rotZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
-    scale: { value: 3.6, min: 0.1, max: 10, step: 0.1 },
-  });
+  // 🎚️ Position / rotation / scale controls
+  const { posX, posY, posZ, rotX, rotY, rotZ, scale } = useControls(
+    "Street Scene",
+    {
+      posX: { value: 55.0, min: -100, max: 100, step: 0.1 },
+      posY: { value: -9, min: -100, max: 100, step: 0.1 },
+      posZ: { value: -64.7, min: -100, max: 100, step: 0.1 },
+      rotX: { value: -0.08, min: -Math.PI, max: Math.PI, step: 0.01 },
+      rotY: { value: 0.0, min: -Math.PI, max: Math.PI, step: 0.01 },
+      rotZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+      scale: { value: 3.6, min: 0.1, max: 10, step: 0.1 },
+    }
+  );
 
+  // 🌀 Scroll animation
   const { scrollYProgress } = useScroll({
     target: modelContainerRef,
     offset: ["start start", "end end"],
@@ -85,8 +90,8 @@ function StreetScene({
   useFrame(() => {
     const scroll = smoothScroll.get();
     if (modelRef.current) {
-      modelRef.current.rotation.y = rotY - scroll * 0.1;
-      modelRef.current.rotation.x = rotX - scroll * 0.1;
+      modelRef.current.rotation.y = rotY - scroll * 0.001;
+      modelRef.current.rotation.x = rotX - scroll * 0.001;
       modelRef.current.position.z = posZ + scroll * Math.PI * 4.5;
     }
   });
@@ -96,11 +101,16 @@ function StreetScene({
       ref={modelRef}
       object={scene}
       position={[posX, posY, posZ]}
-      // rotation={[rotX, rotY, rotZ]}
       scale={scale}
+      rotation={[rotX, rotY, rotZ]}
+      renderOrder={0}
     />
   );
 }
+
+//
+// 🌅 Main Scene Viewer
+//
 export default function ThreeDViewer() {
   const modelContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -109,10 +119,36 @@ export default function ThreeDViewer() {
   });
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
-   const {  fov } = useControls("fov", {
-  
-   fov: { value:  30, min: 0.1, step: 0.1 },
+  // 🎥 Camera FOV control
+  const { fov } = useControls("Camera", {
+    fov: { value: 30, min: 10, max: 100, step: 1 },
   });
+
+  // 💡 Lighting controls
+  const {
+    ambientIntensity,
+    ambientColor,
+    dirIntensity,
+    dirColor,
+    dirX,
+    dirY,
+    dirZ,
+    hemiIntensity,
+    hemiColorSky,
+    hemiColorGround,
+  } = useControls("Lighting", {
+    ambientIntensity: { value: 0.6, min: 0, max: 5, step: 0.1 },
+    ambientColor: "#ffffff",
+    dirIntensity: { value: 1.5, min: 0, max: 5, step: 0.1 },
+    dirColor: "#ffffff",
+    dirX: { value: 5, min: -20, max: 20, step: 0.5 },
+    dirY: { value: 10, min: -20, max: 20, step: 0.5 },
+    dirZ: { value: 5, min: -20, max: 20, step: 0.5 },
+    hemiIntensity: { value: 0.3, min: 0, max: 2, step: 0.1 },
+    hemiColorSky: "#87ceeb",
+    hemiColorGround: "#ffffff",
+  });
+
   return (
     <div
       ref={modelContainerRef}
@@ -122,6 +158,9 @@ export default function ThreeDViewer() {
         position: "relative",
       }}
     >
+      {/* 🎚️ Leva Controls */}
+      <Leva collapsed />
+
       <div
         style={{
           width: "100%",
@@ -130,7 +169,7 @@ export default function ThreeDViewer() {
           top: 0,
         }}
       >
-        {/* Overlay content */}
+        {/* Overlay Content */}
         <div
           style={{
             width: "100vw",
@@ -141,7 +180,7 @@ export default function ThreeDViewer() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 500,
+            zIndex: 1,
           }}
         >
           <motion.div
@@ -150,7 +189,6 @@ export default function ThreeDViewer() {
               width: "40%",
               backgroundColor: "rgba(255, 255, 255, 0.3)",
               border: "1.5px solid rgba(255, 255, 255, 0.5)",
-              height: "fit-content",
               backdropFilter: "blur(5px)",
               borderRadius: "2rem",
               padding: "2rem",
@@ -168,8 +206,8 @@ export default function ThreeDViewer() {
               Engineering the future of modern Architecture
             </h1>
             <p style={{ color: "#1c345c" }}>
-              Combining Design vision with Engeneering Excellence, We create
-              façades that perform beautifully across materials,climates and
+              Combining Design vision with Engineering Excellence, We create
+              façades that perform beautifully across materials, climates and
               cityspaces.
             </p>
             <ButtonPrimary>
@@ -183,9 +221,10 @@ export default function ThreeDViewer() {
           </motion.div>
         </div>
 
-        {/* Canvas + Loader */}
+        {/* 🖼️ 3D Scene */}
         <Canvas camera={{ fov }}>
           <Suspense fallback={<Loader />}>
+            {/* 🐦 Birds */}
             {birdPositions.map((item, index) => (
               <Birds
                 key={index}
@@ -194,13 +233,32 @@ export default function ThreeDViewer() {
                 scale={item.scale}
               />
             ))}
+
+            {/* Lights and Environment */}
             <Hud>
-              <ambientLight intensity={0.8} color={0xffcadde9} />
-              <Environment preset="sunset" />
+              <ambientLight intensity={ambientIntensity} color={ambientColor} />
+              <directionalLight
+                intensity={dirIntensity}
+                color={dirColor}
+                position={[dirX, dirY, dirZ]}
+                castShadow
+              />
+              <hemisphereLight
+                intensity={hemiIntensity}
+                groundColor={hemiColorGround}
+              />
+              <Environment preset="city" />
+
+              {/* 🏙️ Street Scene */}
               <StreetScene modelContainerRef={modelContainerRef} />
-              {/* <HeroSky /> */}
             </Hud>
-            <CloudField />
+
+            {/* 🌊 Simple Ocean — put before lights, but control render order */}
+            {/* <SimpleOcean /> */}
+   
+              <ScrollableOceanScene  modelContainerRef={modelContainerRef} />
+        
+            <HeroSky />
           </Suspense>
         </Canvas>
       </div>

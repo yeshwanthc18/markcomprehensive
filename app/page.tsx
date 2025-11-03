@@ -58,10 +58,25 @@ export default function HomePage() {
       <GradientBG className="min-h-screen">
         <ServiceHighlightsSection />
       </GradientBG>
-
-      <GradientBG className="min-h-screen">
-        <RecentProjects />
-      </GradientBG>
+      {/* <div className="h-screen">
+        <FallingText
+          text={`React Bits is a library of animated and interactive React components designed to streamline UI development and simplify your workflow.`}
+          highlightWords={[
+            "React",
+            "Bits",
+            "animated",
+            "components",
+            "simplify",
+          ]}
+          // highlightClass="highlighted"
+          trigger="hover"
+          backgroundColor="transparent"
+          wireframes={false}
+          gravity={0.56}
+          fontSize="2rem"
+          mouseConstraintStiffness={0.9}
+        />
+      </div> */}
 
       {/* <KeyNumbersSection /> */}
       <HomeHowWeWork />

@@ -38,16 +38,16 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
-
   return (
     <html lang="en" className={urbanist.variable}>
+      <head>
+        <link rel="icon" href="/images/favicon.png" type="image/png+xml" />
+      </head>
       <body className="font-urbanist">
         <GSAPSetup />
         <QuickEstimateProvider>

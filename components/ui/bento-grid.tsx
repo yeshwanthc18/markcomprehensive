@@ -109,14 +109,7 @@ export const BentoGridItem = ({
           {description?.slice(0, 120)}...
         </p>
 
-        {/* Metadata */}
-        <div className="space-y-1 text-xs text-neutral-300">
-          {client && <p>👤 Client: {client}</p>}
-          {architect && <p>🏛️ Architect: {architect}</p>}
-          {city && <p>📍 {city}, {region}</p>}
-          {area && <p>📐 Area: {area}</p>}
-          {challenges && <p>⚙️ {challenges}</p>}
-        </div>
+      
 
         {/* Button */}
         <div className="mt-5">

@@ -1,5 +1,3 @@
-"use client";
-
 import { LocationProvider } from "@/components/providers/location-provider";
 // import AboutHeroSection from "@/components/about/about-hero-section";
 // import MissionVisionSection from "@/components/about/about-mission-vission";

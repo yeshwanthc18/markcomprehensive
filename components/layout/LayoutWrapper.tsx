@@ -57,6 +57,7 @@ export default function LayoutWrapper({
       {/* <ScrollToTop /> */}
 
       {!isComingSoon && <Header />}
+   
 
       <TriangleCursor />
       <main className="min-h-screen">{children}</main>
