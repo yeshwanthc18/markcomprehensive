@@ -376,10 +376,11 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="contact">
               <Reveal>
                 <div
-                  className="p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+                  className="p-6 rounded-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
                   style={{
                     border: `1px solid ${brand.navy}`,
                     backgroundColor: brand.white,
+                    // borderRadius:"10px",
                   }}
                 >
                   <div>
@@ -399,10 +400,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   </div>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
+                    className="inline-flex rounded-md items-center px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
                     style={{
                       backgroundColor: brand.primary,
-                      color: brand.black,
+                      color: "white",
                       border: `1px solid ${brand.primary}`,
                     }}
                   >

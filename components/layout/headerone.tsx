@@ -305,9 +305,9 @@ export default function Header() {
 
                         <div className="col-span-4 hidden md:flex flex-col p-6  bg-gradient-to-b from-[#001952] via-[#16213e] to-[#0f3460]  text-white rounded-none">
                           <div>
-                            <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 text-[11px] tracking-wide uppercase rounded-none">
+                            {/* <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 text-[11px] tracking-wide uppercase rounded-none">
                               Our Expertise
-                            </div>
+                            </div> */}
                             <h3 className="mt-4 text-[18px] font-semibold leading-snug">
                               End‑to‑end facade solutions
                             </h3>
@@ -317,20 +317,20 @@ export default function Header() {
                             </p>
                           </div>
                           <div className="mt-6">
-                            <Link
-                              href="/services/curtain-wall-visual"
-                              className="inline-flex items-center gap-2 bg-[#01adff] px-4 py-2 text-sm font-medium text-[#001952] hover:bg-[#01adff]/90 transition rounded-none"
+                            <ButtonPrimary
+                              // href="/services/curtain-wall-visual"
+                              className="inline-flex items-center gap-2 bg-[#01adff] px-4 py-2  rounded-md"
                               onClick={() => setServicesOpen(false)}
                             >
                               Explore all services
                               <ArrowRight className="h-4 w-4" />
-                            </Link>
+                            </ButtonPrimary>
                           </div>
                         </div>
 
                    
                         <div className="col-span-12 md:col-span-8 p-4 sm:p-6">
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 border border-border rounded-none">
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 rounded-none">
                                <GlowingEffect
                                   spread={40}
                                   glow={true}
@@ -341,10 +341,10 @@ export default function Header() {
                             {services.map((s, i) => (
                               <li
                                 key={s.href}
-                                className={cn(
-                                  "border-b border-border last:border-b-0",
-                                  i % 2 === 0 ? "sm:border-r" : "sm:border-r-0"
-                                )}
+                                // className={cn(
+                                //   "border-b border-border last:border-b-0",
+                                //   i % 2 === 0 ? "sm:border-r" : "sm:border-r-0"
+                                // )}
                               >
                               
                                 <Link
@@ -359,7 +359,7 @@ export default function Header() {
                                       alt={s.title}
                                       width={48}
                                       height={48}
-                                      className="h-12 w-12 object-cover rounded-none"
+                                      className="h-12 w-12 object-cover rounded-sm"
                                     />
                                   </div>
                                   <div className="min-w-0">

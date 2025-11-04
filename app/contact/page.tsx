@@ -46,6 +46,7 @@ import {
 } from "lucide-react";
 import { WorldMapDemo } from "@/components/animated/contact";
 import { GlobeDemo } from "./world";
+import GradientBG from "@/components/animated/background-white-gradient";
 
 export default function ContactPage() {
   const [locationData, setLocationData] = useState<LocationData | null>(null);
@@ -197,8 +198,9 @@ export default function ContactPage() {
   const allLocations = getAllLocations();
 
   return (
-    <div className="flex flex-col bg-white">
-      <section className="py-32 bg-gray-50">
+    <div className="flex flex-col ">
+      <GradientBG>
+      <section className="py-32 ">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 xl:grid-cols-5 gap-16">
             {/* Contact Information */}
@@ -219,10 +221,10 @@ export default function ContactPage() {
                   </div>
 
                   {locationData && (
-                    <Card className="bg-white  shadow-2xl border-0 overflow-hidden mb-8 ring-1 ring-gray-200">
+                    <Card className="bg-white rounded-md shadow-2xl border-0 overflow-hidden mb-8 ring-1 ring-gray-200">
                       <CardHeader className="bg-[#001952] text-white p-8">
                         <CardTitle className="text-2xl font-bold flex items-center gap-4">
-                          <div className="p-3 bg-gradient-to-r from-[#01adff] to-[#1564e5] ">
+                          <div className="p-3 bg-gradient-to-r from-[#01adff] to-[#1564e5] rounded-md">
                             <Building2 className="h-6 w-6 text-white" />
                           </div>
                           {locationData.name}
@@ -258,7 +260,7 @@ export default function ContactPage() {
                               key={index}
                               className="flex items-start space-x-4 group"
                             >
-                              <div className="p-4 bg-gray-100  group-hover:bg-[#01adff]/10 transition-all duration-300">
+                              <div className="p-4 bg-gray-100  rounded-md group-hover:bg-[#01adff]/10 transition-all duration-300">
                                 <item.icon className="h-6 w-6 text-black group-hover:text-[#01adff] transition-colors duration-300" />
                               </div>
                               <div>
@@ -285,7 +287,7 @@ export default function ContactPage() {
                                   key={index}
                                   className="flex items-center space-x-4 group"
                                 >
-                                  <div className="w-2 h-2 bg-gradient-to-r from-[#01adff] to-[#1564e5]  group-hover:scale-125 transition-transform duration-300"></div>
+                                  <div className="w-2 h-2 bg-gradient-to-r from-[#01adff] to-[#1564e5]  rounded-full group-hover:scale-125 transition-transform duration-300"></div>
                                   <span className="text-gray-700 font-medium group-hover:text-black transition-colors duration-300">
                                     {specialty}
                                   </span>
@@ -303,13 +305,13 @@ export default function ContactPage() {
             {/* Enhanced Contact Form */}
             <div className="xl:col-span-3">
               <ScrollTriggerComponent animation="fadeInRight">
-                <Card className="bg-white  shadow-2xl border-0 ring-1 ring-gray-200">
+                <Card className="bg-white rounded-md shadow-2xl border-0 ring-1 ring-gray-200">
                   <CardHeader className="p-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 bg-[#01adff]/10 ">
+                      <div className="p-3 bg-[#01adff]/10 rounded-md">
                         <MessageSquare className="h-6 w-6 text-[#01adff]" />
                       </div>
-                      <Badge className="bg-[#01adff]/10 text-[#01adff] font-semibold px-4 py-2 border border-[#01adff]/20">
+                      <Badge className="bg-[#01adff]/10 rounded-md text-[#01adff] font-semibold px-4 py-2 border border-[#01adff]/20">
                         Priority Response
                       </Badge>
                     </div>
@@ -339,7 +341,7 @@ export default function ContactPage() {
                             name="firstName"
                             type="text"
                             required
-                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            className="h-10 rounded-md text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                             placeholder="John"
                             value={formData.firstName}
                             onChange={handleInputChange}
@@ -357,7 +359,7 @@ export default function ContactPage() {
                             name="lastName"
                             type="text"
                             required
-                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            className="h-10 rounded-md text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                             placeholder="Doe"
                             value={formData.lastName}
                             onChange={handleInputChange}
@@ -379,7 +381,7 @@ export default function ContactPage() {
                             name="email"
                             type="email"
                             required
-                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            className="h-10 rounded-md text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                             placeholder="john@company.com"
                             value={formData.email}
                             onChange={handleInputChange}
@@ -396,7 +398,7 @@ export default function ContactPage() {
                             id="phone"
                             name="phone"
                             type="tel"
-                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            className="h-10 rounded-md text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                             placeholder="+971 50 123 4567"
                             value={formData.phone}
                             onChange={handleInputChange}
@@ -416,7 +418,7 @@ export default function ContactPage() {
                           id="company"
                           name="company"
                           type="text"
-                          className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                          className="h-10 rounded-md text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                           placeholder="Your Company Name"
                           value={formData.company}
                           onChange={handleInputChange}
@@ -434,7 +436,7 @@ export default function ContactPage() {
                         <select
                           id="projectType"
                           name="projectType"
-                          className="w-full h-10 text-base border border-gray-300 px-4 bg-white focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                          className="w-full h-10 rounded-md text-base border border-gray-300 px-4 bg-white focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                           value={formData.projectType}
                           onChange={handleInputChange}
                         >
@@ -462,7 +464,7 @@ export default function ContactPage() {
                           name="message"
                           rows={2}
                           required
-                          className="resize-none text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                          className="resize-none  rounded-md text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
                           placeholder="Tell us about your project..."
                           value={formData.message}
                           onChange={handleInputChange}
@@ -472,7 +474,7 @@ export default function ContactPage() {
                       {/* Submit Button */}
                       <Button
                         type="submit"
-                        className="w-full h-10 text-base bg-gradient-to-r from-[#01adff] to-[#1564e5] hover:from-[#0099e6] hover:to-[#1250cc] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                        className=" rounded-md h-10 text-base bg-gradient-to-r from-[#01adff] to-[#1564e5] hover:from-[#0099e6] hover:to-[#1250cc] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                       >
                         Send Message
                         <Send className="ml-3 h-5 w-5" />
@@ -486,10 +488,12 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      </GradientBG>
+      <GradientBG>
       <section>
         <GlobeDemo />
         {/* Enhanced Global Locations */}
-        <section className="relative py-20 bg-gradient-to-b from-gray-50 to-white text-black overflow-hidden">
+        <section className="relative py-20 text-black overflow-hidden">
           {/* Background dotted pattern */}
           <div className="absolute inset-0 pointer-events-none">
             <svg
@@ -577,6 +581,7 @@ export default function ContactPage() {
           </div>
         </section>
       </section>
+      </GradientBG>
 
       {/* Enhanced Emergency Contact */}
       <section className="relative py-28 bg-gradient-to-r from-[#01adff] via-[#0475e0] to-[#1564e5] overflow-hidden">
