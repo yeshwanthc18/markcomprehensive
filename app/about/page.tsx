@@ -49,9 +49,9 @@ export default function AboutPage() {
         </GradientBG>
 
         {/* Leadership Team */}
-
-        <LeadershipTeamSection />
-
+        <GradientBG className="min-h-screen">
+          <LeadershipTeamSection />
+        </GradientBG>
         {/* Clients */}
         {/* <GradientBG className="min-h-screen">
           <ClientsSection />

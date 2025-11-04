@@ -168,7 +168,7 @@ export default function DomeGallery({
   dragDampening = 2,
   openedImageWidth = "400px",
   openedImageHeight = "400px",
-  imageBorderRadius = "30px",
+  imageBorderRadius = "10px",
   openedImageBorderRadius = "30px",
   grayscale = true,
 }: DomeGalleryProps) {

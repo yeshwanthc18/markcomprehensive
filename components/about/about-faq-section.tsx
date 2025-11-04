@@ -117,8 +117,8 @@ export default function AboutFAQSection() {
                 size="sm"
                 className={`${
                   activeCategory === category
-                    ? "bg-[#01adff] hover:bg-[#01adff] text-white"
-                    : "hover:bg-blue-50 hover:text-[#01adff]"
+                    ? "bg-[#01adff] hover:bg-[#01adff] text-white rounded-md"
+                    : "hover:bg-blue-50 hover:text-[#01adff] rounded-md"
                 }`}
               >
                 {category}
@@ -133,15 +133,15 @@ export default function AboutFAQSection() {
             {filteredFAQs.map((faq, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="border-0 shadow-lg  rounded-md hover:shadow-xl transition-all duration-300"
               >
                 <CardContent className="p-0">
                   <button
                     onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
                     className="w-full text-left p-6 flex items-center justify-between hover:bg-slate-50 transition-colors"
                   >
-                    <div className="flex items-center space-x-4">
-                      <Badge className="bg-blue-100 text-blue-800 text-xs">
+                    <div className="flex items-center space-x-4 rounded-sm">
+                      <Badge className="bg-[#01adff]/10 text-[#01adff] text-xs  rounded-sm">
                         {faq.category}
                       </Badge>
                       <h3 className="text-lg font-semibold text-slate-900">
@@ -169,7 +169,7 @@ export default function AboutFAQSection() {
 
         {/* Contact Support */}
         <ScrollTriggerComponent animation="fadeInUp">
-          <Card className="border-0 shadow-xl bg-gradient-to-r from-[#01adff] to-slate-700 text-white">
+          <Card className="border-0 shadow-xl rounded-md bg-gradient-to-r from-[#01adff] to-slate-700 text-white">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
               <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -181,7 +181,7 @@ export default function AboutFAQSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#01adff] bg-transparent"
+                  className="border-[#01adff] text-white rounded-md hover:bg-[#01adff] hover:text-white bg-transparent"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us
@@ -189,7 +189,7 @@ export default function AboutFAQSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#01adff] bg-transparent"
+                  className="border-[#01adff] text-white rounded-md hover:bg-[#01adff] hover:text-white bg-transparent"
                 >
                   <Mail className="mr-2 h-5 w-5" />
                   Email Support

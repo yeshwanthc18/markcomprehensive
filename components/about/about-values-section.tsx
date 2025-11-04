@@ -74,10 +74,10 @@ export default function AboutValuesSection() {
               animation="scaleIn"
               stagger={0.8}
             >
-              <Card className="h-full border border-black/10 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-black/20 backdrop-blur-xl">
+              <Card className="h-full border p-4 border-[#01adff]/40 rounded-md shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-black/20 backdrop-blur-xl">
                 <CardHeader className="text-center pb-4">
                   <div
-                    className="mx-auto mb-4 p-4  w-fit"
+                    className="mx-auto mb-4 p-4  rounded-md w-fit"
                     style={{
                       backgroundColor: `${palette.primary}1A`,
                       color: palette.primary,

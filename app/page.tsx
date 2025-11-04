@@ -82,6 +82,7 @@ export default function HomePage() {
       <HomeHowWeWork />
 
       <IndustryHighlightsSection />
+
       <div style={{ width: "100vw", height: "100vh" }}>
         <div className="text-center py-24 pb-1 px-6 relative z-10">
           <div className="inline-block relative mb-20">
@@ -89,7 +90,7 @@ export default function HomePage() {
               Strong Patnerships{" "}
               <span className="text-[#01adff]">Stronger Solutions</span>
             </h2>
-            <div className="mt-4 flex justify-center">
+            <div className="mt-8 flex justify-center">
               <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
             </div>
           </div>

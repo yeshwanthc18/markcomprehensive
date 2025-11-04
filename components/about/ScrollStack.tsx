@@ -108,21 +108,21 @@ const StickyCard = ({
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 20 + 150}px)`,
+          top: `calc(-5vh + ${i * 20 + 250}px)`,
         }}
-        className="rounded-4xl relative -top-1/4 flex h-[300px] w-full origin-top flex-col overflow-hidden bg-white border border-gray-200"
+        className="rounded-xl relative -top-1/2 flex h-[300px] w-full origin-top flex-col backdrop-blur-xl overflow-hidden bg-white/50  border border-gray-200"
       >
         <CardContent className="p-6 sm:p-8">
           <div className="flex items-start justify-between mb-4">
-            <span className="px-3 py-1 text-xs bg-blue-50 text-blue-700 border border-blue-200 rounded">
+            <span className="px-3 py-1 text-xs bg-[#01adff]/10 text-[#01adff] border border-[#01adff] rounded-sm">
               {event.metrics}
             </span>
-            <div className="p-2 bg-blue-50  group-hover:bg-blue-100 transition-colors">
-              <event.icon className="h-5 w-5 text-blue-600" />
+            <div className="p-2 bg-blue-50  rounded-md group-hover:bg-blue-100 transition-colors">
+              <event.icon className="h-5 w-5 text-[#01adff]" />
             </div>
           </div>
 
-          <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-3">
+          <div className="text-2xl sm:text-3xl font-bold text-[#01adff] mb-3">
             {event.year}
           </div>
 
@@ -133,10 +133,6 @@ const StickyCard = ({
           <p className="text-black leading-relaxed mb-4">
             {event.description}
           </p>
-
-          {/* <div className="flex items-center text-blue-600 text-sm font-medium group-hover:translate-x-1 transition-transform cursor-pointer">
-            Learn more <ChevronRight className="ml-1 h-4 w-4" />
-          </div> */}
         </CardContent>
       </motion.div>
     </div>

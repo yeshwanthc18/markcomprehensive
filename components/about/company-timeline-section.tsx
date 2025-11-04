@@ -2,12 +2,10 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Building2, Globe, Award, Zap, ChevronRight } from "lucide-react";
 import Skiper16 from "./ScrollStack";
 import Image from "next/image";
-import BannerImg from "../../public/compressed-images/image2.jpg"; // replace with your banner image path
+import BannerImg from "../../public/compressed-images/image2.jpg"; 
 
 type TimelineEvent = {
   year: string;
@@ -136,9 +134,9 @@ export default function ResponsiveStackingTimelineFixed() {
   };
 
   return (
-    <div className="min-h-screen container mx-auto">
+    <div className="min-h-screen container mx-auto py-24">
       {/* Header */}
-      <section className="pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+      <section className="pt-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
             Company <span className="text-[#01adff]">Timeline</span>
@@ -159,7 +157,7 @@ export default function ResponsiveStackingTimelineFixed() {
           <Image
             src={BannerImg}
             alt="Company Banner"
-            className="object-cover"
+            className="object-cover rounded-md"
             fill
           />
         </div>

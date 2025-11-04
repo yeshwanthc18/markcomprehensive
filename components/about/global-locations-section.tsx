@@ -43,7 +43,7 @@ export default function GlobalLocationsSection() {
               return (
                 <Card
                   key={location.id}
-                  className="transition-all duration-300 hover:shadow-xl border border-black/10"
+                  className="transition-all rounded-md duration-300 hover:shadow-xl border border-black/10"
                   style={{
                     boxShadow: isUserRegion
                       ? "0 12px 28px rgba(0,0,0,0.08)"
