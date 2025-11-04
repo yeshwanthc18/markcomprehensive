@@ -221,7 +221,7 @@ export default function ServiceHighlightsSticky() {
                       }}
                       data-index={idx}
                       className={[
-                        "group  border p-4 md:p-5 transition-all",
+                        "group  border rounded-sm p-4 md:p-5 transition-all",
                         isActive
                           ? "border-[color:var(--brand-primary)] bg-[color:var(--brand-navy)]/5 shadow-sm"
                           : "border-black/15 bg-white hover:border-black/20",
@@ -245,13 +245,13 @@ export default function ServiceHighlightsSticky() {
                           });
                           setActive(idx);
                         }}
-                        className="flex w-full items-start gap-4 text-left outline-none"
+                        className="flex w-full items-start gap-4 text-left rounded-sm outline-none"
                         aria-current={isActive ? "step" : undefined}
                         aria-controls={`service-panel-${s.key}`}
                       >
                         <span
                           className={[
-                            "flex h-11 w-11 shrink-0 items-center justify-center  border transition-colors",
+                            "flex h-11 rounded-sm w-11 shrink-0 items-center justify-center  border transition-colors",
                             isActive
                               ? "border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)] text-white"
                               : "border-black/15 bg-white text-[color:var(--brand-deep)]",
@@ -315,7 +315,7 @@ export default function ServiceHighlightsSticky() {
           {/* Sticky artboard */}
           <div className="lg:col-span-7 hidden md:block">
             <div
-              className="relative h-[60vh] overflow-hidden  border border-black/15 bg-[color:var(--brand-navy)] text-white shadow-md md:h-[70vh] lg:sticky lg:top-28"
+              className="relative h-[60vh] rounded-lg overflow-hidden  border border-black/15 bg-[color:var(--brand-navy)] text-white shadow-md md:h-[70vh] lg:sticky lg:top-28"
               id={`service-panel-${activeService.key}`}
               role="region"
               aria-live="polite"
@@ -365,13 +365,13 @@ export default function ServiceHighlightsSticky() {
                   {activeService.summary}
                 </p>
 
-                <div className="mt-7 w-full max-w-2xl overflow-hidden  border border-white/15 bg-white/5 shadow-inner">
+                <div className="mt-7 w-full rounded-lg max-w-2xl overflow-hidden  border border-white/15 bg-white/5 shadow-inner">
                   <Image
-                    src={activeService.image.src || "/placeholder.svg"}
+                    src={activeService.image.src}
                     alt={activeService.image.alt}
                     loading="lazy"
                     decoding="async"
-                    className="h-80 w-full object-cover md:h-[24rem]"
+                    className="h-90 w-full object-cover md:h-[24rem]"
                   />
                   <div
                     className="h-1 w-full"

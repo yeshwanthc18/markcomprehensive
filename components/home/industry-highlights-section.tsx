@@ -250,7 +250,7 @@ export default function IndustryHighlightsSection() {
             {industries.map((industry, index) => (
               <Card
                 key={index}
-                className={`group relative border border-[#1c345c]/40 bg-[#001952]/40 backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_0_1px_#01adff] ${
+                className={`group relative rounded-sm border border-[#1c345c]/40 bg-[#001952]/40 backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_0_1px_#01adff] ${
                   index === currentIndex ? "ring-1 ring-[#01adff]" : ""
                 }`}
               >
@@ -259,19 +259,18 @@ export default function IndustryHighlightsSection() {
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <Image
                     src={
-                      industry.image ||
-                      "/placeholder.svg?height=560&width=840&query=industry project image"
+                      industry.image
                     }
                     alt={industry.title}
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-[1.04]"
                   />
                   <div className="absolute top-4 left-4">
-                    <div className="p-3 bg-[#000000]/50 border border-[#1c345c]/40 backdrop-blur-md ">
+                    <div className="p-3 bg-[#000000]/50 rounded-md  border border-[#1c345c]/40 backdrop-blur-md ">
                       <industry.icon className="w-6 h-6 text-[#01adff]" />
                     </div>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-[#01adff] text-white font-semibold shadow">
+                    <Badge className="bg-[#01adff]  rounded-md p-2 text-md text-white font-semibold shadow">
                       {industry.projects}
                     </Badge>
                   </div>
@@ -298,7 +297,7 @@ export default function IndustryHighlightsSection() {
             variant="outline"
             size="lg"
             onClick={prevSlide}
-            className="border-[#01adff] text-[#01adff] hover:bg-[#01adff] hover:text-white bg-transparent"
+            className="border-[#01adff] rounded-lg text-[#01adff] hover:bg-[#01adff] hover:text-white bg-transparent"
             aria-label="Previous"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -307,7 +306,7 @@ export default function IndustryHighlightsSection() {
             variant="outline"
             size="lg"
             onClick={nextSlide}
-            className="border-[#01adff] text-[#01adff] hover:bg-[#01adff] hover:text-white bg-transparent"
+            className="border-[#01adff] rounded-lg text-[#01adff] hover:bg-[#01adff] hover:text-white bg-transparent"
             aria-label="Next"
           >
             <ChevronRight className="h-5 w-5" />

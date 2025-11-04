@@ -220,11 +220,11 @@ export default function HomeHowWeWork() {
                 >
                   <div className="card-content relative w-full">
                     {/* Main Card */}
-                    <div className="relative p-10 transition-all duration-500 ease-out overflow-hidden group border border-gray-200  backdrop-blur-sm shadow-lg hover:shadow-xl">
+                    <div className="relative  rounded-lg p-10 transition-all duration-500 ease-out overflow-hidden group border border-gray-200  backdrop-blur-sm shadow-lg hover:shadow-xl">
                       {/* Step Number Badge */}
                       <div className="absolute -top-4 -left-4 z-20">
                         <div
-                          className={`w-16 h-16 bg-gradient-to-br ${step.gradient} flex items-center justify-center transition-all duration-300 group-hover:scale-105`}
+                          className={`w-24 h-24  flex items-center justify-center transition-all duration-300`}
                         >
                           <span className="text-white font-bold text-2xl">
                             {step.step}

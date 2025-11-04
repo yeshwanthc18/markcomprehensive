@@ -4,7 +4,7 @@ import { ArrowRight, Calendar, User, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollTriggerComponent from "@/components/animations/scroll-trigger";
-import ButtonPrimary from "../layout/Button";
+import ButtonPrimary, { ButtonSecondary } from "../layout/Button";
 import Image1 from "../../public/compressed-images/project-photos/JUMAN/IMG_5503.jpg";
 import Image2 from "../../public/compressed-images/project-photos/TANMIA/IMG_5467.jpg";
 import Image3 from "../../public/compressed-images/project-photos/ALMOUJ/IMG_3761.jpg";
@@ -68,7 +68,7 @@ export default function RecentArticlesSection() {
             {articles.map((article) => (
               <div
                 key={article.id}
-                className="group relative bg-white border border-gray-200 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                className="group rounded-md relative bg-white border border-gray-200 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
               >
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden">
@@ -93,7 +93,7 @@ export default function RecentArticlesSection() {
                   </div>
 
                   <div className="flex flex-col gap-3 mt-auto">
-                    <div className="flex justify-between text-xs text-gray-500">
+                    {/* <div className="flex justify-between text-xs text-gray-500">
                       <div className="flex items-center gap-2">
                         <User className="w-4 h-4" />
                         {article.author}
@@ -108,14 +108,14 @@ export default function RecentArticlesSection() {
                           {article.readTime}
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <Link
-                      href={`/blog/${article.id}`}
-                      className="flex items-center justify-center mt-2 px-4 py-2 border border-[#01adff] text-[#01adff] font-semibold text-sm transition-all duration-300 hover:bg-[#01adff] hover:text-white"
+                    <ButtonSecondary
+                      // href={`/blog/${article.id}`}
+                      className="flex items-center justify-center mt-2 px-4 py-2"
                     >
                       Read Article <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
+                    </ButtonSecondary>
                   </div>
                 </div>
               </div>

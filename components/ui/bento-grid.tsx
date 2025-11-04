@@ -16,7 +16,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "mx-auto grid container grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[25rem] p-6",
+        "mx-auto container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 p-6 auto-rows-[25rem]",
         className
       )}
     >
@@ -56,16 +56,15 @@ export const BentoGridItem = ({
 }) => {
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push(`/projects/${id}`);
-  };
+  const handleClick = () => router.push(`/projects/${id}`);
 
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      whileHover={{ scale: 1.015 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       className={cn(
-        "relative overflow-hiddenshadow-lg border border-neutral-800 bg-neutral-950 group cursor-pointer transition-all duration-500",
+        "group relative overflow-hidden rounded-sm bg-black/80 cursor-pointer transition-all duration-700",
+        "hover:shadow-[0_0_40px_-10px_rgba(0,191,255,0.3)]",
         className
       )}
     >
@@ -74,25 +73,24 @@ export const BentoGridItem = ({
         src={icon}
         alt={title}
         fill
-        className="object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-700"
+        priority
+        className="object-cover opacity-60 group-hover:opacity-80 transition-all duration-700 ease-out rounded-sm"
       />
 
-      {/* 🔹 Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent transition-all duration-500 group-hover:from-black/70 group-hover:via-black/30" />
+      {/* 🔹 Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-700 group-hover:from-black/60 group-hover:via-black/20" />
 
       {/* 🔹 Floating Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10 transition-all duration-500 group-hover:translate-y-[-8px]">
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-10 text-white transition-all duration-700 group-hover:translate-y-[-8px]">
         {/* Header Info */}
-        <div className="flex justify-between items-center mb-3">
-          <div className="text-xs uppercase tracking-wide text-white">
-            {region} • {year}
-          </div>
+        <div className="flex justify-between items-center mb-3 text-xs uppercase tracking-wider">
+          <span className="text-white/70">{region} • {year}</span>
           <span
             className={cn(
-              "text-xs font-medium px-2 py-1 rounded-full border backdrop-blur-sm",
+              "text-xs font-medium px-3 py-1 rounded-full border backdrop-blur-md transition-all duration-500",
               status === "Completed"
-                ? "text-green-300 border-green-400/40 bg-green-900/20"
-                : "text-yellow-300 border-yellow-400/40 bg-yellow-900/20"
+                ? "text-green-300 border-green-400/30 bg-green-900/10"
+                : "text-yellow-300 border-yellow-400/30 bg-yellow-900/10"
             )}
           >
             {status}
@@ -100,44 +98,47 @@ export const BentoGridItem = ({
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-semibold mb-2 leading-tight group-hover:text-[#00bfff] transition-colors">
+        <h3 className="text-2xl font-semibold mb-2 leading-snug text-white group-hover:text-[#00bfff] transition-colors duration-500">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-white mb-4 line-clamp-2">
+        <p className="text-sm text-white/80 leading-relaxed line-clamp-2 mb-5">
           {description?.slice(0, 120)}...
         </p>
 
-      
-
         {/* Button */}
-        <div className="mt-5">
-          <ButtonPrimary
-            onClick={handleClick}
-            className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-sm px-4 py-2 transition-all duration-300"
+        <ButtonPrimary
+          onClick={handleClick}
+          className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm px-5 py-2.5 rounded-sm backdrop-blur-lg transition-all duration-500 hover:translate-x-1"
+        >
+          View Project
+          <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            initial={{ x: 0 }}
+            whileHover={{ x: 4 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            View Project
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </ButtonPrimary>
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </motion.svg>
+        </ButtonPrimary>
       </div>
 
-      {/* 🔹 Subtle glow border on hover */}
-      <div className="absolute inset-0 border border-transparent group-hover:border-[#00bfff]/40 transition-all duration-700 pointer-events-none"></div>
+      {/* 🔹 Border Glow */}
+      <motion.div
+        className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-[#00bfff]/30 transition-all duration-700 pointer-events-none"
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
+        transition={{ repeat: Infinity, duration: 3 }}
+      />
     </motion.div>
   );
 };

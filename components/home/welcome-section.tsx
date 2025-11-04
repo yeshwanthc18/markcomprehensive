@@ -6,6 +6,7 @@ import Image1 from "../../public/compressed-images/project-photos/DHAR HASSAN VI
 import Image2 from "../../public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6517.jpg";
 import Image3 from "../../public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6551.jpg";
 import BlurText from "../animations/TextAnimation";
+import ButtonPrimary, { ButtonSecondary } from "../layout/Button";
 
 export default function WelcomeSection() {
   const [currentFace, setCurrentFace] = useState(0);
@@ -123,7 +124,7 @@ export default function WelcomeSection() {
 
             {/* Stats */}
             <div className="flex flex-col sm:flex-row gap-6 mt-10 mb-10">
-              <div className="flex items-center gap-4 bg-[#01adff]/10 backdrop-blur-sm px-8 py-4 border border-[#01adff]/20 ">
+              <div className="flex items-center rounded-sm gap-4 bg-[#01adff]/10 backdrop-blur-sm px-8 py-4 border border-[#01adff]/20 ">
                 <Calendar className="w-6 h-6 text-[#01adff]" />
                 <div>
                   <span className="font-bold text-white text-lg">
@@ -132,7 +133,7 @@ export default function WelcomeSection() {
                   <p className="text-gray-400 text-sm">Years of Excellence</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-[#01adff]/10 backdrop-blur-sm px-8 py-4 border border-[#01adff]/20 ">
+              <div className="flex items-center rounded-sm gap-4 bg-[#01adff]/10 backdrop-blur-sm px-8 py-4 border border-[#01adff]/20 ">
                 <Users className="w-6 h-6 text-[#01adff]" />
                 <div>
                   <span className="font-bold text-white text-lg">100+</span>
@@ -143,26 +144,24 @@ export default function WelcomeSection() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-6">
-              <Button
-                size="lg"
-                className="bg-[#01adff] hover:bg-[#0192d4] text-white px-10 py-7 text-lg font-semibold transition-all duration-300 "
+              <ButtonPrimary
+            
+                className=" rounded-sm transition-all duration-300 "
               >
                 Contact Us <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-[#01adff] text-[#01adff] hover:bg-[#01adff] hover:text-white px-10 py-7 text-lg font-semibold bg-transparent backdrop-blur-sm transition-all duration-300 "
+              </ButtonPrimary>
+              <ButtonSecondary
+          
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Free Inspection
-              </Button>
+              </ButtonSecondary>
             </div>
           </div>
 
           {/* Right Content - Smooth Crossfade Gallery */}
           <div className="relative animate-fade-in">
-            <div className="relative w-full h-[600px]  overflow-hidden shadow-2xl ring-1 ring-[#01adff]/20">
+            <div className="relative w-full h-[600px]  overflow-hidden rounded-sm shadow-2xl ring-1 ring-[#01adff]/20">
               {/* Render all faces, control visibility with opacity */}
               {faces.map((face, index) => (
                 <div
