@@ -1,21 +1,25 @@
 "use client";
 
-import type React from "react";
-
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Play, FileText, ExternalLink } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
-import Link from "next/link";
+import {
+  CheckCircle,
+  Play,
+  ExternalLink,
+} from "lucide-react";
 
 interface ServiceCardProps {
   service: {
@@ -24,147 +28,156 @@ interface ServiceCardProps {
     description: string;
     features: string[];
     color: string;
-    image: any;
+    image: string;
     specs: Partial<Record<string, string>>;
     category?: string;
-    link:any
+    link: string;
   };
   index: number;
   className?: string;
 }
 
-export function ServiceCard({ service, index }: ServiceCardProps) {
+export function ServiceCard({ service }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const router = useRouter();
 
   return (
-    <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0  shadow-lg">
-      {/* Image Section */}
-      <div className="relative h-72 overflow-hidden">
-        <Image
-          src={service.image || "/placeholder.svg"}
-          alt={service.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      whileHover={{ scale: 1.02 }}
+      className="group relative rounded-xl overflow-hidden bg-gradient-to-b from-white/70 to-white/30 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(1,173,255,0.2)] border border-white/30 transition-all duration-700"
+    >
+      {/* Image */}
+      <div className="relative h-64 overflow-hidden rounded-t-xl">
+        <motion.div
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="w-full h-full"
+        >
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className="object-cover rounded-t-xl opacity-90"
+          />
+        </motion.div>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+        {/* Play Overlay */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          className="absolute inset-0 flex items-center justify-center transition-opacity duration-500"
+        >
+          <Button
+            size="icon"
+            className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/40 hover:bg-white/30 transition-all"
+          >
+            <Play className="w-8 h-8 text-white ml-1" />
+          </Button>
+        </motion.div>
 
         {/* Badges */}
         <div className="absolute top-4 left-4 flex gap-2">
           <Badge
-            className={`${service.color.replace(
-              "bg-",
-              "bg-opacity-90 bg-"
-            )} border-0 text-white`}
+            className={cn(
+              `${service.color} text-white font-medium border-none shadow-md`
+            )}
           >
             Featured
           </Badge>
           {service.category && (
-            <Badge variant="secondary" className="bg-white/90 text-black">
+            <Badge className="bg-white/90 text-black font-medium">
               {service.category}
             </Badge>
           )}
         </div>
-
-        {/* Play Button Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Button
-            size="lg"
-            className=" w-16 h-16 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30"
-          >
-            <Play className="h-8 w-8 text-white ml-1" />
-          </Button>
-        </div>
       </div>
 
-      <CardHeader className="pb-4">
-        <div className="flex items-start justify-between mb-4">
+      {/* Content */}
+      <CardHeader className="space-y-3 p-6 pb-3">
+        <div className="flex justify-between items-start">
           <div
-            className={`w-12 h-12  ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+            className={`w-12 h-12 ${service.color} flex items-center justify-center rounded-lg bg-opacity-90 text-white shadow-inner`}
           >
             <service.icon className="h-6 w-6" />
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-gray-400 hover:text-black"
-          >
-            <ExternalLink className="h-4 w-4" />
-          </Button>
+
+          <Link href={service.link}>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-gray-400 hover:text-[#01adff] hover:scale-110 transition-transform"
+            >
+              <ExternalLink className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
+
         <Link href={service.link}>
-          <CardTitle className="text-2xl font-bold group-hover:text-[#01adff] transition-colors">
+          <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900 hover:text-[#01adff] transition-colors">
             {service.title}
           </CardTitle>
         </Link>
 
-        <CardDescription className="text-base leading-relaxed text-black">
+        <CardDescription className="text-gray-700 leading-relaxed text-base">
           {service.description}
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="space-y-6">
-        {/* Features List */}
+      <CardContent className="p-6 pt-2 space-y-5 border-t border-white/20">
+        {/* Features */}
         <div className="space-y-3">
           {service.features
             .slice(0, isExpanded ? service.features.length : 3)
-            .map((feature, featureIndex) => (
-              <div key={featureIndex} className="flex items-start space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 leading-relaxed">{feature}</span>
+            .map((feature, idx) => (
+              <div key={idx} className="flex items-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-[#01adff] mt-1 flex-shrink-0" />
+                <span className="text-gray-800 leading-relaxed">
+                  {feature}
+                </span>
               </div>
             ))}
 
           {service.features.length > 3 && (
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-[#01adff] hover:text-[#1c345c] p-0 h-auto font-medium"
+              className="text-[#01adff] text-sm font-medium hover:underline"
             >
               {isExpanded
                 ? "Show Less"
-                : `Show ${service.features.length - 3} More Features`}
-            </Button>
+                : `+${service.features.length - 3} More Features`}
+            </button>
           )}
         </div>
 
-        {/* Technical Specifications */}
-        {/* <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5  border">
-          <h4 className="font-semibold text-black mb-4 flex items-center gap-2">
-            <div className="w-2 h-2  bg-[#01adff]"></div>
-            Technical Specifications
-          </h4>
-          <div className="grid grid-cols-1 gap-3">
-            {Object.entries(service.specs).map(([key, value], i) => (
-              <div key={i} className="flex items-start justify-between">
-                <span className="font-medium text-gray-700 text-sm">
-                  {key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}:
-                </span>
-                <span className="text-black text-sm font-medium text-right ml-2">{value}</span>
-              </div>
-            ))}
-          </div>
-        </div> */}
+        {/* CTA */}
+        <Button
+          onClick={() => router.push(service.link)}
+          className="w-full bg-[#01adff] hover:bg-[#0189cc] text-white font-semibold py-5 rounded-md shadow-lg hover:shadow-[#01adff]/40 transition-all duration-500 flex items-center justify-center gap-2"
+        >
+          Explore Service
+          <motion.span
+            initial={{ x: 0 }}
+            whileHover={{ x: 4 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            →
+          </motion.span>
+        </Button>
       </CardContent>
 
-      {/* <CardFooter className="flex gap-3 border-t pt-6">
-        <Button
-          variant="outline"
-          size="sm"
-          className="flex-1 flex items-center justify-center gap-2 hover:bg-[#01adff] hover:text-white hover:border-[#01adff] transition-all duration-300 bg-transparent"
-        >
-          <Play className="h-4 w-4" />
-          Watch Demo
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          className="flex-1 flex items-center justify-center gap-2 hover:bg-[#01adff] hover:text-white hover:border-[#01adff] transition-all duration-300 bg-transparent"
-        >
-          <FileText className="h-4 w-4" />
-          Get Specs
-        </Button>
-      </CardFooter> */}
-    </Card>
+      {/* Animated Border Glow */}
+      <motion.div
+        className="absolute inset-0 rounded-xl border border-transparent pointer-events-none"
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
+        transition={{ repeat: Infinity, duration: 3 }}
+      />
+    </motion.div>
   );
 }

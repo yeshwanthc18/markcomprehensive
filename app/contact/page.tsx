@@ -47,7 +47,6 @@ import {
 import { WorldMapDemo } from "@/components/animated/contact";
 import { GlobeDemo } from "./world";
 
-
 export default function ContactPage() {
   const [locationData, setLocationData] = useState<LocationData | null>(null);
   const [detectedCountry, setDetectedCountry] = useState<string>("");
@@ -272,25 +271,6 @@ export default function ContactPage() {
                               </div>
                             </div>
                           ))}
-
-                          {/* <div className="flex items-start space-x-4 group">
-                            <div className="p-4 bg-gray-100  group-hover:bg-[#01adff]/10 transition-all duration-300">
-                              <Clock className="h-6 w-6 text-black group-hover:text-[#01adff] transition-colors duration-300" />
-                            </div>
-                            <div>
-                              <p className="font-bold text-black mb-2 text-lg">
-                                Business Hours
-                              </p>
-                              <div className="text-black space-y-1">
-                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                                <p>Saturday: 9:00 AM - 4:00 PM</p>
-                                <p>Sunday: Closed</p>
-                                <p className="text-[#01adff] font-semibold mt-3">
-                                  {locationData.timezone}
-                                </p>
-                              </div>
-                            </div>
-                          </div> */}
                         </div>
 
                         <div className="pt-8 border-t border-gray-200">
@@ -344,267 +324,295 @@ export default function ContactPage() {
                   </CardHeader>
 
                   <CardContent className="p-10 pt-0">
-                     <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Fields */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="firstName" className="text-sm font-bold text-black mb-2 block">
-                    First Name *
-                  </Label>
-                  <Input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    required
-                    className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                    placeholder="John"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="lastName" className="text-sm font-bold text-black mb-2 block">
-                    Last Name *
-                  </Label>
-                  <Input
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    required
-                    className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                    placeholder="Doe"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Name Fields */}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label
+                            htmlFor="firstName"
+                            className="text-sm font-bold text-black mb-2 block"
+                          >
+                            First Name *
+                          </Label>
+                          <Input
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            required
+                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            placeholder="John"
+                            value={formData.firstName}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div>
+                          <Label
+                            htmlFor="lastName"
+                            className="text-sm font-bold text-black mb-2 block"
+                          >
+                            Last Name *
+                          </Label>
+                          <Input
+                            id="lastName"
+                            name="lastName"
+                            type="text"
+                            required
+                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            placeholder="Doe"
+                            value={formData.lastName}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                      </div>
 
-              {/* Email and Phone */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="email" className="text-sm font-bold text-black mb-2 block">
-                    Email *
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                    placeholder="john@company.com"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="phone" className="text-sm font-bold text-black mb-2 block">
-                    Phone
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                    placeholder="+971 50 123 4567"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
+                      {/* Email and Phone */}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label
+                            htmlFor="email"
+                            className="text-sm font-bold text-black mb-2 block"
+                          >
+                            Email *
+                          </Label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            placeholder="john@company.com"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div>
+                          <Label
+                            htmlFor="phone"
+                            className="text-sm font-bold text-black mb-2 block"
+                          >
+                            Phone
+                          </Label>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                            placeholder="+971 50 123 4567"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                      </div>
 
-              {/* Company */}
-              <div>
-                <Label htmlFor="company" className="text-sm font-bold text-black mb-2 block">
-                  Company
-                </Label>
-                <Input
-                  id="company"
-                  name="company"
-                  type="text"
-                  className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                  placeholder="Your Company Name"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                />
-              </div>
+                      {/* Company */}
+                      <div>
+                        <Label
+                          htmlFor="company"
+                          className="text-sm font-bold text-black mb-2 block"
+                        >
+                          Company
+                        </Label>
+                        <Input
+                          id="company"
+                          name="company"
+                          type="text"
+                          className="h-10 text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                          placeholder="Your Company Name"
+                          value={formData.company}
+                          onChange={handleInputChange}
+                        />
+                      </div>
 
-              {/* Project Type */}
-              <div>
-                <Label htmlFor="projectType" className="text-sm font-bold text-black mb-2 block">
-                  Project Type
-                </Label>
-                <select
-                  id="projectType"
-                  name="projectType"
-                  className="w-full h-10 text-base border border-gray-300 px-4 bg-white focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                  value={formData.projectType}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Select a project type</option>
-                  <option value="new-construction">New Construction</option>
-                  <option value="renovation">Renovation</option>
-                  <option value="maintenance">Maintenance</option>
-                  <option value="consultation">Consultation</option>
-                  <option value="emergency">Emergency Repair</option>
-                </select>
-              </div>
+                      {/* Project Type */}
+                      <div>
+                        <Label
+                          htmlFor="projectType"
+                          className="text-sm font-bold text-black mb-2 block"
+                        >
+                          Project Type
+                        </Label>
+                        <select
+                          id="projectType"
+                          name="projectType"
+                          className="w-full h-10 text-base border border-gray-300 px-4 bg-white focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                          value={formData.projectType}
+                          onChange={handleInputChange}
+                        >
+                          <option value="">Select a project type</option>
+                          <option value="new-construction">
+                            New Construction
+                          </option>
+                          <option value="renovation">Renovation</option>
+                          <option value="maintenance">Maintenance</option>
+                          <option value="consultation">Consultation</option>
+                          <option value="emergency">Emergency Repair</option>
+                        </select>
+                      </div>
 
-              {/* Message */}
-              <div>
-                <Label htmlFor="message" className="text-sm font-bold text-black mb-2 block">
-                  Message *
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  rows={2}
-                  required
-                  className="resize-none text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
-                  placeholder="Tell us about your project..."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                />
-              </div>
+                      {/* Message */}
+                      <div>
+                        <Label
+                          htmlFor="message"
+                          className="text-sm font-bold text-black mb-2 block"
+                        >
+                          Message *
+                        </Label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          rows={2}
+                          required
+                          className="resize-none text-base border border-gray-300 focus:border-[#01adff] focus:ring-0 transition-colors duration-300"
+                          placeholder="Tell us about your project..."
+                          value={formData.message}
+                          onChange={handleInputChange}
+                        />
+                      </div>
 
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                className="w-full h-10 text-base bg-gradient-to-r from-[#01adff] to-[#1564e5] hover:from-[#0099e6] hover:to-[#1250cc] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Send Message
-                <Send className="ml-3 h-5 w-5" />
-              </Button>
-            </form>
+                      {/* Submit Button */}
+                      <Button
+                        type="submit"
+                        className="w-full h-10 text-base bg-gradient-to-r from-[#01adff] to-[#1564e5] hover:from-[#0099e6] hover:to-[#1250cc] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                      >
+                        Send Message
+                        <Send className="ml-3 h-5 w-5" />
+                      </Button>
+                    </form>
                   </CardContent>
                 </Card>
               </ScrollTriggerComponent>
               {/* <WorldMapDemo /> */}
-             
             </div>
           </div>
         </div>
       </section>
       <section>
-            <GlobeDemo />
-  {/* Enhanced Global Locations */}
-      <section className="relative py-20 bg-gradient-to-b from-gray-50 to-white text-black overflow-hidden">
-        {/* Background dotted pattern */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg
-            className="absolute left-0 top-0 h-full w-full opacity-10"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <pattern
-                id="grid-pattern"
-                x="0"
-                y="0"
-                width="24"
-                height="24"
-                patternUnits="userSpaceOnUse"
-              >
-                <circle cx="1" cy="1" r="1" className="fill-[#01adff]" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-          </svg>
-        </div>
-
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-          <ScrollTriggerComponent animation="fadeInUp">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
-                Worldwide <span className="text-[#01adff]">Presence</span>
-              </h2>
-              <div className="mt-4 flex justify-center">
-                <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
-              </div>
-              <p className="mt-6 text-lg md:text-xl text-black max-w-3xl mx-auto">
-                With offices across 6 strategic locations, we're always close to
-                your project. Your local office is highlighted for personalized
-                service.
-              </p>
-            </div>
-          </ScrollTriggerComponent>
-
-          <ScrollTriggerComponent animation="scaleIn" stagger={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allLocations.map((location) => (
-                <Card
-                  key={location.id}
-                  className={`bg-white  shadow-xl border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
-                    locationData && location.id === locationData.id
-                      ? "ring-2 ring-[#01adff] bg-gradient-to-br from-[#01adff]/5 to-[#1564e5]/5 shadow-[#01adff]/20"
-                      : ""
-                  }`}
+        <GlobeDemo />
+        {/* Enhanced Global Locations */}
+        <section className="relative py-20 bg-gradient-to-b from-gray-50 to-white text-black overflow-hidden">
+          {/* Background dotted pattern */}
+          <div className="absolute inset-0 pointer-events-none">
+            <svg
+              className="absolute left-0 top-0 h-full w-full opacity-10"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <pattern
+                  id="grid-pattern"
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  patternUnits="userSpaceOnUse"
                 >
-                  <CardHeader className="p-8">
-                    <CardTitle className="text-xl sm:text-2xl font-bold tracking-tight flex items-center justify-between text-black">
-                      <span>{location.name}</span>
-                      {locationData && location.id === locationData.id && (
-                        <Badge className="bg-gradient-to-r from-[#01adff] to-[#1564e5] text-white font-bold">
-                          Your Location
-                        </Badge>
-                      )}
-                    </CardTitle>
-                  </CardHeader>
+                  <circle cx="1" cy="1" r="1" className="fill-[#01adff]" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            </svg>
+          </div>
 
-                  <CardContent className="p-8 pt-0">
-                    <div className="space-y-6">
-                      {[
-                        { icon: MapPin, value: location.address },
-                        { icon: Phone, value: location.phone },
-                        { icon: Mail, value: location.email },
-                  
-                      ].map((item, index) => (
-                        <div
-                          key={index}
-                          className="flex items-start space-x-4 group"
-                        >
-                          <item.icon className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0 group-hover:text-[#01adff] transition-colors duration-300" />
-                          <p className="text-black leading-relaxed group-hover:text-black transition-colors duration-300 text-sm">
-                            {item.value}
-                          </p>
-                        </div>
-                      ))}
+          <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+            <ScrollTriggerComponent animation="fadeInUp">
+              <div className="text-center mb-20">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
+                  Worldwide <span className="text-[#01adff]">Presence</span>
+                </h2>
+                <div className="mt-4 flex justify-center">
+                  <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
+                </div>
+                <p className="mt-6 text-lg md:text-xl text-black max-w-3xl mx-auto">
+                  With offices across 6 strategic locations, we're always close
+                  to your project. Your local office is highlighted for
+                  personalized service.
+                </p>
+              </div>
+            </ScrollTriggerComponent>
 
-                  
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </ScrollTriggerComponent>
-        </div>
+            <ScrollTriggerComponent animation="scaleIn" stagger={0.1}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {allLocations.map((location) => (
+                  <Card
+                    key={location.id}
+                    className={`bg-white  shadow-xl border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
+                      locationData && location.id === locationData.id
+                        ? "ring-2 ring-[#01adff] bg-gradient-to-br from-[#01adff]/5 to-[#1564e5]/5 shadow-[#01adff]/20"
+                        : ""
+                    }`}
+                  >
+                    <CardHeader className="p-8">
+                      <CardTitle className="text-xl sm:text-2xl font-bold tracking-tight flex items-center justify-between text-black">
+                        <span>{location.name}</span>
+                        {locationData && location.id === locationData.id && (
+                          <Badge className="bg-gradient-to-r from-[#01adff] to-[#1564e5] text-white font-bold">
+                            Your Location
+                          </Badge>
+                        )}
+                      </CardTitle>
+                    </CardHeader>
+
+                    <CardContent className="p-8 pt-0">
+                      <div className="space-y-6">
+                        {[
+                          { icon: MapPin, value: location.address },
+                          { icon: Phone, value: location.phone },
+                          { icon: Mail, value: location.email },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start space-x-4 group"
+                          >
+                            <item.icon className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0 group-hover:text-[#01adff] transition-colors duration-300" />
+                            <p className="text-black leading-relaxed group-hover:text-black transition-colors duration-300 text-sm">
+                              {item.value}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </ScrollTriggerComponent>
+          </div>
+        </section>
       </section>
-      </section>
-
-    
 
       {/* Enhanced Emergency Contact */}
-      <section className="py-20 bg-gradient-to-r from-[#01adff] to-[#1564e5]">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="p-6 bg-white/20 backdrop-blur-sm ">
-                <Zap className="h-10 w-10 text-white animate-pulse" />
-              </div>
-            </div>
-            <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6">
-              24/7 Quick Support
-            </h3>
-            <p className="text-blue-100 mb-10 max-w-3xl mx-auto text-xl leading-relaxed font-light">
-              Critical façade issues can't wait. Our emergency response team is
-              available around the clock for urgent repairs and safety concerns.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-              <div className="flex items-center space-x-4 text-white font-bold bg-white/20 backdrop-blur-sm  px-8 py-4 shadow-2xl text-lg">
-                <Phone className="h-6 w-6" />
-                <span>Emergency: +971 50 HELP (4357)</span>
-              </div>
-              <Badge className="bg-white text-[#01adff] px-6 py-3 text-lg font-bold">
-                Available 24/7
-              </Badge>
+      <section className="relative py-28 bg-gradient-to-r from-[#01adff] via-[#0475e0] to-[#1564e5] overflow-hidden">
+        <div className="relative container mx-auto px-6 sm:px-8 lg:px-16 text-center z-10">
+          {/* Icon */}
+          <div className="flex justify-center mb-10"></div>
+
+          {/* Headings */}
+          <h3 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6 drop-shadow-lg">
+            24/7 <span className="text-[#a7e3ff]">Quick Support</span>
+          </h3>
+
+          <p className="text-blue-100 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed font-light mb-14">
+            Critical façade issues can't wait. Our emergency response team is
+            available around the clock for urgent repairs and safety concerns.
+          </p>
+
+          {/* Contact Options */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
+            {/* Phone Card */}
+            <div className="flex items-center gap-4 px-10 py-5 bg-white/10 border border-white/20 backdrop-blur-lg rounded-xl text-white text-lg font-semibold shadow-[0_0_25px_rgba(255,255,255,0.15)] hover:bg-white/20 hover:scale-[1.02] transition-all duration-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-7 w-7"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.25 4.5l3.75-.75 1.5 5.25-2.25 1.5a11.96 11.96 0 006.75 6.75l1.5-2.25 5.25 1.5-.75 3.75A16.5 16.5 0 012.25 4.5z"
+                />
+              </svg>
+              <span className="tracking-wide">+971 50 HELP (4357)</span>
             </div>
           </div>
         </div>

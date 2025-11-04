@@ -59,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </Link>
 
-      <div className={styles.buttonContainer}>
+      {/* <div className={styles.buttonContainer}>
         <button
           className={styles.galleryButton}
           onClick={(e) => {
@@ -69,7 +69,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         >
           View Gallery
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

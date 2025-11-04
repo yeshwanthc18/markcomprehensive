@@ -142,7 +142,7 @@ export default function Footer() {
               {achievements.map((achievement, index) => (
                 <div
                   key={index}
-                  className="text-center p-4 "
+                  className="text-center p-4 rounded-md"
                   style={{ backgroundColor: "#1c345c" }}
                 >
                   <div
@@ -170,7 +170,7 @@ export default function Footer() {
                 {certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-2 p-3  hover:opacity-80 transition-colors"
+                    className="flex items-center space-x-2 p-3  rounded-md  hover:opacity-80 transition-colors"
                     style={{ backgroundColor: "#1c345c" }}
                   >
                     <cert.icon
@@ -238,7 +238,7 @@ export default function Footer() {
               {locations.map((location, index) => (
                 <div
                   key={index}
-                  className="p-4  hover:opacity-80 transition-colors"
+                  className="p-4  rounded-md hover:opacity-80 transition-colors"
                   style={{ backgroundColor: "#1c345c" }}
                 >
                   <div className="flex items-start justify-between mb-2">
@@ -268,7 +268,7 @@ export default function Footer() {
             <div className="space-y-6 mb-8">
               <div className="flex items-start space-x-4">
                 <div
-                  className="w-10 h-10  flex items-center justify-center flex-shrink-0"
+                  className="w-10 h-10  rounded-md flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: "rgba(1, 173, 255, 0.2)" }}
                 >
                   <Phone className="h-5 w-5" style={{ color: "#01adff" }} />
@@ -286,7 +286,7 @@ export default function Footer() {
 
               <div className="flex items-start space-x-4">
                 <div
-                  className="w-10 h-10  flex items-center justify-center flex-shrink-0"
+                  className="w-10 h-10  rounded-md flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: "rgba(1, 173, 255, 0.2)" }}
                 >
                   <Mail className="h-5 w-5" style={{ color: "#01adff" }} />
@@ -306,7 +306,7 @@ export default function Footer() {
 
               <div className="flex items-start space-x-4">
                 <div
-                  className="w-10 h-10  flex items-center justify-center flex-shrink-0"
+                  className="w-10 h-10  rounded-md flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: "rgba(1, 173, 255, 0.2)" }}
                 >
                   <MapPin className="h-5 w-5" style={{ color: "#01adff" }} />
@@ -325,7 +325,7 @@ export default function Footer() {
 
             {/* Professional CTA */}
             <div
-              className="p-6 "
+              className="p-6  rounded-md"
               style={{ backgroundColor: "#01adff" }}
             >
               <h4 className="font-bold text-white mb-2">Ready to Start?</h4>
@@ -334,7 +334,7 @@ export default function Footer() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center bg-white px-4 py-2  font-semibold text-sm hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center bg-white px-4 py-2  rounded-md font-semibold text-sm hover:bg-gray-100 transition-colors"
                 style={{ color: "#01adff" }}
               >
                 Get Free Quote
@@ -367,12 +367,11 @@ export default function Footer() {
                   <div className="font-semibold text-white">
                     +968 9131 5526
                   </div>
-                  <div className="text-xs">Available 24/7</div>
                 </div>
               </div>
               <Link
                 href="/contact"
-                className="bg-white px-8 py-3  font-semibold hover:bg-gray-100 transition-colors text-center shadow-lg"
+                className="bg-white px-8 py-3  rounded-md font-semibold hover:bg-gray-100 transition-colors text-center shadow-lg"
                 style={{ color: "#01adff" }}
               >
                 Get Free Consultation

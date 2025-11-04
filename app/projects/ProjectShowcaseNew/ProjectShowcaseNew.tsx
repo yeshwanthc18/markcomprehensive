@@ -69,7 +69,7 @@ export default function ProjectShowcaseNew() {
             {filtered.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="relative w-full h-full rounded-[1vw]"
+                className="relative w-full h-full rounded-md"
                 style={{
                   marginTop: index % 2 === 0 ? (index === 0 ? "20rem" : "10rem") : 0,
                   scale,

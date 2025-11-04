@@ -124,8 +124,8 @@ export default function TriangleGroupScroll() {
     text,
     style,
   }) => (
-    <motion.p 
-      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-sm md:text-base pointer-events-none z-10" 
+    <motion.p
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-sm md:text-base pointer-events-none z-10"
       style={style}
     >
       {text}
@@ -141,7 +141,13 @@ export default function TriangleGroupScroll() {
     id: string;
     title: string;
     description: string;
-    direction: "top" | "bottom-left" | "bottom-right"|"left-mobile"|"mobile"|"top-mobile";
+    direction:
+      | "top"
+      | "bottom-left"
+      | "bottom-right"
+      | "left-mobile"
+      | "mobile"
+      | "top-mobile";
   }) => {
     const directionConfig = {
       top: {
@@ -189,7 +195,7 @@ export default function TriangleGroupScroll() {
 
   return (
     <section ref={containerRef} className="relative py-32 overflow-visible ">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -242,6 +248,25 @@ export default function TriangleGroupScroll() {
             stop1={gradientStart}
             stop2={gradientEnd}
           />
+
+          <div className="absolute right-7 top-20 text-cyan-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 120 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              className="w-16 h-6"
+            >
+              <line x1="0" y1="12" x2="110" y2="12" strokeLinecap="round" />
+              <polyline
+                points="100,4 112,12 100,20"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
           <HoverCard
             id="top"
             title="Our Values"
@@ -280,6 +305,24 @@ export default function TriangleGroupScroll() {
               stop1={gradientStart}
               stop2={gradientEnd}
             />
+            <div className="absolute left-7 top-20 text-cyan-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 120 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="w-16 h-6 scale-x-[-1]"
+              >
+                <line x1="0" y1="12" x2="110" y2="12" strokeLinecap="round" />
+                <polyline
+                  points="100,4 112,12 100,20"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
             <HoverCard
               id="left"
               title="Our Vision"
@@ -308,6 +351,23 @@ export default function TriangleGroupScroll() {
               stop1={gradientStart}
               stop2={gradientEnd}
             />
+            <div className="absolute right-7 top-20 text-cyan-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 120 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="w-16 h-6"
+              >
+                <line x1="0" y1="12" x2="110" y2="12" strokeLinecap="round" />
+                <polyline
+                  points="100,4 112,12 100,20"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
             <HoverCard
               id="right"
               title="Our Mission"
@@ -317,8 +377,6 @@ export default function TriangleGroupScroll() {
           </motion.div>
         </div>
       </div>
-      
-     
     </section>
   );
 }

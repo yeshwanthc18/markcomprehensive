@@ -1,8 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Facebook, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  Linkedin,
+  Mail,
+  MapPin,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import ScrollTriggerComponent from "../animations/scroll-trigger";
 
 const teamMembers = [
@@ -13,10 +19,7 @@ const teamMembers = [
     image:
       "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=300",
     bio: "Visionary leader with 15+ years in architectural innovation",
-    socials: {
-      linkedin: "#",
-      email: "jhon@company.com",
-    },
+    socials: { linkedin: "#", email: "jhon@company.com" },
   },
   {
     name: "Jane Smith",
@@ -25,10 +28,7 @@ const teamMembers = [
     image:
       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300",
     bio: "Expert in structural design and sustainable materials",
-    socials: {
-      linkedin: "#",
-      email: "jane@company.com",
-    },
+    socials: { linkedin: "#", email: "jane@company.com" },
   },
   {
     name: "Michael Brown",
@@ -37,181 +37,192 @@ const teamMembers = [
     image:
       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300",
     bio: "Strategic operations specialist driving global excellence",
-    socials: {
-      linkedin: "#",
-      email: "michael@company.com",
-    },
+    socials: { linkedin: "#", email: "michael@company.com" },
   },
   {
     name: "Sarah Johnson",
     position: "Design Director",
     location: "Paris, France",
     image:
-      "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=300",
+      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300",
     bio: "Award-winning architect specializing in contemporary facades",
-    socials: {
-      linkedin: "#",
-      email: "sarah@company.com",
-    },
+    socials: { linkedin: "#", email: "sarah@company.com" },
   },
   {
     name: "David Chen",
     position: "Technology Lead",
     location: "Tokyo, Japan",
     image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300",
+      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300",
     bio: "Pioneering smart building integration and automation",
-    socials: {
-      linkedin: "#",
-      email: "david@company.com",
-    },
+    socials: { linkedin: "#", email: "david@company.com" },
   },
   {
     name: "Emma Wilson",
     position: "Sustainability Officer",
     location: "Copenhagen, Denmark",
     image:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300",
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
     bio: "Champion of eco-friendly architectural solutions",
-    socials: {
-      linkedin: "#",
-      email: "emma@company.com",
-    },
+    socials: { linkedin: "#", email: "emma@company.com" },
   },
 ];
 
 export default function LeadershipTeamSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const isHovered = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    let animationFrameId: number;
-    const scrollSpeed = 0.3;
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % teamMembers.length);
+  };
 
-    const autoScroll = () => {
-      if (!container || isHovered.current) {
-        animationFrameId = requestAnimationFrame(autoScroll);
-        return;
-      }
-
-      container.scrollLeft += scrollSpeed;
-
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0;
-      }
-
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    animationFrameId = requestAnimationFrame(autoScroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
-
-  const scrollingMembers = [...teamMembers, ...teamMembers];
+  const handlePrev = () => {
+    setActiveIndex((prev) =>
+      prev === 0 ? teamMembers.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Decorative background elements */}
+      {/* Background Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#01adff]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#01adff]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-40 left-10 w-[500px] h-[500px] bg-[#01adff]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-10 w-[600px] h-[600px] bg-[#01adff]/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-16 relative z-10">
         {/* Header */}
-
         <ScrollTriggerComponent animation="fadeInUp">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
+            <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900">
               <span className="text-[#01adff]">Leadership</span> Team
             </h2>
             <div className="mt-4 flex justify-center">
-              <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
+              <div className="w-32 h-[2px] bg-gradient-to-r from-[#01adff] to-transparent"></div>
             </div>
-            <p className="mt-6 text-lg md:text-xl text-black max-w-3xl mx-auto">
-              A collective of visionaries, engineers, and designers committed to
-              pushing the boundaries of architectural excellence
+            <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Meet the brilliant minds redefining architecture through design,
+              innovation, and sustainable engineering.
             </p>
           </div>
         </ScrollTriggerComponent>
 
-        {/* Team Grid with Auto-scroll */}
-        <div
-          ref={scrollRef}
-          onMouseEnter={() => (isHovered.current = true)}
-          onMouseLeave={() => (isHovered.current = false)}
-          className="flex gap-8 overflow-x-hidden pb-8"
-          style={{ scrollBehavior: "auto" }}
-        >
-          {scrollingMembers.map((member, index) => (
-            <div
-              key={index}
-              className="shrink-0 w-[340px] lg:w-[380px]"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <Card className="group rounded-md relative overflow-hidden bg-white border border-gray-200 hover:border-[#01adff]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#01adff]/10">
-                {/* Image Container */}
-                <div className="relative h-[420px] overflow-hidden bg-gray-100">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
-                  />
+        {/* Carousel */}
+        <div className="relative flex flex-col items-center justify-center">
+          <div className="relative flex items-center justify-center w-full overflow-hidden h-[520px]">
+            {teamMembers.map((member, index) => {
+              // Calculate circular offset
+              const offset =
+                (index - activeIndex + teamMembers.length) %
+                teamMembers.length;
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
+              let translateX = 0;
+              let scale = 1;
+              let zIndex = 0;
+              let opacity = 0;
 
-                  {/* Content Overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                    <div className="transform transition-all duration-500 translate-y-0 group-hover:translate-y-0">
-                      {/* Location */}
-                      <div className="flex items-center gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        <MapPin className="h-4 w-4 text-[#01adff]" />
-                        <span className="text-sm font-medium">
-                          {member.location}
-                        </span>
-                      </div>
+              if (offset === 0) {
+                // Active (center)
+                translateX = 0;
+                scale = 1.05;
+                zIndex = 30;
+                opacity = 1;
+              } else if (offset === 1) {
+                // Next (right)
+                translateX = 320;
+                scale = 0.9;
+                zIndex = 20;
+                opacity = 0.6;
+              } else if (offset === teamMembers.length - 1) {
+                // Previous (left)
+                translateX = -320;
+                scale = 0.9;
+                zIndex = 20;
+                opacity = 0.6;
+              } else {
+                // Others (hidden)
+                translateX = offset > 1 ? 600 : -600;
+                scale = 0.7;
+                zIndex = 10;
+                opacity = 0;
+              }
 
-                      {/* Name & Position */}
-                      <h3 className="text-2xl font-bold mb-2 tracking-tight">
-                        {member.name}
-                      </h3>
-                      <p className="text-sm font-medium text-[#01adff] mb-3 uppercase tracking-wide">
-                        {member.position}
-                      </p>
+              return (
+                <div
+                  key={index}
+                  className="absolute transition-all duration-700 ease-in-out"
+                  style={{
+                    transform: `translateX(${translateX}px) scale(${scale})`,
+                    opacity,
+                    zIndex,
+                  }}
+                >
+                  <Card className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white/50 backdrop-blur-md shadow-[0_8px_30px_rgb(1,173,255,0.08)] hover:shadow-[0_15px_50px_rgb(1,173,255,0.15)] transition-all duration-700 w-[320px] sm:w-[380px]">
+                    <div className="relative h-[440px] overflow-hidden rounded-t-2xl">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#000]/80 via-[#000]/30 to-transparent"></div>
 
-                      {/* Bio */}
-                      <p className="text-sm text-gray-300 leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 max-h-0 group-hover:max-h-20 overflow-hidden">
-                        {member.bio}
-                      </p>
+                      <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                        <div className="space-y-3 transition-all duration-700">
+                          <div className="flex items-center gap-2 text-sm text-gray-300">
+                            <MapPin className="h-4 w-4 text-[#01adff]" />
+                            <span>{member.location}</span>
+                          </div>
+                          <h3 className="text-2xl font-semibold tracking-tight">
+                            {member.name}
+                          </h3>
+                          <p className="text-sm uppercase text-[#01adff] font-semibold tracking-wide">
+                            {member.position}
+                          </p>
 
-                      {/* Social Links */}
-                      <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                        <a
-                          href={member.socials.linkedin}
-                          className="p-2.5 bg-white/10 backdrop-blur-sm hover:bg-[#01adff] rounded-lg transition-all duration-300 hover:scale-110"
-                        >
-                          <Linkedin className="h-4 w-4" />
-                        </a>
-                        <a
-                          href={`mailto:${member.socials.email}`}
-                          className="p-2.5 bg-white/10 backdrop-blur-sm hover:bg-[#01adff] rounded-lg transition-all duration-300 hover:scale-110"
-                        >
-                          <Mail className="h-4 w-4" />
-                        </a>
+                          {offset === 0 && (
+                            <>
+                              <p className="text-sm text-gray-300 leading-relaxed">
+                                {member.bio}
+                              </p>
+                              <div className="flex gap-3 mt-3">
+                                <a
+                                  href={member.socials.linkedin}
+                                  className="p-2.5 bg-white/10 backdrop-blur-md rounded-lg hover:bg-[#01adff] hover:text-white transition-all duration-300 hover:scale-110"
+                                >
+                                  <Linkedin className="h-4 w-4" />
+                                </a>
+                                <a
+                                  href={`mailto:${member.socials.email}`}
+                                  className="p-2.5 bg-white/10 backdrop-blur-md rounded-lg hover:bg-[#01adff] hover:text-white transition-all duration-300 hover:scale-110"
+                                >
+                                  <Mail className="h-4 w-4" />
+                                </a>
+                              </div>
+                            </>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Top Corner Accent */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#01adff] to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  </Card>
                 </div>
-              </Card>
-            </div>
-          ))}
+              );
+            })}
+          </div>
+
+          {/* Buttons */}
+          <div className="flex justify-center items-center mt-16 gap-6">
+            <button
+              onClick={handlePrev}
+              className="p-3 rounded-full bg-white/70 backdrop-blur-md border border-[#01adff]/30 shadow-md hover:bg-[#01adff] hover:text-white transition-all duration-300 group"
+            >
+              <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-3 rounded-full bg-white/70 backdrop-blur-md border border-[#01adff]/30 shadow-md hover:bg-[#01adff] hover:text-white transition-all duration-300 group"
+            >
+              <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

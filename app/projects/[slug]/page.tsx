@@ -16,6 +16,7 @@ import {
 import Image from "next/image";
 import { CompareDemo } from "@/components/animated/compare";
 import { Reveal } from "@/components/reveal-on-scroll";
+import ButtonPrimary from "@/components/layout/Button";
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -58,7 +59,7 @@ export default function ProjectDetailPage({
             <Link href="/projects">
               <Button
                 variant="ghost"
-                className="mb-4 text-white hover:text-white/80 hover:bg-[#001952]"
+                className="mb-4 text-white hover:text-white/80 hover:bg-transparant"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Projects
@@ -127,7 +128,7 @@ export default function ProjectDetailPage({
                   {project.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 p-4 border hover:border-[#01adff] transition-colors"
+                      className="flex items-start rounded-md shadow-sm gap-3 p-4 border hover:border-[#01adff] transition-colors"
                     >
                       <CheckCircle2 className="h-5 w-5 text-[#01adff] flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{feature}</span>
@@ -138,18 +139,7 @@ export default function ProjectDetailPage({
               </section>
             )}
 
-            {/* Key Features */}
-            {/* <section>
-              <h2 className="text-3xl font-bold text-[#001952] mb-6">Key Features</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-4 border hover:border-[#01adff] transition-colors">
-                    <CheckCircle2 className="h-5 w-5 text-[#01adff] flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </section> */}
+          
 
             {/* Facade System Details */}
             <Reveal>
@@ -158,7 +148,7 @@ export default function ProjectDetailPage({
                 Facade System Details
               </h2>
               <Card
-                className="p-6 border-2"
+                className="p-6 border-2 rounded-md"
                 style={{ borderColor: "#01adff", backgroundColor: "#001952" }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -263,7 +253,7 @@ export default function ProjectDetailPage({
                             (spec, idx) => (
                               <div
                                 key={idx}
-                                className="flex items-start gap-2 bg-white/10 p-3 rounded"
+                                className="flex items-start gap-2 bg-white/10 p-3 rounded-md"
                               >
                                 <CheckCircle2 className="h-5 w-5 text-[#01adff] flex-shrink-0 mt-0.5" />
                                 <span className="text-sm text-white">
@@ -292,7 +282,7 @@ export default function ProjectDetailPage({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project.performanceHighlights.daylightOptimisation && (
                       <Card
-                        className="p-6 border-l-4"
+                        className="p-6 border-l-4 rounded-md"
                         style={{ borderLeftColor: "#01adff" }}
                       >
                         <h3 className="text-lg font-bold text-[#001952] mb-2">
@@ -305,7 +295,7 @@ export default function ProjectDetailPage({
                     )}
                     {project.performanceHighlights.thermalEfficiency && (
                       <Card
-                        className="p-6 border-l-4"
+                        className="p-6 border-l-4 rounded-md"
                         style={{ borderLeftColor: "#01adff" }}
                       >
                         <h3 className="text-lg font-bold text-[#001952] mb-2">
@@ -318,7 +308,7 @@ export default function ProjectDetailPage({
                     )}
                     {project.performanceHighlights.coastalDurability && (
                       <Card
-                        className="p-6 border-l-4"
+                        className="p-6 border-l-4 rounded-md"
                         style={{ borderLeftColor: "#01adff" }}
                       >
                         <h3 className="text-lg font-bold text-[#001952] mb-2">
@@ -331,7 +321,7 @@ export default function ProjectDetailPage({
                     )}
                     {project.performanceHighlights.childSafeDesign && (
                       <Card
-                        className="p-6 border-l-4"
+                        className="p-6 border-l-4 rounded-md"
                         style={{ borderLeftColor: "#01adff" }}
                       >
                         <h3 className="text-lg font-bold text-[#001952] mb-2">
@@ -344,7 +334,7 @@ export default function ProjectDetailPage({
                     )}
                     {project.performanceHighlights.aestheticContinuity && (
                       <Card
-                        className="p-6 border-l-4 md:col-span-2"
+                        className="p-6 border-l-4 md:col-span-2  rounded-md"
                         style={{ borderLeftColor: "#01adff" }}
                       >
                         <h3 className="text-lg font-bold text-[#001952] mb-2">
@@ -368,7 +358,7 @@ export default function ProjectDetailPage({
                   Glass Specification
                 </h2>
                 <Card
-                  className="p-6 border-2"
+                  className="p-6 border-2  rounded-md"
                   style={{ borderColor: "#01adff" }}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -462,7 +452,7 @@ export default function ProjectDetailPage({
             <Reveal>
             {project.challenges && project.solution && (
               <section className="space-y-6">
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded">
+                <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-md">
                   <div className="flex items-start gap-3">
                     <AlertCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
                     <div>
@@ -475,7 +465,7 @@ export default function ProjectDetailPage({
                     </div>
                   </div>
                 </div>
-                <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded">
+                <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-md">
                   <div className="flex items-start gap-3">
                     <Lightbulb className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
                     <div>
@@ -518,10 +508,10 @@ export default function ProjectDetailPage({
                 {project.images.slice(1).map((image, idx) => (
                   <div
                     key={idx}
-                    className="relative aspect-[4/3] overflow-hidden group rounded"
+                    className="relative aspect-[4/3] overflow-hidden group rounded-md"
                   >
                     <Image
-                      src={image.src || "/placeholder.svg"}
+                      src={image.src}
                       alt={image.alt}
                       unoptimized
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -536,7 +526,7 @@ export default function ProjectDetailPage({
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Project Info Card */}
-            <Card className="p-6 sticky top-4">
+            <Card className="p-6 sticky top-4 rounded-md">
               <h3 className="text-xl font-bold text-[#001952] mb-4">
                 Project Information
               </h3>
@@ -544,7 +534,7 @@ export default function ProjectDetailPage({
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Status</p>
                   <Badge
-                    className="text-sm"
+                    className="text-sm rounded-md"
                     style={{
                       backgroundColor:
                         project.status === "Completed"
@@ -615,12 +605,11 @@ export default function ProjectDetailPage({
               </div>
 
               <div className="mt-6 pt-6 border-t">
-                <Button
-                  className="w-full"
-                  style={{ backgroundColor: "#01adff", color: "#ffffff" }}
+                <ButtonPrimary
+                  className="w-full  rounded-md"
                 >
                   Request Similar Project
-                </Button>
+                </ButtonPrimary>
               </div>
             </Card>
           </div>

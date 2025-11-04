@@ -15,6 +15,7 @@ import {
   Shield,
   BookOpen,
 } from "lucide-react";
+import ButtonPrimary from "../layout/Button";
 
 export function TechnicalResourcesSection() {
   const resources = [
@@ -89,7 +90,7 @@ export function TechnicalResourcesSection() {
           {resources.map((resource, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg"
+              className="group hover:shadow-xl rounded-md transition-all duration-300 border-0 shadow-lg"
             >
               <CardHeader className="pb-4">
                 <div
@@ -111,10 +112,10 @@ export function TechnicalResourcesSection() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#01adff] to-[#01adff] hover:from-[#01adff] hover:to-[#1c345c] transition-all duration-300">
+                <ButtonPrimary className="w-full flex items-center justify-center gap-2 transition-all duration-300">
                   <Download className="h-4 w-4" />
                   Download Resources
-                </Button>
+                </ButtonPrimary>
               </CardFooter>
             </Card>
           ))}

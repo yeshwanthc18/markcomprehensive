@@ -133,13 +133,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="overview">
               <Reveal>
                 <h2
-                  className="text-3xl font-semibold text-[color:var(--navy)]"
+                  className="text-3xl font-semibold text-black"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   Overview
                 </h2>
                 <p
-                  className="mt-3 text-lg leading-relaxed text-[color:var(--fg-muted)]"
+                  className="mt-3 text-lg leading-relaxed text-black"
                   style={{ ["--fg-muted" as any]: brand.primaryDeep }}
                 >
                   {service.summary}
@@ -227,7 +227,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section aria-label="Project Gallery">
               <Reveal>
                 <h2
-                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  className="text-2xl font-semibold text-black"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   Models
@@ -245,7 +245,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="specification">
               <Reveal>
                 <h2
-                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  className="text-2xl font-semibold text-black"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   Specification
@@ -255,20 +255,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 {service.specification.map((c, i) => (
                   <Reveal key={c.title} delay={i * 60}>
                     <div
-                      className="p-4 h-full transition-transform hover:-translate-y-0.5"
+                      className="p-4 h-full transition-transform rounded-md hover:-translate-y-0.5"
                       style={{
                         backgroundColor: brand.white,
                         border: `1px solid ${brand.navy}`,
                       }}
                     >
                       <div
-                        className="text-sm font-semibold text-[color:var(--navy)]"
+                        className="text-l font-semibold text-black"
                         style={{ ["--navy" as any]: brand.navy }}
                       >
                         {c.title}
                       </div>
                       <p
-                        className="mt-2 text-sm leading-relaxed text-[color:var(--fg-muted)]"
+                        className="mt-2 text-md leading-relaxed text-black"
                         style={{ ["--fg-muted" as any]: brand.primaryDeep }}
                       >
                         {c.detail}
@@ -282,7 +282,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="process">
               <Reveal>
                 <h2
-                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  className="text-2xl font-semibold text-black"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   Process
@@ -292,14 +292,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 {service.process.map((p, i) => (
                   <Reveal key={p.step} delay={i * 70}>
                     <li
-                      className="p-4 transition-transform hover:-translate-y-0.5"
+                      className="p-4 rounded-md transition-transform hover:-translate-y-0.5"
                       style={{
                         backgroundColor: brand.white,
                         border: `1px solid ${brand.navy}`,
                       }}
                     >
                       <div
-                        className="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-medium"
+                        className="inline-flex rounded-md items-center gap-2 px-2.5 py-1 text-sm font-medium"
                         style={{
                           backgroundColor: brand.navy,
                           color: brand.white,
@@ -309,7 +309,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                         {p.step}
                       </div>
                       <p
-                        className="mt-3 text-sm leading-relaxed text-[color:var(--fg-muted)]"
+                        className="mt-3 text-md leading-relaxed text-black"
                         style={{ ["--fg-muted" as any]: brand.primaryDeep }}
                       >
                         {p.detail}
@@ -324,7 +324,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="gallery" aria-label="Project Gallery">
               <Reveal>
                 <h2
-                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  className="text-2xl font-semibold text-black"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   Gallery
@@ -342,7 +342,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <section id="faqs">
               <Reveal>
                 <h2
-                  className="text-2xl font-semibold text-[color:var(--navy)]"
+                  className="text-2xl font-semibold text-black"
                   style={{ ["--navy" as any]: brand.navy }}
                 >
                   FAQs
@@ -356,13 +356,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   <Reveal key={f.q} delay={i * 80}>
                     <details className="group py-3">
                       <summary
-                        className="cursor-pointer list-none text-[color:var(--navy)] font-medium"
+                        className="cursor-pointer list-none text-black font-medium"
                         style={{ ["--navy" as any]: brand.navy }}
                       >
                         {f.q}
                       </summary>
                       <p
-                        className="mt-2 text-sm leading-relaxed text-[color:var(--fg-muted)]"
+                        className="mt-2 text-sm leading-relaxed text-black"
                         style={{ ["--fg-muted" as any]: brand.primaryDeep }}
                       >
                         {f.a}
@@ -384,13 +384,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 >
                   <div>
                     <h3
-                      className="text-lg font-semibold text-[color:var(--navy)]"
+                      className="text-lg font-semibold text-black"
                       style={{ ["--navy" as any]: brand.navy }}
                     >
                       Ready to start your {service.title} project?
                     </h3>
                     <p
-                      className="mt-1 text-sm text-[color:var(--fg-muted)]"
+                      className="mt-1 text-sm text-black"
                       style={{ ["--fg-muted" as any]: brand.primaryDeep }}
                     >
                       Speak with our engineering team for specifications,
