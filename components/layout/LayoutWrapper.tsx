@@ -11,7 +11,6 @@ import { QuickEstimateProvider } from "@/contexts/quick-estimate-context";
 import QuickEstimatePopup from "@/components/quick-estimate-popup";
 import { useScrollToTop } from "@/app/ScrollToTop";
 import ScrollToTop from "../scroll-to-top";
-import FluidGlass from "../ui/fludic-glass";
 import TriangleCursor from "@/app/TriangleCursor";
 
 export default function LayoutWrapper({

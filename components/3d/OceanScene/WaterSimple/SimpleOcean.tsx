@@ -23,16 +23,16 @@ const SimpleOcean = () => {
   // 🎛 Leva controls
   const { position, waterColor, distortionScale } = useControls("🌊 Ocean Controls", {
     position: {
-      value: [0, -170, 0],
+      value: [0, -90, 0],
       step: 0.1,
       label: "Position (x, y, z)",
     },
     waterColor: {
-      value: "#1ba5d7",
+      value: "#14b0d9",
       label: "Water Color",
     },
     distortionScale: {
-      value: 0.7,
+      value: 5,
       min: 0,
       max: 5,
       step: 0.1,

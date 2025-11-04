@@ -49,7 +49,7 @@ function ScrollableOceanScene({
       scale={oceanScale}
     >
       <OceanScene />
-      <CloudField />
+      {/* <CloudField /> */}
     </group>
   );
 }
