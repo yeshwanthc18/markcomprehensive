@@ -538,7 +538,7 @@ export default function ContactPage() {
                 {allLocations.map((location) => (
                   <Card
                     key={location.id}
-                    className={`bg-white  shadow-xl border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
+                    className={`bg-white rounded-md shadow-xl border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
                       locationData && location.id === locationData.id
                         ? "ring-2 ring-[#01adff] bg-gradient-to-br from-[#01adff]/5 to-[#1564e5]/5 shadow-[#01adff]/20"
                         : ""
@@ -548,7 +548,7 @@ export default function ContactPage() {
                       <CardTitle className="text-xl sm:text-2xl font-bold tracking-tight flex items-center justify-between text-black">
                         <span>{location.name}</span>
                         {locationData && location.id === locationData.id && (
-                          <Badge className="bg-gradient-to-r from-[#01adff] to-[#1564e5] text-white font-bold">
+                          <Badge className="bg-gradient-to-r from-[#01adff] to-[#1564e5] rounded-md text-white font-bold">
                             Your Location
                           </Badge>
                         )}
@@ -583,45 +583,7 @@ export default function ContactPage() {
       </section>
       </GradientBG>
 
-      {/* Enhanced Emergency Contact */}
-      <section className="relative py-28 bg-gradient-to-r from-[#01adff] via-[#0475e0] to-[#1564e5] overflow-hidden">
-        <div className="relative container mx-auto px-6 sm:px-8 lg:px-16 text-center z-10">
-          {/* Icon */}
-          <div className="flex justify-center mb-10"></div>
-
-          {/* Headings */}
-          <h3 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6 drop-shadow-lg">
-            24/7 <span className="text-[#a7e3ff]">Quick Support</span>
-          </h3>
-
-          <p className="text-blue-100 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed font-light mb-14">
-            Critical façade issues can't wait. Our emergency response team is
-            available around the clock for urgent repairs and safety concerns.
-          </p>
-
-          {/* Contact Options */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-            {/* Phone Card */}
-            <div className="flex items-center gap-4 px-10 py-5 bg-white/10 border border-white/20 backdrop-blur-lg rounded-xl text-white text-lg font-semibold shadow-[0_0_25px_rgba(255,255,255,0.15)] hover:bg-white/20 hover:scale-[1.02] transition-all duration-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="h-7 w-7"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 4.5l3.75-.75 1.5 5.25-2.25 1.5a11.96 11.96 0 006.75 6.75l1.5-2.25 5.25 1.5-.75 3.75A16.5 16.5 0 012.25 4.5z"
-                />
-              </svg>
-              <span className="tracking-wide">+971 50 HELP (4357)</span>
-            </div>
-          </div>
-        </div>
-      </section>
+   
     </div>
   );
 }

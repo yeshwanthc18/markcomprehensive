@@ -28,7 +28,7 @@ interface ServiceCardProps {
     description: string;
     features: string[];
     color: string;
-    image: string;
+    image: any;
     specs: Partial<Record<string, string>>;
     category?: string;
     link: string;
