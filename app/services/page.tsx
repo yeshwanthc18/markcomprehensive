@@ -5,6 +5,7 @@ import { CaseStudiesSection } from "@/components/services/case-studies-section";
 import ServicePageWalkthrough from "@/components/3d/ServicesWalkthrough";
 import ServiceShowcaseNew from "./ProjectShowcaseNew/ServiceShowcaseNew";
 import { ServicesHeroSection } from "@/components/services/services-hero-section";
+import GradientBG from "@/components/animated/background-white-gradient";
 
 export default function ServicesPage() {
   return (
@@ -23,12 +24,17 @@ export default function ServicesPage() {
 
       {/* Sections */}
       {/* <ServicesHeroSection /> */}
-
-      <ServiceShowcaseNew />
+      <GradientBG>
+        <ServiceShowcaseNew />
+      </GradientBG>
       {/* <VideoShowcaseSection /> */}
+       <GradientBG>
       <TechnicalResourcesSection />
+      </GradientBG>
       {/* <ProcessSection /> */}
+       <GradientBG>
       <CaseStudiesSection />
+      </GradientBG>
       {/* <ServicesCTASection /> */}
     </div>
   );

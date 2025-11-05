@@ -110,7 +110,7 @@ const StickyCard = ({
           scale,
           top: `calc(-5vh + ${i * 20 + 250}px)`,
         }}
-        className="rounded-xl relative -top-1/2 flex h-[300px] w-full origin-top flex-col backdrop-blur-xl overflow-hidden bg-white/50  border border-gray-200"
+        className="rounded-xl relative -top-1/2 flex h-[300px] w-full origin-top flex-col bg-white/80 backdrop-blur-3xl overflow-hidden bg-white/50  border border-gray-200"
       >
         <CardContent className="p-6 sm:p-8">
           <div className="flex items-start justify-between mb-4">

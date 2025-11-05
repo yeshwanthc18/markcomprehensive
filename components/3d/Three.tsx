@@ -9,6 +9,8 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { EffectComposer, HueSaturation } from "@react-three/postprocessing";
+
 import { useRef, Suspense } from "react";
 import * as THREE from "three";
 import Link from "next/link";
@@ -16,7 +18,6 @@ import { ArrowRight } from "lucide-react";
 import { useControls, Leva } from "leva";
 
 import Birds from "./Birds";
-import SimpleOcean from "./Water/SimpleOcean";
 import ButtonPrimary from "../layout/Button";
 import HeroSky from "./HeroSky";
 import OceanBackground from "./OceanScene/OceanBackground";
@@ -66,10 +67,10 @@ function StreetScene({
   const { posX, posY, posZ, rotX, rotY, rotZ, scale } = useControls(
     "Street Scene",
     {
-      posX: { value: 55.0, min: -100, max: 100, step: 0.1 },
+      posX: { value: 56.0, min: -100, max: 100, step: 0.1 },
       posY: { value: -9, min: -100, max: 100, step: 0.1 },
       posZ: { value: -64.7, min: -100, max: 100, step: 0.1 },
-      rotX: { value: -0.08, min: -Math.PI, max: Math.PI, step: 0.01 },
+      rotX: { value: -0.07, min: -Math.PI, max: Math.PI, step: 0.01 },
       rotY: { value: 0.0, min: -Math.PI, max: Math.PI, step: 0.01 },
       rotZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
       scale: { value: 3.6, min: 0.1, max: 10, step: 0.1 },
@@ -120,6 +121,11 @@ export default function ThreeDViewer() {
   });
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
+  const { saturation } = useControls("Post FX", {
+  saturation: { value: 0, min: -1, max: 1, step: 0.05 },
+});
+
+
   // 🎥 Camera FOV control
   const { fov } = useControls("Camera", {
     fov: { value: 30, min: 10, max: 100, step: 1 },
@@ -138,14 +144,14 @@ export default function ThreeDViewer() {
     hemiColorSky,
     hemiColorGround,
   } = useControls("Lighting", {
-    ambientIntensity: { value: 0.6, min: 0, max: 5, step: 0.1 },
+    ambientIntensity: { value: 0.3, min: 0, max: 5, step: 0.1 },
     ambientColor: "#ffffff",
-    dirIntensity: { value: 1.5, min: 0, max: 5, step: 0.1 },
+    dirIntensity: { value: 5.5, min: 0, max: 50, step: 0.1 },
     dirColor: "#ffffff",
-    dirX: { value: 5, min: -20, max: 20, step: 0.5 },
-    dirY: { value: 10, min: -20, max: 20, step: 0.5 },
-    dirZ: { value: 5, min: -20, max: 20, step: 0.5 },
-    hemiIntensity: { value: 0.3, min: 0, max: 2, step: 0.1 },
+    dirX: { value: 1, min: -20, max: 20, step: 0.5 },
+    dirY: { value: 17, min: -20, max: 20, step: 0.5 },
+    dirZ: { value: 19.5, min: -20, max: 20, step: 0.5 },
+    hemiIntensity: { value: 0.4, min: 0, max: 2, step: 0.1 },
     hemiColorSky: "#87ceeb",
     hemiColorGround: "#ffffff",
   });

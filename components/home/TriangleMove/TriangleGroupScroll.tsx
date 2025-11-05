@@ -185,7 +185,7 @@ export default function TriangleGroupScroll() {
           opacity: smoothCardOpacity,
         }}
       >
-        <div className="bg-white border border-gray-200 shadow-lg p-4 w-64 backdrop-blur-md rounded-lg">
+        <div className="backdrop-blur-3xl border border-[#01adff] shadow-lg p-4 w-64 rounded-lg">
           <h3 className="font-bold text-lg text-[#1c345c] mb-2">{title}</h3>
           <p className="text-sm text-black leading-relaxed">{description}</p>
         </div>

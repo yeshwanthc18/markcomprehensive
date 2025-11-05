@@ -80,12 +80,25 @@ export default function HomePage() {
 
       {/* <KeyNumbersSection /> */}
       <HomeHowWeWork />
-
+    <BackgroundGradientAnimation
+        overlayImage={
+          <div className="relative w-full h-full">
+            <Image
+              src={Overlay}
+              alt="Background overlay"
+              fill
+              priority
+              className="object-contain object-right"
+            />
+          </div>
+        }
+      >
       <IndustryHighlightsSection />
-
+      </BackgroundGradientAnimation>
+  <GradientBG>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div className="text-center py-24 pb-1 px-6 relative z-10">
-          <div className="inline-block relative mb-20">
+          <div className="inline-block relative mb-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black relative">
               Strong Patnerships{" "}
               <span className="text-[#01adff]">Stronger Solutions</span>
@@ -95,8 +108,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+    
         <DomeGallery />
+   
       </div>
+      </GradientBG>
       <GradientBG className="min-h-screen mt-60">
         <RecentArticlesSection />
       </GradientBG>

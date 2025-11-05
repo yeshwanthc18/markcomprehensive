@@ -214,19 +214,7 @@ export default function IndustryHighlightsSection() {
     );
 
   return (
-    <BackgroundGradientAnimation
-        overlayImage={
-          <div className="relative w-full h-full">
-            <Image
-              src={Overlay}
-              alt="Background overlay"
-              fill
-              priority
-              className="object-contain object-right"
-            />
-          </div>
-        }
-      >
+ 
     <section className="relative py-28 overflow-hidden">
     
       <div className="relative container mx-auto px-6 sm:px-8 lg:px-12">
@@ -314,6 +302,5 @@ export default function IndustryHighlightsSection() {
         </div>
       </div>
     </section>
-    </BackgroundGradientAnimation>
   );
 }

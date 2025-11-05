@@ -70,7 +70,7 @@ export function TechnicalResourcesSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">

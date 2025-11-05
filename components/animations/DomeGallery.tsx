@@ -69,8 +69,8 @@ const DEFAULT_IMAGES: ImageItem[] = [
 ];
 
 const DEFAULTS = {
-  maxVerticalRotationDeg: 5,
-  dragSensitivity: 20,
+  maxVerticalRotationDeg: 2,
+  dragSensitivity: 30,
   enlargeTransitionMs: 300,
   segments: 35,
 };
@@ -155,17 +155,17 @@ function computeItemBaseRotation(
 
 export default function DomeGallery({
   images = DEFAULT_IMAGES,
-  fit = 0.5,
+  fit = 0.3,
   fitBasis = "auto",
   minRadius = 600,
   maxRadius = Infinity,
-  padFactor = 0.25,
-  overlayBlurColor = "#ffffff",
+  padFactor = 0.45,
+  overlayBlurColor = "#000000",
   maxVerticalRotationDeg = DEFAULTS.maxVerticalRotationDeg,
   dragSensitivity = DEFAULTS.dragSensitivity,
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
   segments = DEFAULTS.segments,
-  dragDampening = 2,
+  dragDampening = 6,
   openedImageWidth = "400px",
   openedImageHeight = "400px",
   imageBorderRadius = "10px",
@@ -862,7 +862,7 @@ export default function DomeGallery({
       >
         <main
           ref={mainRef}
-          className="absolute inset-0 grid place-items-center overflow-hidden select-none bg-transparent"
+          className="absolute inset-0 grid place-items-center overflow-hidden select-none bg-blue"
           style={{
             touchAction: "none",
             WebkitUserSelect: "none",
@@ -921,12 +921,12 @@ export default function DomeGallery({
                       src={it.src}
                       draggable={false}
                       alt={it.alt}
-                      className="w-full h-full object-contain pointer-events-none"
+                      className="w-full h-full object-contain pointer-events-none transition duration-500 ease-in-out"
                       style={{
                         backfaceVisibility: "hidden",
-                        filter: `var(--image-filter, ${
+                        filter: `${
                           grayscale ? "grayscale(1)" : "none"
-                        })`,
+                        }`,
                       }}
                     />
                   </div>
@@ -935,48 +935,18 @@ export default function DomeGallery({
             </div>
           </div>
 
-          <div
-            className="absolute inset-0 m-auto z-[3] pointer-events-none"
-            style={{
-              backgroundImage: `radial-gradient(rgba(235, 235, 235, 0) 65%, var(--overlay-blur-color, ${overlayBlurColor}) 100%)`,
-            }}
-          />
+       
 
-          <div
-            className="absolute inset-0 m-auto z-[3] pointer-events-none"
-            style={{
-              WebkitMaskImage: `radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, ${overlayBlurColor}) 90%)`,
-              maskImage: `radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, ${overlayBlurColor}) 90%)`,
-              backdropFilter: "blur(3px)",
-            }}
-          />
+     
 
-          <div
-            className="absolute left-0 right-0 top-0 h-[120px] z-[5] pointer-events-none rotate-180"
-            style={{
-              background: `linear-gradient(to bottom, transparent, var(--overlay-blur-color, ${overlayBlurColor}))`,
-            }}
-          />
-          <div
-            className="absolute left-0 right-0 bottom-0 h-[120px] z-[5] pointer-events-none"
-            style={{
-              background: `linear-gradient(to bottom, transparent, var(--overlay-blur-color, ${overlayBlurColor}))`,
-            }}
-          />
+        
 
           <div
             ref={viewerRef}
             className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center"
             style={{ padding: "var(--viewer-pad)" }}
           >
-            <div
-              ref={scrimRef}
-              className="scrim absolute inset-0 z-10 pointer-events-none opacity-0 transition-opacity duration-500"
-              style={{
-                background: "rgba(0, 0, 0, 0.4)",
-                backdropFilter: "blur(3px)",
-              }}
-            />
+        
             <div
               ref={frameRef}
               className="viewer-frame h-full aspect-square flex"

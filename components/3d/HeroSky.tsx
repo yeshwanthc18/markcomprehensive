@@ -20,7 +20,7 @@ void main() {
   vec4 texel = texture2D(uTexture, flippedUv);
  
   // Gamma correction
-  texel.rgb = pow(texel.rgb, vec3(0.5));
+  texel.rgb = pow(texel.rgb, vec3(1));
  
   // Apply transparency
   texel.a *= uTransparency;
@@ -54,7 +54,7 @@ const HeroSky: React.FC<HeroSkyProps> = ({ transparency = 0.4 }) => {
     <mesh
       ref={oceanBackgroundRef}
       position={[0, 7, -35.8]}
-      scale={[4.5, 1.885, 1.77]}
+      scale={[3, 1, 1]}
     >
       <planeGeometry args={[20, 20, 1, 1]} />
       <shaderMaterial

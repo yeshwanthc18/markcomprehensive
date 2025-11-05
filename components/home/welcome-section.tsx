@@ -18,74 +18,66 @@ export default function WelcomeSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const faces = [
-    {
-      image: Image1,
-      alt: "Mark Comprehensive Building",
-      content: (
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#01adff]/80 backdrop-blur-sm  flex items-center justify-center">
-              <Users className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold">Our Building</h3>
-              <p className="text-sm text-gray-300">Mark Comprehensive LLC</p>
-            </div>
+const faces = [
+  {
+    image: Image1,
+    alt: "Mark Comprehensive Building",
+    content: (
+      <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 bg-[#01adff]/80 backdrop-blur-sm flex items-center justify-center rounded">
+            <Users className="w-6 h-6 text-white" />
           </div>
-          <p className="text-base text-gray-200">Sultanate of Oman</p>
-        </div>
-      ),
-      overlay: "bg-gradient-to-t from-black/80 via-black/40 to-transparent",
-    },
-    {
-      image: Image2,
-      alt: "ISO Certification",
-      content: (
-        <div className="absolute inset-0 flex items-center justify-center p-12">
-          <div className="text-center">
-            <div className="w-40 h-40 mx-auto mb-8 bg-gradient-to-br from-[#01adff] to-[#0192d4] rounded-full flex items-center justify-center shadow-lg">
-              <Award className="w-20 h-20 text-white" />
-            </div>
-            <div className="text-6xl font-bold text-[#1c345c] mb-4">
-              ISO 9001
-            </div>
-            <div className="text-2xl font-semibold text-gray-700 mb-4">
-              Certified
-            </div>
-            <div className="w-24 h-1 bg-[#01adff] mx-auto mb-4"></div>
-            <p className="text-lg text-gray-600">Quality Management System</p>
+          <div>
+            <h3 className="text-2xl font-bold">Our Building</h3>
+            <p className="text-sm text-gray-300">Mark Comprehensive LLC</p>
           </div>
         </div>
-      ),
-      overlay: "bg-white/90 backdrop-blur-md",
-    },
-    {
-      image: Image3,
-      alt: "14+ Years of Excellence",
-      content: (
-        <div className="absolute inset-0 flex items-center justify-center p-12">
-          <div className="text-center">
-            <div className="mb-8">
-              <Calendar className="w-24 h-24 text-white mx-auto mb-6 drop-shadow-2xl" />
-            </div>
-            <div className="text-8xl font-bold text-white mb-4 drop-shadow-2xl">
-              14+
-            </div>
-            <div className="text-3xl font-semibold text-white mb-4 drop-shadow-lg">
-              Years of Excellence
-            </div>
-            <div className="w-32 h-1 bg-white/50 mx-auto mb-6"></div>
-            <p className="text-xl text-white drop-shadow-lg">
-              Serving the Middle East Since 2010
-            </p>
+        <p className="text-base text-gray-200">Sultanate of Oman</p>
+      </div>
+    ),
+    overlay: "bg-gradient-to-t from-black/80 via-black/40 to-transparent",
+  },
+  {
+    image: Image2,
+    alt: "ISO Certification",
+    content: (
+      <div className="absolute inset-0 flex items-center justify-center p-12 text-white z-10">
+        <div className="text-center">
+          <div className="w-40 h-40 mx-auto mb-8 bg-[#01adff]/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+            <Award className="w-20 h-20 text-white" />
           </div>
+          <div className="text-6xl font-bold mb-4">ISO 9001</div>
+          <div className="text-2xl font-semibold mb-4">Certified</div>
+          <div className="w-24 h-1 bg-[#01adff] mx-auto mb-4"></div>
+          <p className="text-lg">Quality Management System</p>
         </div>
-      ),
-      overlay:
-        "bg-gradient-to-br from-[#01adff]/85 via-[#0192d4]/85 to-[#1c345c]/85",
-    },
-  ];
+      </div>
+    ),
+   overlay: "bg-gradient-to-br from-[#000000]/10 via-[#0000000]/10 to-[#1c345c]/70",
+  },
+  {
+    image: Image3,
+    alt: "14+ Years of Excellence",
+    content: (
+      <div className="absolute inset-0 flex items-center justify-center p-12 text-white z-10">
+        <div className="text-center">
+          <Calendar className="w-24 h-24 mx-auto mb-6 drop-shadow-2xl" />
+          <div className="text-8xl font-bold mb-4 drop-shadow-2xl">14+</div>
+          <div className="text-3xl font-semibold mb-4 drop-shadow-lg">
+            Years of Excellence
+          </div>
+          <div className="w-32 h-1 bg-white/50 mx-auto mb-6"></div>
+          <p className="text-xl drop-shadow-lg">
+            Serving the Middle East Since 2010
+          </p>
+        </div>
+      </div>
+    ),
+    overlay: "bg-gradient-to-br from-[#01adff]/70 via-[#0192d4]/70 to-[#1c345c]/70",
+  },
+];
+
 
   return (
     <section className="relative overflow-hidden min-h-screen">
@@ -162,7 +154,6 @@ export default function WelcomeSection() {
           {/* Right Content - Smooth Crossfade Gallery */}
           <div className="relative animate-fade-in">
             <div className="relative w-full h-[600px]  overflow-hidden rounded-sm shadow-2xl ring-1 ring-[#01adff]/20">
-              {/* Render all faces, control visibility with opacity */}
               {faces.map((face, index) => (
                 <div
                   key={index}
@@ -187,7 +178,6 @@ export default function WelcomeSection() {
                 </div>
               ))}
 
-              {/* Navigation Dots */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
                 {faces.map((_, index) => (
                   <button

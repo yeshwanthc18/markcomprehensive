@@ -7,6 +7,7 @@ import { getServiceBySlug, SERVICES } from "@/lib/service-data";
 import { Reveal } from "@/components/reveal-on-scroll";
 import { ScrollspyNav } from "@/components/scrollspy-nav";
 import { ServiceGallery } from "@/components/service-gallery";
+import GradientBG from "@/components/animated/background-white-gradient";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -70,8 +71,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       >
         <div className="mx-auto container px-4 py-2">
           <p
-            className="text-xs md:text-sm font-medium text-balance"
-            style={{ color: brand.black }}
+            className="text-xl md:text-xl font-medium text-balance"
+         
           >
             Beyond Façades. Beyond Borders.
           </p>
@@ -119,6 +120,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Content with sticky nav */}
+
       <section className="border-t" style={{ borderColor: brand.navy }}>
         <div className="mx-auto container px-4 py-12 md:py-16 grid md:grid-cols-[220px_minmax(0,1fr)] gap-8">
           {/* Sticky nav */}
@@ -129,7 +131,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </aside>
 
           {/* Main */}
+         
           <div className="space-y-16">
+            
             <section id="overview">
               <Reveal>
                 <h2
@@ -413,8 +417,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </Reveal>
             </section>
           </div>
+        
         </div>
       </section>
+      
     </main>
   );
 }

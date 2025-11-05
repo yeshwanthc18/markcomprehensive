@@ -1,8 +1,10 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, useSpring, MotionValue } from "framer-motion";
-import { useEffect } from "react";
-import Overlay from "@/public/images/bg1.png";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type GradientBGProps = {
   children: React.ReactNode;
@@ -10,65 +12,149 @@ type GradientBGProps = {
 };
 
 export default function GradientBG({ children, className = "" }: GradientBGProps) {
-  const x: MotionValue<number> = useMotionValue(0);
-  const y: MotionValue<number> = useMotionValue(0);
-
-  const smoothX = useSpring(x, { stiffness: 30, damping: 20 });
-  const smoothY = useSpring(y, { stiffness: 30, damping: 20 });
-
-  const gradientPosition = useTransform(
-    [smoothX, smoothY],
-    ([latestX, latestY]: number[]) =>
-      `radial-gradient(
-        circle at ${50 + latestX}% ${50 + latestY}%,
-        rgba(173, 224, 255, 0.6) 0%,   /* Light blue core */
-        rgba(185, 232, 255, 0.4) 35%,  /* Softer blue */
-        rgba(210, 242, 255, 0.25) 90%, /* Fades out smoothly */
-        rgba(255, 255, 255, 0) 100%    /* Pure transparent - no gray */
-      )`
-  );
+  const containerRef = useRef<HTMLDivElement>(null);
+  const leftTriangle = useRef<SVGSVGElement>(null);
+  const rightTriangle = useRef<SVGSVGElement>(null);
+  const gradientRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const animate = () => {
-      x.set(Math.sin(Date.now() / 1500) * 15);
-      y.set(Math.cos(Date.now() / 1800) * 12);
-      requestAnimationFrame(animate);
-    };
-    animate();
-  }, [x, y]);
+    if (!containerRef.current) return;
+
+    // 💫 Ambient gradient drift loop
+    gsap.to(gradientRef.current, {
+      duration: 8,
+      backgroundPosition: "60% 40%",
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    // 🌀 Smooth scroll rotation for both triangles
+    gsap.to(leftTriangle.current, {
+      rotate: 180,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+      ease: "none",
+    });
+
+    gsap.to(rightTriangle.current, {
+      rotate: -180,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+      ease: "none",
+    });
+
+    // 🌈 Subtle floating motion loop for gentle realism
+    gsap.to([leftTriangle.current, rightTriangle.current], {
+      y: "+=20",
+      x: "+=10",
+      duration: 6,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut",
+    });
+  }, []);
 
   return (
-    <motion.div
+    <div
+      ref={containerRef}
       className={`relative w-full h-full overflow-visible ${className}`}
-      style={{ background: gradientPosition }}
+      style={{ perspective: 1000 }}
     >
-      {/* 🌫️ Overlay Image */}
+      {/* 🌈 Animated Gradient Layer */}
       <div
-        className="absolute inset-0 left-0 w-full h-full pointer-events-none z-0"
-        style={{
-          backgroundImage: `url(${Overlay.src})`,
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "left center",
-          mixBlendMode: "soft-light",
-          opacity: 1,
-        }}
-      />
-
-      {/* 💎 Subtle animated shine */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none z-10"
+        ref={gradientRef}
+        className="absolute inset-0 z-0 will-change-transform transition-all duration-[2000ms]"
         style={{
           background:
-            "radial-gradient(circle at 30% 40%, rgba(173, 224, 255, 0.25), transparent 70%)",
-          mixBlendMode: "overlay",
+            "radial-gradient(circle at 50% 50%, rgba(1,173,255,0.45) 0%, rgba(1,173,255,0.2) 40%, rgba(255,255,255,0) 100%)",
+          backgroundSize: "200% 200%",
+          filter: "blur(60px)",
+          transform: "translateZ(0)",
         }}
-        animate={{ opacity: [0.15, 0.4, 0.15] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* 🌟 Foreground content */}
-      <div className="relative z-20">{children}</div>
-    </motion.div>
+      {/* 🔷 Two Triangles */}
+      <svg
+        ref={leftTriangle}
+        width="240"
+        height="240"
+        viewBox="0 0 100 100"
+        className="absolute left-[8%] top-[10%] z-[1] opacity-60"
+        style={{ willChange: "transform" }}
+      >
+        <polygon
+          points="50,0 100,100 0,100"
+          fill="url(#triGradient)"
+          stroke="rgba(1,173,255,0.5)"
+          strokeWidth="1"
+        />
+        <defs>
+          <radialGradient id="triGradient" cx="80%" cy="80%" r="80%">
+            <stop offset="0%" stopColor="#01ADFF" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#01ADFF" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+      </svg>
+      
+
+      <svg
+        ref={rightTriangle}
+        width="180"
+        height="180"
+        viewBox="0 0 100 100"
+        className="absolute right-[8%] bottom-[15%] z-[1] opacity-60"
+        style={{ willChange: "transform" }}
+      >
+        <polygon
+          points="50,0 100,100 0,100"
+          fill="url(#triGradient2)"
+          stroke="rgba(1,173,255,0.5)"
+          strokeWidth="1"
+        />
+        <defs>
+          <radialGradient id="triGradient2" cx="70%" cy="80%" r="80%">
+            <stop offset="0%" stopColor="#01ADFF" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#01ADFF" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+      </svg>
+
+      {/* ✨ Soft shimmer overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[2]"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 40%, rgba(1,173,255,0.25), transparent 80%)",
+          mixBlendMode: "screen",
+          animation: "pulse 8s ease-in-out infinite",
+        }}
+      />
+
+      {/* 🌟 Foreground layer (for sticky content) */}
+      <div className="relative z-[10]">{children}</div>
+
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            opacity: 0.2;
+          }
+          50% {
+            opacity: 0.4;
+          }
+          100% {
+            opacity: 0.2;
+          }
+        }
+      `}</style>
+    </div>
   );
 }

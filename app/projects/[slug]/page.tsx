@@ -17,6 +17,7 @@ import Image from "next/image";
 import { CompareDemo } from "@/components/animated/compare";
 import { Reveal } from "@/components/reveal-on-scroll";
 import ButtonPrimary from "@/components/layout/Button";
+import GradientBG from "@/components/animated/background-white-gradient";
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -38,13 +39,14 @@ export default function ProjectDetailPage({
 
 
   return (
-    <main className="bg-white min-h-screen">
+   
+    <main className=" min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <Image
-          src={project.images[0].src || "/placeholder.svg"}
+          src={project.images[0].src}
           alt={project.images[0].alt}
-          unoptimized
+          
           className="h-full w-full object-cover"
         />
         <div
@@ -616,5 +618,6 @@ export default function ProjectDetailPage({
         </div>
       </div>
     </main>
+   
   );
 }
