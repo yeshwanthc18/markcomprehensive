@@ -72,10 +72,10 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
       {/* 🌈 Animated Gradient Layer */}
       <div
         ref={gradientRef}
-        className="absolute inset-0 z-0 will-change-transform transition-all duration-[2000ms]"
+        className="absolute inset-0 z-0 will-change-transform  transition duration-2000"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(1,173,255,0.45) 0%, rgba(1,173,255,0.2) 40%, rgba(255,255,255,0) 100%)",
+            "radial-gradient(circle at 50% 50%, rgba(1,173,255,0.45) 0%, rgba(1,173,255,0.2) 10%, rgba(255,255,255,0) 20%)",
           backgroundSize: "200% 200%",
           filter: "blur(60px)",
           transform: "translateZ(0)",
@@ -85,8 +85,9 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
       {/* 🔷 Two Triangles */}
       <svg
         ref={leftTriangle}
-        width="240"
-        height="240"
+        width="120"
+        
+        height="120"
         viewBox="0 0 100 100"
         className="absolute left-[8%] top-[10%] z-[1] opacity-60"
         style={{ willChange: "transform" }}
@@ -104,6 +105,7 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
           </radialGradient>
         </defs>
       </svg>
+    
       
 
       <svg
@@ -127,6 +129,7 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
           </radialGradient>
         </defs>
       </svg>
+      
 
       {/* ✨ Soft shimmer overlay */}
       <div

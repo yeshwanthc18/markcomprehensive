@@ -95,7 +95,7 @@ export default function HomePage() {
       >
       <IndustryHighlightsSection />
       </BackgroundGradientAnimation>
-  <GradientBG>
+
       <div style={{ width: "100vw", height: "100vh" }}>
         <div className="text-center py-24 pb-1 px-6 relative z-10">
           <div className="inline-block relative mb-10">
@@ -112,7 +112,7 @@ export default function HomePage() {
         <DomeGallery />
    
       </div>
-      </GradientBG>
+    
       <GradientBG className="min-h-screen mt-60">
         <RecentArticlesSection />
       </GradientBG>

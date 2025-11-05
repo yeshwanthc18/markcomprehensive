@@ -924,9 +924,7 @@ export default function DomeGallery({
                       className="w-full h-full object-contain pointer-events-none transition duration-500 ease-in-out"
                       style={{
                         backfaceVisibility: "hidden",
-                        filter: `${
-                          grayscale ? "grayscale(1)" : "none"
-                        }`,
+                       
                       }}
                     />
                   </div>

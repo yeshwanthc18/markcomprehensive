@@ -109,12 +109,14 @@ useFrame(({ clock }) => {
       <group ref={textRef} position={textPosition}>
         <Text
           fontSize={0.2}
-          color="#01ADFF"
+          color="#ffffff"
           anchorX="center"
           anchorY="middle"
           font="/fonts/Inter-Bold.woff"
+          letterSpacing={0.1}
           // outlineWidth={0.3}
-          // outlineColor="#00c8ff"
+         // outlineColor="#00c8ff"
+
           // outlineOpacity={0.9}
           renderOrder={20}
         >

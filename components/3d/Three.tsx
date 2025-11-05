@@ -20,7 +20,6 @@ import { useControls, Leva } from "leva";
 import Birds from "./Birds";
 import ButtonPrimary from "../layout/Button";
 import HeroSky from "./HeroSky";
-import OceanBackground from "./OceanScene/OceanBackground";
 import OceanScene from "./OceanScene/OceanScene";
 import ScrollableOceanScene from "./OceanScene/WaterSimple/ScrollablaOceanScene";
 import CloudField from "./CloudField";
@@ -121,11 +120,6 @@ export default function ThreeDViewer() {
   });
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
-  const { saturation } = useControls("Post FX", {
-  saturation: { value: 0, min: -1, max: 1, step: 0.05 },
-});
-
-
   // 🎥 Camera FOV control
   const { fov } = useControls("Camera", {
     fov: { value: 30, min: 10, max: 100, step: 1 },
@@ -141,7 +135,7 @@ export default function ThreeDViewer() {
     dirY,
     dirZ,
     hemiIntensity,
-    hemiColorSky,
+ 
     hemiColorGround,
   } = useControls("Lighting", {
     ambientIntensity: { value: 0.3, min: 0, max: 5, step: 0.1 },
@@ -166,7 +160,7 @@ export default function ThreeDViewer() {
       }}
     >
       {/* 🎚️ Leva Controls */}
-      <Leva collapsed />
+      {/* <Leva collapsed /> */}
 
       <div
         style={{
