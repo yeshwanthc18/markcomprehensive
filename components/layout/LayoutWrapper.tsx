@@ -53,13 +53,13 @@ export default function LayoutWrapper({
         ref={progressRef}
         className="fixed top-0 left-0 h-[3px] w-full bg-[#01adff] z-[9999] scale-x-0 opacity-0"
       />
-      {/* <ScrollToTop /> */}
+   
 
       {!isComingSoon && <Header />}
    
 
       <TriangleCursor />
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen"  data-scroll-root>{children}</main>
 
       {!isComingSoon && <Footer />}
 

@@ -96,7 +96,7 @@ export default function HomePage() {
       <IndustryHighlightsSection />
       </BackgroundGradientAnimation>
 
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "70vh" }}>
         <div className="text-center py-24 pb-1 px-6 relative z-10">
           <div className="inline-block relative mb-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black relative">

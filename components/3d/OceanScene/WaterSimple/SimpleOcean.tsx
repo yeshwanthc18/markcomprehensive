@@ -1,123 +1,131 @@
 "use client";
 
-import { Text } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useControls } from "leva";
 import WaterSimple from "./WaterSimple.js";
+import { Text } from "@react-three/drei";
 
 const SimpleOcean = () => {
-  const groupRef = useRef<THREE.Group>(null!);
-  const waterMesh = useRef<THREE.Mesh | null>(null);
+  const waterRef = useRef<THREE.Group>(null);
   const textRef = useRef<THREE.Group>(null!);
 
-  // ✅ Load water normal texture
   const waterNormals = useLoader(
     THREE.TextureLoader,
     "/textures/ocean/waternormals.jpg"
   );
+
+  const waterColor = "#1f98a8";
+
+  // 🟦 Leva Controls
+  const { position, rotation, scale, textPosition, waveIntensity, waveSpeed } =
+    useControls("Ocean Controls", {
+      position: {
+        value: [0, -2, -5],
+        step: 0.1,
+      },
+      rotation: {
+        value: [-1.72, 0, 0],
+        step: 0.05,
+      },
+      scale: {
+        value: [55, 45, 40],
+        step: 1,
+        min: 1,
+        max: 200,
+      },
+      textPosition: {
+        value: [0, -1.1, 0],
+        step: 0.1,
+        label: "Text Base Position (x,y,z)",
+      },
+      waveIntensity: {
+        value: 0.2,
+        min: 0,
+        max: 1,
+        step: 0.01,
+        label: "Text Wave Intensity",
+      },
+      waveSpeed: {
+        value: 1,
+        min: 0.1,
+        max: 5,
+        step: 0.1,
+        label: "Text Wave Speed",
+      },
+    });
+
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
 
-  // 🎛 Leva Controls
-  const {
-    position,
-    rotation,
-    waterColor,
-    distortionScale,
-    waveSpeed,
-    waveStrength,
-    turbulence,
-    waveIntensity,
-    textPosition,
-
-  } = useControls("🌊 Ocean Controls", {
-    position: { value: [0, -50, 0], step: 0.1, label: "Ocean Position (x,y,z)" },
-    rotation: { value: [-Math.PI / 2, 0, 0], step: 0.01, label: "Rotation" },
-    waterColor: "#10bfe1",
-    distortionScale: { value: 120, min: 1, max: 200, step: 1 },
-    waveSpeed: { value: 0.4, min: 0.1, max: 6, step: 0.1 },
-    waveStrength: { value: 6.0, min: 0.5, max: 10, step: 0.1 },
-    turbulence: { value: 0.9, min: 0, max: 2, step: 0.05 },
-    waveIntensity: { value: 2.5, min: 0.5, max: 3, step: 0.1 },
-    textPosition: {
-      value: [0, -1, 0],
-      step: 1,
-      label: "Text Absolute Position (x,y,z)",
-    },
-  });
-
-  // ✅ Create and add the water plane
   useEffect(() => {
-    if (!groupRef.current) return;
+    if (waterRef.current) {
+      waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
 
-    const water = new WaterSimple(
-      new THREE.PlaneGeometry(4000, 4000, 1024, 1024),
-      {
-        textureWidth: 2048,
-        textureHeight: 2048,
-        waterNormals,
-        sunDirection: new THREE.Vector3(1, 1, 1).normalize(),
+      const water = new WaterSimple(new THREE.PlaneGeometry(2, 2, 25, 25), {
+        textureWidth: 512,
+        textureHeight: 512,
+        waterNormals: waterNormals,
+        sunDirection: new THREE.Vector3(20, 1, 1).normalize(),
         sunColor: 0xffffff,
-        waterColor,
-        distortionScale,
-        side: THREE.DoubleSide,
-      }
-    );
+        waterColor: waterColor,
+        distortionScale: 0.7,
+        side: 2,
+      });
 
-    water.rotation.set(rotation[0], rotation[1], rotation[2]);
-    groupRef.current.add(water);
-    waterMesh.current = water;
+      waterRef.current.add(water);
 
-    // start waves instantly
-    const material: any = water.material;
-    if (material?.uniforms?.time) material.uniforms.time.value = Math.random() * 500;
+      return () => {
+        waterRef.current?.remove(water);
+      };
+    }
+  }, [waterNormals, waterColor]);
 
-    return () => {
-      groupRef.current?.remove(water);
-    };
-  }, [waterNormals, waterColor, distortionScale, rotation]);
+  // Animate both water and text
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
 
-  // ✅ Animate waves
- // ✅ Animate waves
-useFrame(({ clock }) => {
-  if (!waterMesh.current) return;
-  const t = clock.getElapsedTime();
-  const material: any = waterMesh.current.material;
-  
-  // Wave movement
-  if (material?.uniforms?.time) material.uniforms.time.value = t * waveSpeed + 100;
+    // 🌀 Animate water
+    if (waterRef.current) {
+      const waterObj = waterRef.current.children[0] as WaterSimple;
+      // @ts-ignore
+      // waterObj.material.uniforms.time.value = time * 0.3;
+      waterObj.material.uniforms.time.value -= 0.11 / 60.0;
+    }
+    if (!textRef.current) return;
+    textRef.current.rotation.x = -Math.sin(time) * 0.07;
+    textRef.current.rotation.y = Math.sin(time) * 0.05;
+    textRef.current.rotation.z = Math.cos(time) * 0.05;
 
-  // Turbulence
-  if (material.uniforms.distortionScale)
-    material.uniforms.distortionScale.value =
-      distortionScale * (1 + Math.sin(t * 0.8) * turbulence * 0.5);
-
-  // ✅ Live update the water color
-  if (material.uniforms.waterColor) {
-    material.uniforms.waterColor.value.set(waterColor);
-  }
-});
-
+    // 🌊 Make text float with gentle wave motion
+    // if (textRef.current) {
+    //   textRef.current.position.y =
+    //     textPosition[1] + Math.sin(elapsed * waveSpeed) * waveIntensity;
+    //   textRef.current.position.x =
+    //     textPosition[0] + Math.sin(elapsed * 0.1 * waveSpeed) * (waveIntensity / 1);
+    //   textRef.current.rotation.z = Math.sin(elapsed * waveSpeed * 0.8) * 0.05;
+    // }
+  });
 
   return (
     <>
-      {/* 🌊 Ocean */}
-      <group ref={groupRef} position={position} />
+      {/* 🌊 Water Surface */}
+      <group
+        ref={waterRef}
+        position={position}
+        rotation={rotation}
+        scale={scale}
+      />
 
-      {/* 🩵 Absolutely Positioned Floating Text */}
-      <group ref={textRef} position={textPosition}>
+      {/* 🪶 Floating Text */}
+      <group ref={textRef} position={textPosition} rotation={[1,1,0]}>
         <Text
-          fontSize={0.2}
+          fontSize={0.15}
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/Inter-Bold.woff"
+          font="/fonts/Urbanist-SemiBoldItalic.ttf"
           letterSpacing={0.1}
-          // outlineWidth={0.3}
-         // outlineColor="#00c8ff"
-
-          // outlineOpacity={0.9}
           renderOrder={20}
         >
           Beyond Façades. Beyond Borders.

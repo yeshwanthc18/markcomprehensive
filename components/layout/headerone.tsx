@@ -176,7 +176,9 @@ export default function Header() {
       {/* Main header */}
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
-          isScrolled ? " bg-transparent backdrop-blur-xl bg-white" : "bg-white"
+          isScrolled
+            ? "  backdrop-blur-3xl bg-white/40 "
+            : " backdrop-blur-3xl bg-white/40 "
         }`}
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-0">
@@ -294,16 +296,16 @@ export default function Header() {
                         }, 180);
                       }}
                       className={cn(
-                        "absolute left-1/2 -translate-x-1/2 mt-3 w-[880px] max-w-[92vw] rounded-none border shadow-l z-[60]",
+                        "absolute left-1/2 -translate-x-1/2 mt-3 w-[880px] max-w-[92vw] rounded-md border shadow-l z-[60]",
                         isScrolled
-                          ? "bg-white border-border"
-                          : "bg-white border-border"
+                          ? "bg-white backdrop-blur-3xl border-border"
+                          : "bg-white/90 backdrop-blur-3xl border-border"
                       )}
                     >
                       <div className="grid grid-cols-12">
                         {/* Left banner */}
 
-                        <div className="col-span-4 hidden md:flex flex-col p-6  bg-gradient-to-b from-[#001952] via-[#16213e] to-[#0f3460]  text-white rounded-none">
+                        <div className="col-span-4 hidden md:flex flex-col p-6 rounded-md  bg-gradient-to-b from-[#001952] via-[#16213e] to-[#0f3460]  text-white">
                           <div>
                             {/* <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 text-[11px] tracking-wide uppercase rounded-none">
                               Our Expertise
@@ -328,16 +330,15 @@ export default function Header() {
                           </div>
                         </div>
 
-                   
                         <div className="col-span-12 md:col-span-8 p-4 sm:p-6">
                           <ul className="grid grid-cols-1 sm:grid-cols-2 rounded-none">
-                               <GlowingEffect
-                                  spread={40}
-                                  glow={true}
-                                  disabled={false}
-                                  proximity={64}
-                                  inactiveZone={0.01}
-                                />
+                            <GlowingEffect
+                              spread={40}
+                              glow={true}
+                              disabled={false}
+                              proximity={64}
+                              inactiveZone={0.01}
+                            />
                             {services.map((s, i) => (
                               <li
                                 key={s.href}
@@ -346,13 +347,11 @@ export default function Header() {
                                 //   i % 2 === 0 ? "sm:border-r" : "sm:border-r-0"
                                 // )}
                               >
-                              
                                 <Link
                                   href={s.href}
                                   onClick={() => setServicesOpen(false)}
-                                  className="group flex items-start gap-3 p-4 hover:bg-muted transition rounded-none"
+                                  className="group flex items-start gap-3 p-4 hover:bg-muted transition rounded-md"
                                 >
-                                 
                                   <div className="h-12 w-12 flex items-center justify-center rounded-none">
                                     <Image
                                       src={s.imageSrc}
@@ -401,7 +400,6 @@ export default function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center space-x-4">
-              
               <ButtonPrimary onClick={openPopup}>
                 <span>Get Quote</span>
                 <ArrowRight className="h-4 w-4" />

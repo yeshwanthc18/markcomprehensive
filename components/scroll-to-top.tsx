@@ -1,20 +1,26 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+"use client";
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+
+export default function ScrollToTop() {
+  const pathname = usePathname();
 
   useEffect(() => {
+    // Delay to allow DOM/layout to render before resetting scroll
     setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'instant',
-      });
-    }, 0);
+      // Try scrolling window
+      window.scrollTo({ top: 0, behavior: "auto" });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
+      // Try scrolling any container with this attribute
+      const scrollRoot = document.querySelector<HTMLElement>("[data-scroll-root]");
+      if (scrollRoot) {
+        scrollRoot.scrollTo({ top: 0, behavior: "auto" });
+      }
+    }, 100);
   }, [pathname]);
 
   return null;
-};
-
-export default ScrollToTop;
+}

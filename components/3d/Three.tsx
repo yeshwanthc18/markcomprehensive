@@ -6,6 +6,7 @@ import {
   Html,
   useGLTF,
   useProgress,
+  Sky,
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
@@ -93,7 +94,7 @@ function StreetScene({
     if (modelRef.current) {
       modelRef.current.rotation.y = rotY - scroll * 0.001;
       modelRef.current.rotation.x = rotX - scroll * 0.001;
-      modelRef.current.position.z = posZ + scroll * Math.PI * 4.5;
+      modelRef.current.position.z = -64.7 + scroll * Math.PI * 4.5;
     }
   });
 
@@ -101,7 +102,7 @@ function StreetScene({
     <primitive
       ref={modelRef}
       object={scene}
-      position={[posX, posY, posZ]}
+      position={[56.0, -9, -64.7]}
       scale={scale}
       rotation={[rotX, rotY, rotZ]}
       renderOrder={0}
@@ -135,7 +136,7 @@ export default function ThreeDViewer() {
     dirY,
     dirZ,
     hemiIntensity,
- 
+
     hemiColorGround,
   } = useControls("Lighting", {
     ambientIntensity: { value: 0.3, min: 0, max: 5, step: 0.1 },
@@ -258,7 +259,7 @@ export default function ThreeDViewer() {
             {/* <SimpleOcean /> */}
 
             <ScrollableOceanScene modelContainerRef={modelContainerRef} />
-
+            <Sky />
             <HeroSky />
           </Suspense>
         </Canvas>

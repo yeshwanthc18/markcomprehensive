@@ -1,3 +1,4 @@
+"use client"
 import { LocationProvider } from "@/components/providers/location-provider";
 // import AboutHeroSection from "@/components/about/about-hero-section";
 // import MissionVisionSection from "@/components/about/about-mission-vission";
@@ -15,10 +16,17 @@ import Overlay from "../../public/images/bg2.png";
 // import AboutBanner from "@/components/about/about-hero-section";
 import TriangleGroupScroll from "@/components/home/TriangleMove/TriangleGroupScroll";
 import AboutBanner from "@/components/about/about-hero-section";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+
+  useEffect(() => {
+   window.scrollTo(0,0);
+  }, [])
+  
   return (
     <LocationProvider>
+
       <div className="flex flex-col">
         <AboutBanner />
         {/* <MissionVisionSection /> */}
