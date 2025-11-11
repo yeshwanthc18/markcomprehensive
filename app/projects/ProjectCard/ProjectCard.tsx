@@ -12,7 +12,7 @@ export interface ProjectCardProps {
   id: string;
   name: string;
   city: string;
-  year: number;
+  year?: number;
   type: string;
   region: string;
   images: ProjectImage[];
@@ -43,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className={styles.gradientOverlay}>
             <div className={styles.imageInfo}>
               <span className={styles.city}>{city}</span>
-              <span className={styles.year}>{year}</span>
+              {styles.year?<span className={styles.year}>{year}</span>:null}
             </div>
           </div>
         </div>

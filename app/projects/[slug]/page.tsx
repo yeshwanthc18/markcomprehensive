@@ -147,7 +147,7 @@ export default function ProjectDetailPage({
             <Reveal>
             <section>
               <h2 className="text-3xl font-bold text-[#001952] mb-6">
-                Facade System Details
+                Façade System Details
               </h2>
               <Card
                 className="p-6 border-2 rounded-md"

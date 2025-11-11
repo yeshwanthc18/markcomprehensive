@@ -3,7 +3,7 @@ export type ServiceSlug =
   | "point-fixed-glass-facade"
   | "hinged-doors-windows"
   | "sliding-doors-windows"
-  | "folding-doors"
+  | "folding-door-systems"
   | "swing-doors"
   | "skylight"
   | "office-partitions"
@@ -13,7 +13,8 @@ export type ServiceSlug =
   | "decorative-facade-cladding"
   | "decorative-canopy"
   | "decorative-pergola"
-  | "decorative-architectural-louvers";
+  | "decorative-architectural-louvers"
+  |"facade-design-consultancy-services";
 import DharHassan4 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6551.jpg";
 import DharHassan5 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6608.jpg";
 import DharHassan6 from "@/public/compressed-images/project-photos/DHAR HASSAN VILLA/IMG_6728.jpg";
@@ -41,7 +42,7 @@ export const SERVICES: Service[] = [
     title: "Curtain Wall Systems",
     tagline: "Precision-engineered facades for performance and presence.",
     summary:
-      "A non-structural cladding system using glass panels secured in aluminium frames. Materials and glass types are selected for aesthetic intent and performance, similar to facade glazing.",
+      "Mark Comprehensive LLC provides world-class curtain wall systems that integrate aesthetics, structural strength, and energy efficiency. We specialize in stick, semi-unitized, and unitized façades, designed for high performance under the region’s challenging climatic conditions. Every system is engineered for air and water tightness, structural stability, and thermal insulation ensuring optimal building envelope performance for commercial, hospitality, and institutional projects.",
     heroImage: CurtainWall,
     gallery: [
       { img: CurtainWall1 },
@@ -93,7 +94,7 @@ export const SERVICES: Service[] = [
     title: "Point Fixed Glass Facade",
     tagline: "Minimal sightlines. Maximum clarity.",
     summary:
-      "Spider fittings and point-fixation systems in stainless steel support tempered/laminated glass panels for highly transparent facades.",
+      "Our spider and point-fixed glazing systems bring exceptional transparency and lightness to architectural designs. Constructed with laminated safety glass and precision stainless-steel fittings, they provide a sleek, frameless aesthetic while maintaining superior structural and weather performance.",
     heroImage: DharHassan4,
     specification: [
       { title: "Stainless Steel", detail: "Spider fittings in SS304 / SS316" },
@@ -132,10 +133,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "hinged-doors-windows",
-    title: "Hinged Doors & Windows (MH Series)",
+    title: "Aluminium Hinged Door & Window Systems",
     tagline: "Elegance and functionality with durable aluminium framing.",
     summary:
-      "Hinged doors/windows with premium aluminium frames and glass panels. Designed for residential and commercial facades with smooth operation and lasting durability.",
+      "Our hinged aluminium door and window systems combine strength, design flexibility, and superior performance. Manufactured from leading global systems such as Technal, Gutmann, Schüco, and Alumil, these solutions are ideal for premium residential and commercial spaces. Each system is precision-engineered for smooth operation, airtightness, and high energy efficiency, ensuring long-term durability and minimal maintenance.",
     heroImage: DharHassan4,
     gallery: [
       { img: DharHassan4 },
@@ -172,10 +173,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "sliding-doors-windows",
-    title: "Sliding Doors & Windows (MS Series)",
+    title: "Sliding Door & Window Systems",
     tagline: "Smooth operation with broad opening options.",
     summary:
-      "Sliding windows/doors with 2-3 leaf options, fly screen/louver integrations, and fixed combinations to fit diverse layouts.",
+      "Our sliding door and window systems offer architectural freedom with effortless functionality. Designed for wide openings, panoramic views, and maximum natural light, these systems are both visually minimal and technically advanced.",
     heroImage: DharHassan4,
     specification: [
       { title: "Aluminium", detail: "Alloy 6063" },
@@ -215,11 +216,11 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: "folding-doors",
-    title: "Folding Doors (MF Series)",
+    slug: "folding-door-systems",
+    title: "Folding Door Systems",
     tagline: "Seamlessly connect indoor and outdoor spaces.",
     summary:
-      "Bi-fold/accordion systems that fold and stack, creating wide openings with uninterrupted views using robust aluminium frames and glass panels.",
+      "Our folding door systems combine design flexibility with performance, enabling full-width openings for modern hospitality, retail, and residential spaces. Built with robust aluminium profiles and stainless-steel pivot hardware, these doors ensure silent, stable operation and effective weather protection.",
     heroImage: DharHassan4,
     specification: [
       { title: "Aluminium", detail: "Alloy 6063" },
@@ -266,10 +267,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "swing-doors",
-    title: "Swing Doors",
+    title: "Swing Door Systems",
     tagline: "Style meets practicality for interiors and entries.",
     summary:
-      "Swing doors crafted with sleek aluminium frames and glass panels to bring durability and luminous interiors with simple, reliable operation.",
+      "Our swing door systems are designed for high-traffic entrances and architectural interiors. These doors combine refined appearance with precision hardware, ensuring stability and reliability over extended operation cycles.",
     heroImage: DharHassan4,
     specification: [
       { title: "Aluminium", detail: "Alloy 6063" },
@@ -306,10 +307,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "skylight",
-    title: "Skylight (M50)",
+    title: "Skylight & Canopy Systems",
     tagline: "Where sky meets style—daylight by design.",
     summary:
-      "High-quality glass panels in sleek, durable aluminium frames to maximize daylight penetration and connect interiors with the outdoors.",
+      "Our skylight and canopy systems are engineered to enhance natural lighting and architectural appeal while maintaining superior watertightness and insulation.",
     heroImage: DharHassan4,
     specification: [
       { title: "Aluminium", detail: "Alloy 6063" },
@@ -337,10 +338,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "office-partitions",
-    title: "Office Partitions",
+    title: "Office Partition Systems",
     tagline: "Privacy, acoustics, and transparency in balance.",
     summary:
-      "Lightweight yet durable aluminium frames with glass panels for privacy, acoustic control, and a transparent, productive workspace.",
+      "Our office partition systems bring sophistication, transparency, and acoustic comfort to modern workplaces. Designed with anodized aluminium frames and high-quality glass, they create flexible, reconfigurable environments suited to today’s corporate architecture.",
     heroImage: DharHassan4,
     specification: [
       { title: "Frames", detail: "Aluminium; corrosion-resistant" },
@@ -370,10 +371,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "shower-toilet-partitions",
-    title: "Shower / Toilet Partitions",
+    title: "Shower & Toilet Partitions",
     tagline: "Sealed in style—splashed in luxury.",
     summary:
-      "Aluminium frames renowned for moisture and corrosion resistance with glass partition panels for privacy, visibility, and contemporary aesthetics.",
+      "We provide moisture-resistant and hygienic partition systems for bathrooms, spas, and hospitality spaces. Built with tempered glass and aluminium profiles, these systems offer privacy, durability, and aesthetic value.",
     heroImage: DharHassan4,
     specification: [
       { title: "Frames", detail: "Aluminium, moisture-resistant" },
@@ -409,7 +410,7 @@ export const SERVICES: Service[] = [
     title: "Handrails & Stair Solution",
     tagline: "Guiding your path with strength and style.",
     summary:
-      "Aluminium posts with glass infill panels for robust, corrosion-resistant handrails along staircases, ramps, and other support areas.",
+      "Our handrail and balustrade systems combine safety and style. Fabricated from stainless steel, aluminium, and laminated glass, they are designed and tested to comply with global loading and deflection criteria.",
     heroImage: DharHassan4,
     specification: [
       { title: "Posts", detail: "Aluminium; robust and durable" },
@@ -578,6 +579,43 @@ export const SERVICES: Service[] = [
     tagline: "Ventilation and sun control with aesthetic order.",
     summary:
       "Horizontal/vertical slats to pass air/light while screening sun, reducing heat gain. Aluminium/steel systems with configurable spacing and angles.",
+    heroImage: DharHassan4,
+    gallery: [
+      { img: DharHassan4 },
+      { img: DharHassan5 },
+      { img: DharHassan7 },
+      { img: DharHassan6 },
+      { img: DharHassan4 },
+    ],
+    specification: [
+      { title: "Aluminium", detail: "Alloy 6063 extrusions" },
+      { title: "Gaskets", detail: "Weather resistant EPDM" },
+      { title: "Finishes", detail: "RAL powder coat / Wood finish / Anodised" },
+      { title: "Blade Options", detail: "Z-blades / Aerofoil blades" },
+      {
+        title: "System Ranges",
+        detail: "Jindal, Hindalco, Technal, Alumil etc.",
+      },
+    ],
+    process: [
+      { step: "01 Analysis", detail: "Airflow, shading, and visual targets." },
+      { step: "02 Detailing", detail: "Blade spacing/angle and fixings." },
+      { step: "03 Fabrication", detail: "Frames and blade assemblies." },
+      { step: "04 Installation", detail: "Plumb, alignment, and fastening." },
+    ],
+    faqs: [
+      {
+        q: "Adjustable blades?",
+        a: "Fixed and adjustable designs are possible based on spec.",
+      },
+    ],
+  },
+   {
+    slug: "facade-design-consultancy-services",
+    title: "Façade Design & Consultancy Services",
+    tagline: "Ventilation and sun control with aesthetic order.",
+    summary:
+      "Our façade design and consultancy division provides end-to-end technical guidance — from concept to completion. We assist architects, consultants, and developers in achieving efficient, sustainable, and visually refined façade solutions through design optimization and performance-based analysis.",
     heroImage: DharHassan4,
     gallery: [
       { img: DharHassan4 },

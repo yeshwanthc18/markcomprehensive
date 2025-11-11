@@ -1,11 +1,8 @@
 "use client";
 
-import type React from "react";
-
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import gsap from "gsap";
 
@@ -13,8 +10,8 @@ const BRAND = {
   primary: "#01adff",
   deep: "#1c345c",
   navy: "#001952",
-  black: "#000000",
   white: "#ffffff",
+  black: "#000000",
 };
 
 export type Testimonial = {
@@ -31,44 +28,38 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
     name: "Denis Slavska",
-    position: "CTO, Alitic",
+    position: "CTO",
     company: "Alitic",
     content: "They tailor their solutions to our specific needs and goals.",
     project: "Custom ERP Rollout",
-    image:
-      "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
   },
   {
     id: 2,
     name: "Jahan Melad",
-    position: "Project Manager, Buildwave",
+    position: "Project Manager",
     company: "Buildwave",
-    content:
-      "They organized their work and internal management was outstanding.",
+    content: "They organized their work and internal management was outstanding.",
     project: "Financial District Facade",
-    image:
-      "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=",
+    image: "https://randomuser.me/api/portraits/men/36.jpg",
   },
   {
     id: 3,
-    name: "Jim Halpert",
-    position: "Lead Engineering, InHive Space",
-    company: "InHive",
-    content: "Working with them was a great experience.",
-    project: "InHive HQ",
-    image:
-      "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=",
-  },
-  {
-    id: 4,
     name: "Sarah Johnson",
     position: "Lead Architect",
     company: "LAG",
-    content:
-      "Flawless execution and clear communication throughout the project.",
+    content: "Flawless execution and clear communication throughout the project.",
     project: "Bridge Tower",
-    image:
-      "https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=",
+    image: "https://randomuser.me/api/portraits/women/28.jpg",
+  },
+  {
+    id: 4,
+    name: "Jim Halpert",
+    position: "Engineer",
+    company: "InHive",
+    content: "Working with them was a great experience from start to finish.",
+    project: "InHive HQ",
+    image: "https://randomuser.me/api/portraits/men/33.jpg",
   },
 ];
 
@@ -81,37 +72,39 @@ export default function TestimonialsAutoscrollGSAP({
 }) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const tlRef = useRef<gsap.core.Tween | null>(null);
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
   const [hovering, setHovering] = useState(false);
   const [inView, setInView] = useState(true);
   const [prefersReduced, setPrefersReduced] = useState(false);
 
   const loopItems = useMemo(() => [...items, ...items], [items]);
 
+  // 🔧 Measure half width of track (so we know when to loop)
   const measureHalfWidth = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
 
     const half = Math.floor(track.children.length / 2);
-    let w = 0;
+    let totalWidth = 0;
 
     for (let i = 0; i < half; i++) {
       const el = track.children[i] as HTMLElement;
-      if (el) w += el.offsetWidth;
+      if (el) totalWidth += el.offsetWidth;
     }
 
     const styles = window.getComputedStyle(track);
-    const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
-    w += gap * (half - 1);
+    const gap = parseFloat(styles.columnGap || styles.gap || "0");
+    totalWidth += gap * (half - 1);
 
-    return w;
+    return totalWidth;
   }, []);
 
+  // 🌀 Create GSAP scroll animation once
   useEffect(() => {
     const m = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReduced(m.matches);
-    const onChange = () => setPrefersReduced(m.matches);
-    m.addEventListener?.("change", onChange);
+    const handleChange = () => setPrefersReduced(m.matches);
+    m.addEventListener("change", handleChange);
 
     const section = sectionRef.current;
     if (!section) return;
@@ -122,61 +115,52 @@ export default function TestimonialsAutoscrollGSAP({
     );
     io.observe(section);
 
-    const build = () => {
-      if (!trackRef.current || prefersReduced) return;
-      const track = trackRef.current;
-      const distance = measureHalfWidth();
+    const track = trackRef.current;
+    if (!track || prefersReduced) return;
 
-      if (!distance || distance <= 0) return;
+    const distance = measureHalfWidth();
+    if (!distance) return;
 
-      if (tlRef.current) {
-        tlRef.current.kill();
-        tlRef.current = null;
-      }
+    gsap.set(track, { x: 0 });
 
-      gsap.set(track, { x: 0 });
-
-      const tween = gsap.to(track, {
-        x: -distance,
-        duration: speed,
-        ease: "none",
-        repeat: -1,
-        modifiers: {
-          x: (x: string) => {
-            const n = Number.parseFloat(x);
-            const wrapped = ((n % -distance) + -distance) % -distance;
-            return `${wrapped}px`;
-          },
+    const tween = gsap.to(track, {
+      x: -distance,
+      duration: speed,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: (x) => {
+          const n = parseFloat(x);
+          const wrapped = ((n % -distance) + -distance) % -distance;
+          return `${wrapped}px`;
         },
-      });
-
-      tlRef.current = tween;
-
-      if (hovering || !inView) {
-        tween.pause();
-      }
-    };
-
-    build();
-
-    const ro = new ResizeObserver(() => {
-      build();
+      },
     });
-    ro.observe(trackRef.current!);
+
+    tweenRef.current = tween;
+
+    const resizeObserver = new ResizeObserver(() => {
+      // ✅ Smooth rebuild on resize without resetting position
+      const currentX = gsap.getProperty(track, "x") as number;
+      const d = measureHalfWidth();
+      tween.vars.x = -d;
+      tween.invalidate().restart(false).pause().play();
+      gsap.set(track, { x: currentX });
+    });
+
+    resizeObserver.observe(track);
 
     return () => {
-      m.removeEventListener?.("change", onChange);
+      m.removeEventListener("change", handleChange);
       io.disconnect();
-      ro.disconnect();
-      if (tlRef.current) {
-        tlRef.current.kill();
-        tlRef.current = null;
-      }
+      resizeObserver.disconnect();
+      tween.kill();
     };
-  }, [measureHalfWidth, speed, prefersReduced, hovering, inView]);
+  }, [measureHalfWidth, speed, prefersReduced]);
 
+  // ✋ Pause / resume smoothly
   useEffect(() => {
-    const tl = tlRef.current;
+    const tl = tweenRef.current;
     if (!tl) return;
 
     if (hovering || !inView || prefersReduced) {
@@ -186,125 +170,82 @@ export default function TestimonialsAutoscrollGSAP({
     }
   }, [hovering, inView, prefersReduced]);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const tl = tlRef.current;
-      if (!tl) return;
-      if (e.key === "ArrowRight") tl.timeScale(1);
-      if (e.key === "ArrowLeft") tl.timeScale(-1);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  const stepBy = (dir: 1 | -1) => {
-    const tl = tlRef.current;
-    if (tl) {
-      tl.timeScale(dir);
-      tl.play();
-    }
-  };
-
   return (
     <section
       ref={sectionRef}
       aria-labelledby="reviews-title"
-      className="py-40"
-      id="contact"
-    
+      className="py-24 relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-8">
-        {/* Header */}
-        <div className="flex items-center justify-center gap-6 mb-10">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white text-center tracking-tight">
-              Success <span className="text-[#01adff]">Stories</span>
-            </h2>
-            <div className="mt-4 flex justify-center">
-              <div className="w-24 h-0.5 bg-gradient-to-r from-[#01adff] to-transparent"></div>
-            </div>
-             <p className="mt-6 mb-8 text-lg md:text-xl text-white max-w-2xl mx-auto">
-              Discover our latest architectural innovations
-            </p>
-          </div>
+      <div className="container mx-auto px-6 md:px-10 relative">
+        {/* Title */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Client <span className="text-[#01adff]">Testimonials</span>
+          </h2>
+          <p className="mt-4 text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            Hear what our partners say about working with us.
+          </p>
         </div>
 
-        {/* Marquee track */}
+        {/* Testimonials Track */}
         <div
           role="region"
           aria-label="Client testimonials"
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
-          onFocus={() => setHovering(true)}
-          onBlur={() => setHovering(false)}
-          className="overflow-hidden"
+          className="overflow-hidden select-none"
         >
           <div
             ref={trackRef}
-            className="flex gap-12 md:gap-8 will-change-transform select-none"
+            className="flex gap-6 md:gap-10 will-change-transform"
           >
             {loopItems.map((t, idx) => (
               <Card
                 key={`${t.id}-${idx}`}
-                data-card
-                className="rounded-lg sm:min-w-[420px] lg:min-w-[520px] border backdrop-blur-2xl"
+                className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 text-white 
+                min-w-[85%] sm:min-w-[380px] md:min-w-[440px] lg:min-w-[520px] transition-transform hover:scale-[1.02]"
               >
                 <CardContent className="p-6 md:p-8">
-                  <div className="flex items-center justify-between pb-4">
+                  {/* Header */}
+                  <div className="flex items-center justify-between pb-4 border-b border-white/10">
                     <div className="flex items-center gap-3">
                       <img
-                        src="https://randomuser.me/api/portraits/men/32.jpg"
+                        src={t.image}
                         alt={t.name}
-                        className="h-12 w-12 rounded-lg object-contain"
+                        className="h-12 w-12 rounded-xl object-cover border border-white/20"
                       />
                       <div className="text-sm">
-                        <div
-                          className="font-semibold"
-                          style={{ color: BRAND.black }}
-                        >
+                        <div className="font-semibold text-white">
                           {t.name}
                         </div>
-                        <div style={{ color: BRAND.navy }}>{t.position}</div>
+                        <div className="text-white/60">{t.position}</div>
                       </div>
                     </div>
                     <Badge
                       variant="outline"
-                      className="px-4 py-2 rounded-md"
-                      style={{
-                        borderColor: BRAND.deep,
-                        color: BRAND.navy,
-                        background: BRAND.white,
-                      }}
-                      aria-label={`Company ${t.company}`}
+                      className="px-4 py-1 rounded-md border-[#01adff]/50 text-[#01adff] bg-[#01adff]/10"
                     >
                       {t.company}
                     </Badge>
                   </div>
 
+                  {/* Content */}
                   <div className="relative mt-6 md:mt-8">
                     <Quote
+                      className="absolute -top-6 -left-2 h-7 w-7 text-[#01adff]/40"
                       aria-hidden="true"
-                      className="absolute -top-8 -left-1 h-8 w-8"
-                      style={{ color: BRAND.deep }}
                     />
-                    <blockquote
-                      className="text-pretty text-xl md:text-2xl leading-relaxed font-semibold"
-                      style={{ color: BRAND.black }}
-                    >
-                      "{t.content}"
+                    <blockquote className="text-lg md:text-xl leading-relaxed font-medium text-white/90">
+                      “{t.content}”
                     </blockquote>
                   </div>
 
+                  {/* Project Tag */}
                   <div className="mt-6">
                     <Badge
-                      className="border rounded-sm p-4"
-                      style={{
-                        background: `${BRAND.primary}1A`,
-                        color: BRAND.primary,
-                        borderColor: `${BRAND.primary}4D`,
-                      }}
+                      className="px-3 py-1 rounded-md border-[#01adff]/30 bg-[#01adff]/10 text-[#01adff] text-sm"
                     >
-                      Project: {t.project}
+                      {t.project}
                     </Badge>
                   </div>
                 </CardContent>
@@ -312,6 +253,8 @@ export default function TestimonialsAutoscrollGSAP({
             ))}
           </div>
         </div>
+
+      
       </div>
     </section>
   );

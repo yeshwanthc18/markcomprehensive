@@ -85,23 +85,23 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
       {/* 🔷 Two Triangles */}
       <svg
         ref={leftTriangle}
-        width="120"
+        width="80"
         
-        height="120"
+        height="80"
         viewBox="0 0 100 100"
-        className="absolute left-[8%] top-[10%] z-[1] opacity-60"
+        className="absolute left-[8%] top-[15%] z-[1] opacity-60"
         style={{ willChange: "transform" }}
       >
         <polygon
           points="50,0 100,100 0,100"
           fill="url(#triGradient)"
-          stroke="rgba(1,173,255,0.5)"
+          stroke="#01ADFF"
           strokeWidth="1"
         />
         <defs>
-          <radialGradient id="triGradient" cx="80%" cy="80%" r="80%">
+          <radialGradient id="triGradient" cx="100%" cy="100%" r="100%">
             <stop offset="0%" stopColor="#01ADFF" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#01ADFF" stopOpacity="0" />
+            <stop offset="100%" stopColor="#01ADFF" stopOpacity="0.6" />
           </radialGradient>
         </defs>
       </svg>
@@ -110,10 +110,10 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
 
       <svg
         ref={rightTriangle}
-        width="180"
-        height="180"
+        width="80"
+        height="80"
         viewBox="0 0 100 100"
-        className="absolute right-[8%] bottom-[15%] z-[1] opacity-60"
+        className="absolute right-[4%] bottom-[15%] z-[1] opacity-60"
         style={{ willChange: "transform" }}
       >
         <polygon
@@ -125,7 +125,7 @@ export default function GradientBG({ children, className = "" }: GradientBGProps
         <defs>
           <radialGradient id="triGradient2" cx="70%" cy="80%" r="80%">
             <stop offset="0%" stopColor="#01ADFF" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#01ADFF" stopOpacity="0" />
+            <stop offset="100%" stopColor="#01ADFF" stopOpacity="0.6" />
           </radialGradient>
         </defs>
       </svg>

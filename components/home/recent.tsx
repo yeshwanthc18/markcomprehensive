@@ -24,7 +24,7 @@ export function RecentProjectsOne() {
         </div>
       </div>
       <BentoGrid className="container mx-auto">
-        {project.slice(0, 7).map((item, i) => (
+        {project.slice(0, 5).map((item, i) => (
           <BentoGridItem
             key={i}
             title={item.name}

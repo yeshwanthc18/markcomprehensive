@@ -3,7 +3,6 @@
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useControls } from "leva";
 import WaterSimple from "./WaterSimple.js";
 import { Text } from "@react-three/drei";
 
@@ -18,43 +17,12 @@ const SimpleOcean = () => {
 
   const waterColor = "#1f98a8";
 
-  // 🟦 Leva Controls
-  const { position, rotation, scale, textPosition, waveIntensity, waveSpeed } =
-    useControls("Ocean Controls", {
-      position: {
-        value: [0, -2, -5],
-        step: 0.1,
-      },
-      rotation: {
-        value: [-1.72, 0, 0],
-        step: 0.05,
-      },
-      scale: {
-        value: [55, 45, 40],
-        step: 1,
-        min: 1,
-        max: 200,
-      },
-      textPosition: {
-        value: [0, -1.1, 0],
-        step: 0.1,
-        label: "Text Base Position (x,y,z)",
-      },
-      waveIntensity: {
-        value: 0.2,
-        min: 0,
-        max: 1,
-        step: 0.01,
-        label: "Text Wave Intensity",
-      },
-      waveSpeed: {
-        value: 1,
-        min: 0.1,
-        max: 5,
-        step: 0.1,
-        label: "Text Wave Speed",
-      },
-    });
+  const position: [number, number, number] = [0, -2, -5];
+  const rotation: [number, number, number] = [-1.72, 0, 0];
+  const scale: [number, number, number] = [55, 45, 40];
+  const textPosition: [number, number, number] = [0, -1, 0];
+  const waveIntensity = 0.2;
+  const waveSpeed = 1;
 
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
 
@@ -81,30 +49,28 @@ const SimpleOcean = () => {
     }
   }, [waterNormals, waterColor]);
 
-  // Animate both water and text
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
 
-    // 🌀 Animate water
+    // Animate water
     if (waterRef.current) {
       const waterObj = waterRef.current.children[0] as WaterSimple;
       // @ts-ignore
-      // waterObj.material.uniforms.time.value = time * 0.3;
-      waterObj.material.uniforms.time.value -= 0.11 / 60.0;
+      waterObj.material.uniforms.time.value -= 0.05 / 60.0;
     }
-    if (!textRef.current) return;
-    textRef.current.rotation.x = -Math.sin(time) * 0.07;
-    textRef.current.rotation.y = Math.sin(time) * 0.05;
-    textRef.current.rotation.z = Math.cos(time) * 0.05;
 
-    // 🌊 Make text float with gentle wave motion
-    // if (textRef.current) {
-    //   textRef.current.position.y =
-    //     textPosition[1] + Math.sin(elapsed * waveSpeed) * waveIntensity;
-    //   textRef.current.position.x =
-    //     textPosition[0] + Math.sin(elapsed * 0.1 * waveSpeed) * (waveIntensity / 1);
-    //   textRef.current.rotation.z = Math.sin(elapsed * waveSpeed * 0.8) * 0.05;
-    // }
+    // Animate text rotation and wave motion
+    if (textRef.current) {
+      textRef.current.rotation.x = -Math.sin(time) * 0.01;
+      textRef.current.rotation.y = Math.sin(time) * 0.01;
+      textRef.current.rotation.z = Math.cos(time) * 0.01;
+
+      textRef.current.position.y =
+        textPosition[1];
+      textRef.current.position.x =
+        textPosition[0] + Math.sin(time * 0.1 * waveSpeed) * (waveIntensity / 1);
+      textRef.current.rotation.z = Math.sin(time * waveSpeed * 0.8) * 0.05;
+    }
   });
 
   return (
@@ -118,7 +84,7 @@ const SimpleOcean = () => {
       />
 
       {/* 🪶 Floating Text */}
-      <group ref={textRef} position={textPosition} rotation={[1,1,0]}>
+      <group ref={textRef} position={textPosition} rotation={[1, 1, 0]}>
         <Text
           fontSize={0.15}
           color="#ffffff"

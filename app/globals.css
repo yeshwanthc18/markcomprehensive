@@ -86,7 +86,7 @@
 
 
 body{
-   overflow: hidden;
+   /* overflow: hidden; */
    /* overflow-y: auto; */
   height: 100%;
 }

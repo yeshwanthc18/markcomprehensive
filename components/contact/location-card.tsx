@@ -11,8 +11,8 @@ interface LocationCardProps {
 
 export default function LocationCard({ location, detectedCountry }: LocationCardProps) {
   return (
-    <Card className="bg-white rounded-lg shadow-lg border border-gray-200 sticky top-8">
-      <CardHeader className="p-6 sm:p-8 bg-gradient-to-r from-[#01adff]/10 to-[#1564e5]/10 border-b border-gray-200">
+    <Card className="bg-white border-0 shadow-none sticky top-16">
+      <CardHeader className="p-6 sm:p-8 bg-gradient-to-r from-[#01adff]/10 to-[#1564e5]/10 ">
         <CardTitle className="text-2xl font-bold flex items-center gap-3 text-black">
           <div className="p-3 bg-gradient-to-r from-[#01adff] to-[#1564e5] rounded-lg">
             <Building2 className="w-5 h-5 text-white" />
@@ -41,7 +41,7 @@ export default function LocationCard({ location, detectedCountry }: LocationCard
           </div>
         ))}
 
-        {location.specialties.length > 0 && (
+        {/* {location.specialties.length > 0 && (
           <div className="pt-4 border-t border-gray-200">
             <p className="text-sm font-semibold text-gray-900 mb-4">Specialties</p>
             <div className="space-y-2">
@@ -53,7 +53,7 @@ export default function LocationCard({ location, detectedCountry }: LocationCard
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </CardContent>
     </Card>
   )

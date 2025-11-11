@@ -43,7 +43,7 @@ export type Project = {
   region: Region;
   type: PType;
   city: string;
-  year: number;
+  year?: number;
   mainContractor?: string;
   images: { src: any; alt: string }[];
   description: string;
@@ -283,12 +283,12 @@ export const PROJECTS: Project[] = [
       type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E laminated/toughened glass",
       buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E coated",
       coating:
-        "Coating	Low-E coating (e.g., neutral or slight tint) for solar performance",
-      uValue: "~1.6 W/m²K (assumed)",
-      solarHeatGainCoefficient: "SHGC	~0.27 (assumed)",
-      vlt: "~48-52% (assumed)",
+        "Solar-control coating (Cool-Lite SKN 676 II)",
+      uValue: "~1.4 W/m²K (assumed)",
+      solarHeatGainCoefficient: "~0.30 (assumed)",
+      vlt: "~67% (assumed)",
       colourTone:
-        "Neutral-clear or slightly blue/grey tint, maintaining educational environment daylight quality",
+        "Neutral blue-grey appearance consistent with Cool-Lite SKN 676 II aesthetic",
       acousticPerformance: "Approx. 35 – 38 dB Rw (typical)",
     },
 
@@ -570,7 +570,7 @@ export const PROJECTS: Project[] = [
     markScope: "Aluminium façade & glazing systems – design, supply, install",
     systemType:
       "Semi-unitised/unitised curtain wall + aluminium doors/windows + sun-shade fins",
-    glassType: "Double glazed Low-E assembly (assumed: 6 + 12 + 6)",
+    glassType: "Double glazed Low-E assembly (6 mm Cool-Lite SKN 146 + 16 mm air + 8 mm clear)",
     area: "Approx. 48,000 m²",
     rooms: "~250 (rooms, suites & apartments)",
     sector: "Hospitality – resort/hotel / waterfront leisure",
@@ -599,7 +599,7 @@ export const PROJECTS: Project[] = [
     ],
     facadeDetails: {
       system:
-        "Semi-unitised / unitised aluminium curtain-wall system across primary elevations",
+        "Stick  curtain-wall system across primary elevationss",
 
       profileSystem:
         "High-performance aluminium façade system (equivalent global standard) tailored for the project",
@@ -622,14 +622,14 @@ export const PROJECTS: Project[] = [
     ],
 
     glassSpecification: {
-      type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E",
+      type: "Double Glazed Unit (DGU) – e.g., 6 mm Cool-Lite SKN 146 + 16 mm air cavity + 8 mm Clear",
       // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
-      coating: "Coating	Low-E neutral/clear for solar control",
-      uValue: "~1.6 W/m²K",
-      solarHeatGainCoefficient: "~0.27",
-      vlt: "~48-52%",
+      coating: "solar control (Cool-Lite SKN 146)",
+      uValue: "~1.4 W/m²K",
+      solarHeatGainCoefficient: "~0.32",
+      vlt: "64%",
       colourTone:
-        "Tint / Colour	Neutral clear / slight blue-grey to suit hotel premium aesthetic",
+        "Neutral blue-grey appearance consistent with Cool-Lite SKN 146 aesthetic",
       // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
     },
     challenges:
@@ -896,7 +896,7 @@ export const PROJECTS: Project[] = [
     region: "Oman",
     type: "Residential",
     city: "Al Hail district, Al Mouj Muscat",
-    year: 2019,
+    // year: 2019,
     status: "Completed",
     client: "Al Mouj Muscat SAOC / Al Mouj masterplan",
     architect: "To be confirmed",
@@ -1072,7 +1072,7 @@ export const PROJECTS: Project[] = [
     markScope: "Aluminium façade & glazing systems – design, supply, install",
     systemType:
       "Unitised/semi-unitised curtain wall + aluminium windows/doors + architectural aluminium elements",
-    glassType: "Double glazed Low-E assembly (6 + 12 + 6)",
+    glassType: "Double glazed assembly – 8 mm Guardian Neutral Plus 40 + 16 mm air spacer + 6 mm clear + 1.52 mm PVB + 6 mm clear glass",
     area: "Resort site spans 45 hectares (approx)",
     sector: "Hospitality – Luxury beachfront resort",
 
@@ -1101,7 +1101,7 @@ export const PROJECTS: Project[] = [
     features: [
       "Design & engineering of the aluminium façade and large glazed curtain-wall/window systems for the resort’s main buildings and villas.",
       "Supply, fabrication and installation of aluminium framed doors, windows and large glazing panels in guest-rooms, lobby, dining areas and villas.",
-      "Custom aluminium architectural elements (aluminium sun-shade fins, decorative aluminium screens) integrated into façade design to reflect the resort aesthetic and manage solar load.",
+      "Custom aluminium architectural elements (aluminium sun-shade fins, decorative aluminium screens) integrated into façade design to reflect the resort aesthetic and manage solar load. (including aluminium perforated screens)",
       "Coordination with main contractor & façade consultant for structural interface, MEP penetrations, waterproofing, and installation in a coastal/desert environment.",
       "Quality assurance: façade mock-ups, on-site testing, commissioning, documentation and hand-over in line with Mark Aluminium’s standards.",
     ],
@@ -1132,14 +1132,14 @@ export const PROJECTS: Project[] = [
     ],
 
     glassSpecification: {
-      type: "Double Glazed Unit (DGU) – e.g., 6 mm clear + 12 mm argon cavity + 6 mm Low-E laminated/toughened glass",
+      type: "Double Glazed Unit (DGU) – e.g., 8 mm Guardian Neutral Plus 40 + 16 mm air spacer + 6 mm clear + 1.52 mm PVB + 6 mm clear glass",
       // buildUp: "6 mm clear + 12 mm argon cavity + 6 mm Low-E glass",
-      coating: "Low-E neutral/clear for solar control and daylight quality",
-      uValue: "Approx. 1.4-1.8 W/m²K (to be confirmed)",
-      solarHeatGainCoefficient: "Approx. 0.25-0.30 (to be confirmed)",
-      vlt: "Approx. 45-55% (to be confirmed)",
+      coating: "Coating	Solar-control / performance coating (Guardian Neutral Plus 40)",
+      uValue: "Approx. 1.3 W/m²K (to be confirmed)",
+      solarHeatGainCoefficient: "Approx. 0.28 (to be confirmed)",
+      vlt: "Approx. 40% (to be confirmed)",
       colourTone:
-        "Slight neutral or blue/grey tint to complement resort aesthetic and reduce glare",
+        "Neutral grey appearance consistent with Guardian Neutral Plus 40 aesthetic",
       // acousticPerformance: "Approx. 35-38 dB Rw (typical performance level)",
     },
     challenges:
@@ -1252,7 +1252,7 @@ export const PROJECTS: Project[] = [
     systemType:
       "Unitised / semi-unitised curtain-wall + aluminium windows/doors + architectural aluminium elements",
     glassType: "Glass Type (Assumed)	Double glazed Low-E assembly (6 + 12 + 6)",
-    // area: "Built-up area approximately 146,000 m²",
+    area: "Approximately 146,000 m²",
     sector:
       "Institutional / Commercial / Mixed-Use (Retail + Offices + Serviced Apartments)",
 
@@ -1295,25 +1295,26 @@ export const PROJECTS: Project[] = [
     },
 
     performanceHighlights: [
-      "The mixed-use program combining retail, offices, and serviced apartments required façade flexibility and high performance — balancing large glazed spans with solar control and heat mitigation.",
+      "With a mixed-use program incorporating retail, offices and serviced apartments, the façade design needed flexibility and high performance: large glazed spans for daylight and views, while controlling solar heat gain.",
       "Sun-shade fins and aluminium screen elements help reduce solar exposure on west and south-facing façades, improving comfort and energy efficiency.",
       "The building’s high-visibility location in Ghala Heights demanded premium aluminium and glazing systems to ensure architectural impact and long-term durability.",
-      "Interior aluminium-framed glazing partitions support a modern, open aesthetic across office and serviced apartment levels.",
+      "Interior aluminium-framed glazing partitions deliver a modern, open aesthetic for office spaces and serviced living units.",
     ],
 
     glassSpecification: {
-      type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (or equivalent)",
+      type: "30 mm DGU (8 mm Planitherm Blue tempered + 16 mm air space + 6 mm clear tempered) with U-Insert",
       coating:
-        "Coating	Low-E neutral / clear for solar control and daylight optimisation",
-      uValue: "Approx. 1.6 W/m²K (to be verified)",
-      solarHeatGainCoefficient: "Approx. 0.27 (to be verified)",
-      vlt: "Approx. 48-52% (to be verified)",
+        "Solar-control coating (Planitherm Blue)",
+      uValue: "~1.4 W/m²·K",
+      solarHeatGainCoefficient: "~0.28",
+      vlt: "~52%",
       colourTone:
-        "Slight neutral or blue-grey tint to maintain premium aesthetic and glare control",
+        "Blue-grey tint consistent with Planitherm Blue aesthetic",
     },
+    outcome:"The CSEPF HQ Building in Ghala Heights stands as a major institutional/commercial landmark in Muscat’s skyline, and for Mark Aluminium it presents a key reference project in large-scale mixed-use aluminium façade delivery. This bolsters Mark’s credentials in the Gulf region and enhances its value proposition as it pursues expansion into the Indian market (especially regions like Karnataka & Kerala) for large-scale institutional, commercial and mixed-use façade projects.",
 
     challenges:
-      "Complex mixed-use program, Coastal/urban exposure, High solar load and humidity, Large façade scale and performance consistency",
+      "Complex mixed-use program, Coastal/urban exposure & climatic demands, Large building scale and high visibility",
 
     solution: [
       "A building combining retail, offices, serviced apartments and parking means façade works must coordinate across many trades and differing functional requirements. Mark’s modular fabrication and façade scheduling streamline this.",
@@ -1334,9 +1335,9 @@ export const PROJECTS: Project[] = [
     systemType:
       "Unitised / semi-unitised curtain-wall + aluminium windows/doors + architectural aluminium elements",
     glassType:
-      "Glass Type (Assumed)\tDouble glazed Low-E assembly (6 + 12 + 6)",
+      "Double glazed assembly – Guardian SunGuard SNX 60 + 20 mm Air Spacer + 8 mm Clear Glass (non-laminated)",
     sector: "Commercial Office Building / Freehold Offices",
-    area: "approx. 17,454 m² of built area",
+    area: "approx. 17,454 m² of built area (as reported)",
     description:
       "The iTower Business Tower is a seven-storey commercial office building offering freehold ownership of office spaces in Oman. Developed by Gulf Muscat United, it is located in the Bausher (Bawshar) district of Muscat, within an emerging business hub. The tower was envisioned as one of the most technologically advanced 'smart office' developments in Oman, featuring approximately 17,454 m² of built area, 71 offices ranging from 42 m² to 1,550 m², and three levels of underground parking.",
 
@@ -1384,13 +1385,13 @@ export const PROJECTS: Project[] = [
     ],
 
     glassSpecification: {
-      type: "Double Glazed Unit (DGU) – 6 mm clear + 12 mm argon cavity + 6 mm Low-E coated glass (or equivalent)",
-      coating: "Low-E neutral / clear glass for daylighting and solar control",
-      uValue: "Approx. 1.6 W/m²K (to be verified)",
-      solarHeatGainCoefficient: "Approx. 0.25–0.30 (to be verified)",
-      vlt: "Approx. 48–52% (to be verified)",
+      type: "Double Glazed Unit (DGU) — Guardian SunGuard SNX 60 + 20 mm Air Spacer + 8 mm Clear Glass (non-laminated)",
+      coating: "Solar-control coating (Guardian SunGuard SNX 60)",
+      uValue: "~1.0 W/m²·K",
+      solarHeatGainCoefficient: "~0.37",
+      vlt: "~60%",
       colourTone:
-        "Slight neutral or blue-grey tint supporting corporate aesthetic and glare reduction",
+        "Tint / Colour	Neutral blue appearance consistent with Guardian SunGuard SNX 60 aesthetic",
     },
 
     challenges:

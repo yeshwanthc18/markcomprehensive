@@ -8,20 +8,16 @@ import {
   useProgress,
   Sky,
 } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { EffectComposer, HueSaturation } from "@react-three/postprocessing";
-
-import { useRef, Suspense } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useControls, Leva } from "leva";
 
 import Birds from "./Birds";
 import ButtonPrimary from "../layout/Button";
 import HeroSky from "./HeroSky";
-import OceanScene from "./OceanScene/OceanScene";
 import ScrollableOceanScene from "./OceanScene/WaterSimple/ScrollablaOceanScene";
 import CloudField from "./CloudField";
 
@@ -47,13 +43,11 @@ const birdPositions = [
   { position: [1, 2, 0], rotation: [0, 0, 0], scale: 0.05 },
   { position: [-3, 2, 0], rotation: [0, Math.PI, 0], scale: 0.1 },
   { position: [-2, 2, -9], rotation: [0, -1, 0], scale: 0.2 },
-  { position: [-2, 2, -9], rotation: [0, -1, 0], scale: 0.1 },
-  { position: [3, 0, -9], rotation: [0, 1, 0], scale: 0.15 },
   { position: [3, 0.1, -10], rotation: [0, 1, 0], scale: 0.15 },
 ];
 
 //
-// 🏙️ Street Scene (scroll + Leva control)
+// 🏙️ Street Scene (responsive scaling + scroll animation)
 //
 function StreetScene({
   modelContainerRef,
@@ -62,20 +56,16 @@ function StreetScene({
 }) {
   const { scene } = useGLTF("/office_building/streetview.glb");
   const modelRef = useRef<THREE.Group>(null);
+  const { size } = useThree();
 
-  // 🎚️ Position / rotation / scale controls
-  const { posX, posY, posZ, rotX, rotY, rotZ, scale } = useControls(
-    "Street Scene",
-    {
-      posX: { value: 56.0, min: -100, max: 100, step: 0.1 },
-      posY: { value: -9, min: -100, max: 100, step: 0.1 },
-      posZ: { value: -64.7, min: -100, max: 100, step: 0.1 },
-      rotX: { value: -0.07, min: -Math.PI, max: Math.PI, step: 0.01 },
-      rotY: { value: 0.0, min: -Math.PI, max: Math.PI, step: 0.01 },
-      rotZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
-      scale: { value: 3.6, min: 0.1, max: 10, step: 0.1 },
-    }
-  );
+  // Adjust scale dynamically for mobile
+  const [scale, setScale] = useState(3.6);
+
+  // useEffect(() => {
+  //   if (size.width < 768) setScale(1.8);
+  //   else if (size.width < 1024) setScale(2.5);
+  //   else setScale(3.6);
+  // }, [size.width]);
 
   // 🌀 Scroll animation
   const { scrollYProgress } = useScroll({
@@ -92,8 +82,8 @@ function StreetScene({
   useFrame(() => {
     const scroll = smoothScroll.get();
     if (modelRef.current) {
-      modelRef.current.rotation.y = rotY - scroll * 0.001;
-      modelRef.current.rotation.x = rotX - scroll * 0.001;
+      modelRef.current.rotation.y = 0.0 - scroll * 0.001;
+      modelRef.current.rotation.x = -0.07 - scroll * 0.001;
       modelRef.current.position.z = -64.7 + scroll * Math.PI * 4.5;
     }
   });
@@ -104,7 +94,7 @@ function StreetScene({
       object={scene}
       position={[56.0, -9, -64.7]}
       scale={scale}
-      rotation={[rotX, rotY, rotZ]}
+      rotation={[-0.07, 0.0, 0]}
       renderOrder={0}
     />
   );
@@ -115,41 +105,37 @@ function StreetScene({
 //
 export default function ThreeDViewer() {
   const modelContainerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: modelContainerRef,
     offset: ["start start", "end end"],
   });
+
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
-  // 🎥 Camera FOV control
-  const { fov } = useControls("Camera", {
-    fov: { value: 30, min: 10, max: 100, step: 1 },
-  });
+  // ✅ Responsive camera FOV
+  const fov = isMobile ? 45 : 27;
 
-  // 💡 Lighting controls
-  const {
-    ambientIntensity,
-    ambientColor,
-    dirIntensity,
-    dirColor,
-    dirX,
-    dirY,
-    dirZ,
-    hemiIntensity,
+  // ✅ Lighting defaults
+  const ambientIntensity = 0.3;
+  const ambientColor = "#ffffff";
 
-    hemiColorGround,
-  } = useControls("Lighting", {
-    ambientIntensity: { value: 0.3, min: 0, max: 5, step: 0.1 },
-    ambientColor: "#ffffff",
-    dirIntensity: { value: 5.5, min: 0, max: 50, step: 0.1 },
-    dirColor: "#ffffff",
-    dirX: { value: 1, min: -20, max: 20, step: 0.5 },
-    dirY: { value: 17, min: -20, max: 20, step: 0.5 },
-    dirZ: { value: 19.5, min: -20, max: 20, step: 0.5 },
-    hemiIntensity: { value: 0.4, min: 0, max: 2, step: 0.1 },
-    hemiColorSky: "#87ceeb",
-    hemiColorGround: "#ffffff",
-  });
+  const dirIntensity = 5.5;
+  const dirColor = "#ffffff";
+  const dirX = 1;
+  const dirY = 17;
+  const dirZ = 19.5;
+
+  const hemiIntensity = 0.4;
+  const hemiColorGround = "#ffffff";
 
   return (
     <div
@@ -160,9 +146,6 @@ export default function ThreeDViewer() {
         position: "relative",
       }}
     >
-      {/* 🎚️ Leva Controls */}
-      {/* <Leva collapsed /> */}
-
       <div
         style={{
           width: "100%",
@@ -173,44 +156,43 @@ export default function ThreeDViewer() {
       >
         {/* Overlay Content */}
         <div
-          style={{
-            width: "100vw",
-            height: "100vh",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 1,
-          }}
+          className="absolute inset-0 flex justify-center items-center z-10 p-4"
         >
           <motion.div
             style={{
               opacity,
-              width: "40%",
               backgroundColor: "rgba(255, 255, 255, 0.3)",
               border: "1.5px solid rgba(255, 255, 255, 0.5)",
-              backdropFilter: "blur(5px)",
-              borderRadius: "2rem",
-              padding: "2rem",
+              backdropFilter: "blur(6px)",
+              borderRadius: "1.5rem",
+              padding: isMobile ? "1.5rem" : "2rem",
+              width: isMobile ? "90%" : "40%",
               textAlign: "center",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: "2rem",
+              gap: "1.5rem",
             }}
           >
             <h1
-              className="text-center text-4xl md:text-5xl lg:text-4.5xl font-extrabold leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-[#9be7ff] to-[#01adff] animate-gradient-x"
-              style={{ color: "#1c345c" }}
+              className="text-center font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-[#9be7ff] to-[#01adff]"
+              style={{
+                fontSize: isMobile ? "1.8rem" : "2.5rem",
+                color: "#1c345c",
+              }}
             >
-              Engineering the future of modern Architecture
+              Engineering the Future of Modern Architecture
             </h1>
-            <p style={{ color: "#1c345c" }}>
-              Combining Design vision with Engineering Excellence, We create
-              façades that perform beautifully across materials, climates and
-              cityspaces.
+            <p
+              className="max-w-prose"
+              style={{
+                color: "#1c345c",
+                fontSize: isMobile ? "0.9rem" : "1rem",
+              }}
+            >
+              Combining Design Vision with Engineering Excellence, we create
+              façades that perform beautifully across materials, climates, and
+              cityscapes.
             </p>
             <ButtonPrimary>
               <Link
@@ -226,7 +208,7 @@ export default function ThreeDViewer() {
         {/* 🖼️ 3D Scene */}
         <Canvas camera={{ fov }}>
           <Suspense fallback={<Loader />}>
-            {/* 🐦 Birds */}
+            {/* Birds */}
             {birdPositions.map((item, index) => (
               <Birds
                 key={index}
@@ -251,15 +233,14 @@ export default function ThreeDViewer() {
               />
               <Environment preset="city" />
 
-              {/* 🏙️ Street Scene */}
+              {/* Street Scene */}
               <StreetScene modelContainerRef={modelContainerRef} />
             </Hud>
 
-            {/* 🌊 Simple Ocean — put before lights, but control render order */}
-            {/* <SimpleOcean /> */}
-
+            {/* Ocean & Sky */}
             <ScrollableOceanScene modelContainerRef={modelContainerRef} />
             <Sky />
+            {/* <CloudField /> */}
             <HeroSky />
           </Suspense>
         </Canvas>

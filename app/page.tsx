@@ -28,6 +28,8 @@ import TriangleCursor from "./TriangleCursor";
 import RecentProjects from "@/components/home/recentprojects";
 import DomeGallery from "@/components/animations/DomeGallery";
 import { RecentProjectsOne } from "@/components/home/recent";
+import Testimonials from "@/components/home/testimonial";
+import TestimonialSlider from "@/components/home/TestimonialSlider";
 
 export default function HomePage() {
   useLenis();
@@ -80,7 +82,7 @@ export default function HomePage() {
 
       {/* <KeyNumbersSection /> */}
       <HomeHowWeWork />
-    <BackgroundGradientAnimation
+      <BackgroundGradientAnimation
         overlayImage={
           <div className="relative w-full h-full">
             <Image
@@ -93,10 +95,10 @@ export default function HomePage() {
           </div>
         }
       >
-      <IndustryHighlightsSection />
+        <IndustryHighlightsSection />
       </BackgroundGradientAnimation>
 
-      <div style={{ width: "100vw", height: "70vh" }}>
+      <div style={{ width: "100vw", height: "80vh" }}>
         <div className="text-center py-24 pb-1 px-6 relative z-10">
           <div className="inline-block relative mb-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black relative">
@@ -108,18 +110,20 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-    
+
         <DomeGallery />
-   
       </div>
-    
-      <GradientBG className="min-h-screen mt-60">
+
+      {/* <TestimonialSlider /> */}
+      <div className="mt-60">
+        <BackgroundGradientAnimation>
+          <TestimonialsSliderSection />
+        </BackgroundGradientAnimation>
+      </div>
+
+      <GradientBG>
         <RecentArticlesSection />
       </GradientBG>
-      {/* <Testimonials /> */}
-      <BackgroundGradientAnimation>
-        <TestimonialsSliderSection />
-      </BackgroundGradientAnimation>
       <GradientBG className="min-h-screen">
         <QuickEstimateSection />
       </GradientBG>

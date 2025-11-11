@@ -1,45 +1,53 @@
-"use client"
+"use client";
 
-import ContactBanner from "@/components/contact/contact-banner"
-import ContactForm from "@/components/contact/contact-form"
-import GlobalLocations from "@/components/contact/global-locations"
-import { useState, useEffect, useCallback } from "react"
-import { Loader2, Globe } from "lucide-react"
-import { fetchGeoData, getLocationByCountry, getAllLocations, type LocationData } from "@/lib/geoplugin"
-import GradientBG from "@/components/animated/background-white-gradient"
+import ContactBanner from "@/components/contact/contact-banner";
+import ContactForm from "@/components/contact/contact-form";
+import GlobalLocations from "@/components/contact/global-locations";
+import { useState, useEffect, useCallback } from "react";
+import { Loader2, Globe } from "lucide-react";
+import {
+  fetchGeoData,
+  getLocationByCountry,
+  getAllLocations,
+  type LocationData,
+} from "@/lib/geoplugin";
+import GradientBG from "@/components/animated/background-white-gradient";
+import { GlobeDemo } from "./world";
 
 export default function ContactPage() {
-  const [locationData, setLocationData] = useState<LocationData | null>(null)
-  const [detectedCountry, setDetectedCountry] = useState<string>("")
-  const [loading, setLoading] = useState(true)
+  const [locationData, setLocationData] = useState<LocationData | null>(null);
+  const [detectedCountry, setDetectedCountry] = useState<string>("");
+  const [loading, setLoading] = useState(true);
 
   const loadLocationData = useCallback(
     async (forceReload = false) => {
-      if (!forceReload && locationData && !loading) return
+      if (!forceReload && locationData && !loading) return;
 
-      setLoading(true)
+      setLoading(true);
       try {
-        const geoData = await fetchGeoData()
+        const geoData = await fetchGeoData();
         if (geoData?.geoplugin_countryCode) {
-          const countryCode = geoData.geoplugin_countryCode
-          setDetectedCountry(`${geoData.geoplugin_countryName} (${countryCode})`)
-          setLocationData(getLocationByCountry(countryCode))
+          const countryCode = geoData.geoplugin_countryCode;
+          setDetectedCountry(
+            `${geoData.geoplugin_countryName} (${countryCode})`
+          );
+          setLocationData(getLocationByCountry(countryCode));
         } else {
-          throw new Error("No valid geolocation data")
+          throw new Error("No valid geolocation data");
         }
       } catch {
-        setDetectedCountry("United Arab Emirates (Default)")
-        setLocationData(getLocationByCountry("AE"))
+        setDetectedCountry("United Arab Emirates (Default)");
+        setLocationData(getLocationByCountry("AE"));
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     },
-    [locationData, loading],
-  )
+    [locationData, loading]
+  );
 
   useEffect(() => {
-    loadLocationData()
-  }, [])
+    loadLocationData();
+  }, []);
 
   if (loading) {
     return (
@@ -53,26 +61,36 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <h3 className="text-3xl font-bold text-white mb-4">Locating Your Office</h3>
-          <p className="text-gray-300 mb-6 text-lg">Finding your nearest office...</p>
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Locating Your Office
+          </h3>
+          <p className="text-gray-300 mb-6 text-lg">
+            Finding your nearest office...
+          </p>
           <div className="flex items-center justify-center space-x-3 text-gray-400">
             <Loader2 className="w-5 h-5 animate-spin" />
             <span className="font-medium">Connecting to geolocation</span>
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="flex flex-col">
-      <GradientBG>
-        <ContactBanner />
-      </GradientBG>
-      <ContactForm locationData={locationData} detectedCountry={detectedCountry} />
-      <GradientBG>
-        <GlobalLocations allLocations={getAllLocations()} currentLocation={locationData} />
-      </GradientBG>
+    
+      <ContactBanner />
+
+      <ContactForm
+        locationData={locationData}
+        detectedCountry={detectedCountry}
+      />
+
+      <GlobalLocations
+        allLocations={getAllLocations()}
+        currentLocation={locationData}
+      />
+        <GlobeDemo />
     </div>
-  )
+  );
 }

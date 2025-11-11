@@ -4,19 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  Menu,
-  X,
-  Phone,
-  Mail,
-  Award,
-  ArrowRight,
-  MountainIcon as CurtainIcon,
-} from "lucide-react";
+import { Menu, X, Phone, Mail, Award, ArrowRight } from "lucide-react";
 
 import Image from "@/components/SmartImage";
 import Logo from "../../public/compressed-images/mark logo light bg.png";
-import LogoWhite from "../../public/compressed-images/LogoMark.png";
 import ButtonPrimary from "./Button";
 import { useQuickEstimate } from "@/contexts/quick-estimate-context";
 import { cn } from "@/lib/utils";
@@ -76,7 +67,7 @@ export default function Header() {
     },
     {
       title: "Folding Doors",
-      href: "/services/folding-doors",
+      href: "/services/folding-door-systems",
       desc: "Seamlessly connect indoor and outdoor spaces.",
       imageSrc: "/images/folding-glass-door-bi-fold.jpg",
     },
@@ -114,11 +105,27 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY < 20);
+      // ✅ Only activate heavy blur after 150px on home
+      if (pathname === "/") {
+        setIsScrolled(window.scrollY > 150);
+      } else {
+        // ✅ For other pages, you can make it react immediately
+        setIsScrolled(window.scrollY > 0);
+      }
     };
+
+    // Run it once immediately (so nav state is correct even without scrolling)
+    handleScroll();
+
+    // ✅ Remove any old scroll listeners before adding a new one
+    window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    // ✅ Cleanup properly on unmount or route change
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const onDocKey = (e: KeyboardEvent) => {
@@ -149,62 +156,41 @@ export default function Header() {
 
   return (
     <>
-      {/* Top contact bar */}
-      {/* <div className="bg-[#000000] text-white py-3">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-0">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span className="text-sm font-medium">+968 9131 5526</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span className="text-sm font-medium">
-                  info@markcomprehensive.com
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Award className="h-4 w-4" />
-              <span className="text-sm font-medium">ISO 9001 Certified</span>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       {/* Main header */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
-          isScrolled
-            ? "  backdrop-blur-3xl bg-white/40 "
-            : " backdrop-blur-3xl bg-white/40 "
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
+          pathname === "/"
+            ? isScrolled
+              ? "backdrop-blur-3xl bg-white/40"
+              : "backdrop-blur-0 bg-transparent"
+            : "backdrop-blur-3xl bg-white/40"
         }`}
       >
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-0">
-          <div className="flex justify-between items-center h-16">
+        <nav className="container mx-auto px-3 sm:px-4 lg:px-6">
+          <div className="flex justify-between items-center h-14 sm:h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="px-4 py-[9px]">
-                <Image src={Logo} alt="Mark" width={150} priority />
+            <Link
+              href="/"
+              className="flex items-center space-x-3 group flex-shrink-0"
+            >
+              <div className="px-2 sm:px-4 py-2 sm:py-[9px]">
+                <Image src={Logo} alt="Mark" width={100} priority />
               </div>
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:block">
-              <div className="flex items-center space-x-1">
+            <div className="hidden lg:block flex-grow">
+              <div className="flex items-center justify-center space-x-0.5 xl:space-x-1">
                 {navigation.slice(0, 3).map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`px-4 py-2  text-l font-medium transition-colors duration-200 ${
+                    className={`px-3 xl:px-4 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
                       isActive(item.href)
-                        ? isScrolled
-                          ? "font-bold text-lg text-[#01adff]"
-                          : "font-bold text-lg text-[#01adff]"
+                        ? "font-bold text-[#01adff]"
                         : isScrolled
-                        ? "text-gray-700 hover:text-[#01adff] "
-                        : "text-[#1c345c]  hover:text-[#01adff]"
+                        ? "text-gray-700 hover:text-[#01adff]"
+                        : "text-[#1c345c] hover:text-[#01adff]"
                     }`}
                   >
                     {item.name}
@@ -260,16 +246,12 @@ export default function Header() {
                       aria-expanded={servicesOpen}
                       aria-controls="services-mega"
                       onClick={() => setServicesOpen((o) => !o)}
-                      className={`px-4 py-2  text-l font-medium transition-colors duration-200 ${
+                      className={`px-3 xl:px-4 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
                         isScrolled
-                          ? "text-gray-700 hover:text-[#01adff] "
+                          ? "text-gray-700 hover:text-[#01adff]"
                           : "text-[#1c345c] hover:text-[#01adff]"
                       } ${
-                        isActive("/services")
-                          ? isScrolled
-                            ? "text-[#01adff]"
-                            : "text-[#1c345c] font-semibold"
-                          : ""
+                        isActive("/services") ? "font-bold text-[#01adff]" : ""
                       }`}
                     >
                       Services
@@ -296,7 +278,7 @@ export default function Header() {
                         }, 180);
                       }}
                       className={cn(
-                        "absolute left-1/2 -translate-x-1/2 mt-3 w-[880px] max-w-[92vw] rounded-md border shadow-l z-[60]",
+                        "absolute left-1/2 -translate-x-1/2 mt-3 w-[880px] max-w-[92vw] rounded-md border shadow-lg z-[60]",
                         isScrolled
                           ? "bg-white backdrop-blur-3xl border-border"
                           : "bg-white/90 backdrop-blur-3xl border-border"
@@ -304,12 +286,8 @@ export default function Header() {
                     >
                       <div className="grid grid-cols-12">
                         {/* Left banner */}
-
-                        <div className="col-span-4 hidden md:flex flex-col p-6 rounded-md  bg-gradient-to-b from-[#001952] via-[#16213e] to-[#0f3460]  text-white">
+                        <div className="col-span-4 hidden md:flex flex-col p-6 rounded-md bg-gradient-to-b from-[#001952] via-[#16213e] to-[#0f3460] text-white">
                           <div>
-                            {/* <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 text-[11px] tracking-wide uppercase rounded-none">
-                              Our Expertise
-                            </div> */}
                             <h3 className="mt-4 text-[18px] font-semibold leading-snug">
                               End‑to‑end facade solutions
                             </h3>
@@ -320,8 +298,7 @@ export default function Header() {
                           </div>
                           <div className="mt-6">
                             <ButtonPrimary
-                              // href="/services/curtain-wall-visual"
-                              className="inline-flex items-center gap-2 bg-[#01adff] px-4 py-2  rounded-md"
+                              className="inline-flex items-center gap-2 bg-[#01adff] px-4 py-2 rounded-md"
                               onClick={() => setServicesOpen(false)}
                             >
                               Explore all services
@@ -339,22 +316,16 @@ export default function Header() {
                               proximity={64}
                               inactiveZone={0.01}
                             />
-                            {services.map((s, i) => (
-                              <li
-                                key={s.href}
-                                // className={cn(
-                                //   "border-b border-border last:border-b-0",
-                                //   i % 2 === 0 ? "sm:border-r" : "sm:border-r-0"
-                                // )}
-                              >
+                            {services.map((s) => (
+                              <li key={s.href}>
                                 <Link
                                   href={s.href}
                                   onClick={() => setServicesOpen(false)}
                                   className="group flex items-start gap-3 p-4 hover:bg-muted transition rounded-md"
                                 >
-                                  <div className="h-12 w-12 flex items-center justify-center rounded-none">
+                                  <div className="h-12 w-12 flex items-center justify-center rounded-none flex-shrink-0">
                                     <Image
-                                      src={s.imageSrc}
+                                      src={s.imageSrc || "/placeholder.svg"}
                                       alt={s.title}
                                       width={48}
                                       height={48}
@@ -382,13 +353,11 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`px-4 py-2  text-l font-medium transition-colors duration-200 ${
+                    className={`px-3 xl:px-4 py-2 text-sm lg:text-base font-medium transition-colors duration-200 ${
                       isActive(item.href)
-                        ? isScrolled
-                          ? "font-bold text-lg text-[#01adff]"
-                          : "font-bold text-lg text-[#1c345c]"
+                        ? "font-bold text-[#01adff]"
                         : isScrolled
-                        ? "text-gray-700 hover:text-[#01adff] "
+                        ? "text-gray-700 hover:text-[#01adff]"
                         : "text-gray-700 hover:text-[#01adff]"
                     }`}
                   >
@@ -399,27 +368,27 @@ export default function Header() {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <ButtonPrimary onClick={openPopup}>
+            <div className="hidden lg:flex items-center flex-shrink-0">
+              <ButtonPrimary onClick={openPopup} className="text-sm">
                 <span>Get Quote</span>
                 <ArrowRight className="h-4 w-4" />
               </ButtonPrimary>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden">
+            <div className="lg:hidden flex-shrink-0">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2  transition-colors duration-200 ${
+                className={`p-2 transition-colors duration-200 ${
                   isScrolled
-                    ? "text-gray-700 hover:text-[#1564e5]"
-                    : "text-gray-700 hover:text-gray-700"
+                    ? "text-gray-700 hover:text-[#01adff]"
+                    : "text-gray-700 hover:text-gray-900"
                 }`}
               >
                 {isMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
                 )}
               </button>
             </div>
@@ -428,32 +397,32 @@ export default function Header() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="lg:hidden border-t border-gray-100 bg-white">
-              <div className="px-4 py-4 space-y-2">
+              <div className="px-3 sm:px-4 py-4 space-y-2">
                 {navigation.slice(0, 3).map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`block px-4 py-3  text-base font-medium transition-colors duration-200 ${
+                    className={`block px-3 sm:px-4 py-3 text-base font-medium transition-colors duration-200 ${
                       isActive(item.href)
-                        ? "bg-gradient-to-r from-[#1564e5] to-[#01adff] text-[#1c345c]"
-                        : "text-gray-700 hover:text-[#1564e5] "
+                        ? "bg-gradient-to-r from-[#1564e5] to-[#01adff] text-white rounded-md"
+                        : "text-gray-700 hover:text-[#01adff]"
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <details className=" border border-gray-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-base font-medium text-gray-700">
+                <details className="border border-gray-200 rounded-md">
+                  <summary className="flex cursor-pointer list-none items-center justify-between px-3 sm:px-4 py-3 text-base font-medium text-gray-700">
                     Services
                     <span className="text-xs text-gray-500">Tap to expand</span>
                   </summary>
-                  <div className="px-2 pb-3">
+                  <div className="px-2 sm:px-3 pb-3 space-y-1">
                     {services.map((s) => (
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="block  px-3 py-2 text-sm text-gray-700  hover:text-[#01adff]"
+                        className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:text-[#01adff] rounded-md hover:bg-gray-50"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {s.title}
@@ -461,7 +430,7 @@ export default function Header() {
                     ))}
                     <Link
                       href="/services"
-                      className="mt-2 inline-flex items-center gap-2  bg-[#01adff] px-3 py-2 text-sm font-medium text-[#001952]"
+                      className="mt-2 inline-flex items-center gap-2 bg-[#01adff] px-3 sm:px-4 py-2 text-sm font-medium text-[#001952] rounded-md"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       All services
@@ -473,10 +442,10 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`block px-4 py-3  text-base font-medium transition-colors duration-200 ${
+                    className={`block px-3 sm:px-4 py-3 text-base font-medium transition-colors duration-200 ${
                       isActive(item.href)
-                        ? "bg-gradient-to-r from-[#1564e5] to-[#01adff] text-[#1c345c]"
-                        : "text-gray-700 hover:text-[#1564e5] "
+                        ? "bg-gradient-to-r from-[#1564e5] to-[#01adff] text-white rounded-md"
+                        : "text-gray-700 hover:text-[#01adff]"
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -485,30 +454,28 @@ export default function Header() {
                 ))}
                 <div className="pt-4 border-t border-gray-100">
                   <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-[#1564e5] to-[#01adff] hover:from-[#1564e5]/90 hover:to-[#01adff]/90 text-white font-medium py-3 "
+                    className="w-full bg-gradient-to-r from-[#1564e5] to-[#01adff] hover:from-[#1564e5]/90 hover:to-[#01adff]/90 text-white font-medium py-2 sm:py-3 text-sm sm:text-base rounded-md"
+                    onClick={() => {
+                      openPopup();
+                      setIsMenuOpen(false);
+                    }}
                   >
-                    <button
-                      onClick={openPopup}
-                      className="flex items-center justify-center space-x-2"
-                    >
-                      <span>Get Free Quote</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
+                    <span>Get Free Quote</span>
+                    <ArrowRight className="h-4 w-4" />
                   </Button>
                 </div>
-                <div className="pt-4 border-t border-gray-100 space-y-3">
-                  <div className="flex items-center space-x-2 text-sm text-black">
-                    <Phone className="h-4 w-4" />
-                    <span>+968 9131 5526</span>
+                <div className="pt-4 border-t border-gray-100 space-y-2 sm:space-y-3">
+                  <div className="flex items-center gap-2 text-sm text-black">
+                    <Phone className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">+968 9131 5526</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-black">
-                    <Mail className="h-4 w-4" />
-                    <span>info@markcomprehensive.com</span>
+                  <div className="flex items-center gap-2 text-sm text-black">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">info@markcomprehensive.com</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-black">
-                    <Award className="h-4 w-4" />
-                    <span>ISO 9001 Certified</span>
+                  <div className="flex items-center gap-2 text-sm text-black">
+                    <Award className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">ISO 9001 Certified</span>
                   </div>
                 </div>
               </div>

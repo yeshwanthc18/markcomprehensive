@@ -1,12 +1,13 @@
-import  Card  from './ScrollTrigger'
-import React from 'react'
+import ScrollVideo from "../smoothvideo";
+import Card from "./ScrollTrigger";
+import React from "react";
 
 const page = () => {
   return (
-    <div className='bg-black py-40'>
-        <Card />
+    <div className="bg-black py-40">
+      <ScrollVideo />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

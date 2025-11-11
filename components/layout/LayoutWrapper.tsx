@@ -12,6 +12,7 @@ import QuickEstimatePopup from "@/components/quick-estimate-popup";
 import { useScrollToTop } from "@/app/ScrollToTop";
 import ScrollToTop from "../scroll-to-top";
 import TriangleCursor from "@/app/TriangleCursor";
+import WhatsAppButton from "./whatsApp";
 
 export default function LayoutWrapper({
   children,
@@ -34,7 +35,7 @@ export default function LayoutWrapper({
     tl.set(bar, { scaleX: 0, opacity: 1, transformOrigin: "left center" })
       .to(bar, {
         scaleX: 1,
-        duration: 1.2,
+        duration: 1,
         ease: "power2.inOut",
       })
       .to(bar, {
@@ -53,17 +54,17 @@ export default function LayoutWrapper({
         ref={progressRef}
         className="fixed top-0 left-0 h-[3px] w-full bg-[#01adff] z-[9999] scale-x-0 opacity-0"
       />
-   
 
       {!isComingSoon && <Header />}
-   
+      <WhatsAppButton />
 
       <TriangleCursor />
-      <main className="min-h-screen"  data-scroll-root>{children}</main>
+      <main className="min-h-screen" data-scroll-root>
+        {children}
+      </main>
 
       {!isComingSoon && <Footer />}
 
-      {/* ✅ Popup stays available everywhere */}
       <QuickEstimatePopup />
     </QuickEstimateProvider>
   );

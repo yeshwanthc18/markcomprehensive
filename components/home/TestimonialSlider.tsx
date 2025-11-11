@@ -47,7 +47,7 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
 
 const TestimonialSlider = () => {
   return (
-    <div style={{ height: "800px", position: "relative" }}>
+    <div style={{ height: "600px", position: "relative" }}>
       <CardSwap
         cardDistance={40}
         verticalDistance={50}

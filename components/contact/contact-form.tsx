@@ -40,14 +40,14 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
 
   return (
     <section className="py-20 px-6 sm:px-8 lg:px-12 bg-white">
-      <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
             {locationData && <LocationCard location={locationData} detectedCountry={detectedCountry} />}
           </div>
 
           <div className="lg:col-span-2">
-            <Card className="bg-white rounded-lg shadow-lg border border-gray-200">
+            <Card className="bg-white rounded-lg shadow-none border-0 border-gray-200">
               <CardHeader className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <MessageSquare className="w-6 h-6 text-[#01adff]" />
@@ -70,7 +70,7 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                         id="firstName"
                         name="firstName"
                         required
-                        className="bg-gray-50 border-gray-300 text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
+                        className="bg-gray-50 border-gray-300 rounded-md text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
                         placeholder="John"
                         value={formData.firstName}
                         onChange={handleInputChange}
@@ -84,7 +84,7 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                         id="lastName"
                         name="lastName"
                         required
-                        className="bg-gray-50 border-gray-300 text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
+                        className="bg-gray-50 border-gray-300 rounded-md text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
                         placeholder="Doe"
                         value={formData.lastName}
                         onChange={handleInputChange}
@@ -102,7 +102,7 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                         name="email"
                         type="email"
                         required
-                        className="bg-gray-50 border-gray-300 text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
+                        className="bg-gray-50 border-gray-300 rounded-md text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
                         placeholder="john@company.com"
                         value={formData.email}
                         onChange={handleInputChange}
@@ -116,7 +116,7 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                         id="phone"
                         name="phone"
                         type="tel"
-                        className="bg-gray-50 border-gray-300 text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
+                        className="bg-gray-50 border-gray-300 rounded-md text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
                         placeholder="+1 (555) 000-0000"
                         value={formData.phone}
                         onChange={handleInputChange}
@@ -131,7 +131,7 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                     <Input
                       id="company"
                       name="company"
-                      className="bg-gray-50 border-gray-300 text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
+                      className="bg-gray-50 border-gray-300 rounded-md text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20"
                       placeholder="Your Company"
                       value={formData.company}
                       onChange={handleInputChange}
@@ -150,11 +150,11 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                       onChange={handleInputChange}
                     >
                       <option value="">Select a project type</option>
-                      <option value="web">Web Development</option>
-                      <option value="mobile">Mobile App</option>
-                      <option value="design">UI/UX Design</option>
-                      <option value="consulting">Consulting</option>
-                      <option value="other">Other</option>
+                      <option value="new construction">New Construction</option>
+                      <option value="renovation">Renovation</option>
+                      <option value="maintenance">Maintenance</option>
+                      <option value="consultation">Consultation</option>
+                      <option value="emergency">Emergency Repair</option>
                     </select>
                   </div>
 
@@ -167,7 +167,7 @@ export default function ContactForm({ locationData, detectedCountry }: ContactFo
                       name="message"
                       rows={4}
                       required
-                      className="bg-gray-50 border-gray-300 text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20 resize-none"
+                      className="bg-gray-50 border-gray-300 rounded-md text-black placeholder-gray-500 focus:border-[#01adff] focus:ring-[#01adff]/20 resize-none"
                       placeholder="Tell us about your project..."
                       value={formData.message}
                       onChange={handleInputChange}
